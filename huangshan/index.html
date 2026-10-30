@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>黄山旅游攻略 · 第一次上山怎么走</title>
+<style>
+  :root {
+    --ink: #1a1d1f;
+    --ink-soft: #3d4348;
+    --mist: #6e787f;
+    --mist-light: #9aa3a9;
+    --paper: #f0eee8;
+    --paper-deep: #e4e1d8;
+    --wash: #d9d5cb;
+    --seal: #8f342c;
+    --seal-soft: rgba(143, 52, 44, 0.11);
+    --line: rgba(26, 29, 31, 0.13);
+    --max: 720px;
+    --wide: 960px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  body {
+    font-family: "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .serif {
+    font-family: "Noto Serif CJK SC", "Songti SC", "SimSun", serif;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: 0.04em;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    color: var(--seal);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  .toc a:focus-visible {
+    outline: 2px solid var(--seal);
+    outline-offset: 3px;
+  }
+
+  /* ——— Hero ——— */
+  .hero {
+    position: relative;
+    min-height: min(78vh, 640px);
+    display: flex;
+    align-items: flex-end;
+    color: #f8f5ef;
+    overflow: hidden;
+    background: #2a3036;
+  }
+
+  .hero__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  .hero__veil {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(20, 24, 28, 0.15) 0%, rgba(20, 24, 28, 0.55) 55%, rgba(20, 24, 28, 0.88) 100%);
+  }
+
+  .hero__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: var(--wide);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 2.75rem;
+  }
+
+  .hero__mark {
+    display: inline-block;
+    font-family: "Noto Serif CJK SC", "Songti SC", serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    color: rgba(248, 245, 239, 0.75);
+    border-left: 2px solid var(--seal);
+    padding-left: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.25rem, 6.5vw, 3.75rem);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    margin-bottom: 0.85rem;
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { letter-spacing: 0.08em; }
+  }
+
+  .hero__lead {
+    max-width: 36em;
+    font-size: clamp(0.95rem, 2.2vw, 1.08rem);
+    line-height: 1.85;
+    color: rgba(248, 245, 239, 0.9);
+    font-weight: 400;
+  }
+
+  /* ——— Shell ——— */
+  .shell {
+    max-width: var(--wide);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .content {
+    max-width: var(--max);
+  }
+
+  /* ——— TOC ——— */
+  .toc {
+    margin: 2.5rem auto 0;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .toc__title {
+    font-family: "Noto Serif CJK SC", "Songti SC", serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    color: var(--mist);
+    margin-bottom: 1rem;
+  }
+
+  .toc ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+    gap: 0.4rem 1.25rem;
+  }
+
+  .toc a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: inline-block;
+    padding: 0.2rem 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .toc a:hover {
+    color: var(--seal);
+    border-bottom-color: var(--seal);
+  }
+
+  /* ——— Sections ——— */
+  section {
+    padding: 3.25rem 0 0;
+  }
+
+  section + section {
+    margin-top: 0.5rem;
+  }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+    margin-bottom: 1.35rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .sec-head h2 {
+    font-size: clamp(1.35rem, 3.5vw, 1.65rem);
+    letter-spacing: 0.12em;
+  }
+
+  .sec-head__ink {
+    flex-shrink: 0;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: var(--seal);
+    margin-top: 0.35rem;
+  }
+
+  .lede {
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    max-width: 38em;
+  }
+
+  p + p { margin-top: 0.9rem; }
+
+  /* ——— Season grid ——— */
+  .seasons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin: 1.5rem 0;
+  }
+
+  @media (min-width: 640px) {
+    .seasons { grid-template-columns: 1fr 1fr; }
+  }
+
+  .season {
+    background: var(--paper);
+    padding: 1.25rem 1.35rem 1.4rem;
+  }
+
+  .season h3 {
+    font-size: 1.05rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.45rem;
+  }
+
+  .season__when {
+    font-size: 0.82rem;
+    color: var(--seal);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.55rem;
+  }
+
+  .season p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  .tips-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+  }
+
+  .chip {
+    font-size: 0.82rem;
+    padding: 0.35rem 0.8rem;
+    background: var(--seal-soft);
+    color: var(--seal);
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ——— Transport ——— */
+  .split {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  @media (min-width: 640px) {
+    .split { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  }
+
+  .panel {
+    background: var(--paper-deep);
+    padding: 1.35rem 1.4rem 1.5rem;
+    border-left: 3px solid var(--mist);
+  }
+
+  .panel--seal {
+    border-left-color: var(--seal);
+  }
+
+  .panel h3 {
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.6rem;
+  }
+
+  .panel p, .panel li {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  .panel ul {
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+
+  .panel li {
+    position: relative;
+    padding-left: 0.95rem;
+    margin-top: 0.35rem;
+  }
+
+  .panel li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--mist);
+  }
+
+  /* ——— Routes ——— */
+  .route-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 1.5rem;
+  }
+
+  .route-tab {
+    appearance: none;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 0.98rem;
+    letter-spacing: 0.08em;
+    color: var(--mist);
+    padding: 0.7rem 1.2rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .route-tab[aria-selected="true"] {
+    color: var(--ink);
+    border-bottom-color: var(--seal);
+    font-weight: 600;
+  }
+
+  .route-panel[hidden] { display: none; }
+
+  .route-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.88rem;
+    color: var(--mist);
+  }
+
+  .route-meta strong {
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  .path {
+    list-style: none;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .path::before {
+    content: "";
+    position: absolute;
+    left: 0.35rem;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    width: 1px;
+    background: var(--line);
+  }
+
+  .path li {
+    position: relative;
+    padding: 0 0 1.4rem 0.85rem;
+  }
+
+  .path li:last-child { padding-bottom: 0; }
+
+  .path li::before {
+    content: "";
+    position: absolute;
+    left: -1.22rem;
+    top: 0.55rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--mist);
+    z-index: 1;
+  }
+
+  .path li.is-peak::before {
+    border-color: var(--seal);
+    background: var(--seal);
+  }
+
+  .path__name {
+    font-family: "Noto Serif CJK SC", "Songti SC", serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+  }
+
+  .path__meta {
+    font-size: 0.8rem;
+    color: var(--mist);
+    margin-bottom: 0.35rem;
+  }
+
+  .path__meta span + span::before {
+    content: "·";
+    margin: 0 0.4rem;
+    color: var(--mist-light);
+  }
+
+  .path p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  .figure {
+    margin: 1.75rem 0;
+  }
+
+  .figure img {
+    width: 100%;
+    height: clamp(180px, 36vw, 320px);
+    object-fit: cover;
+    object-position: center;
+    background: var(--wash);
+  }
+
+  .figure figcaption {
+    font-size: 0.8rem;
+    color: var(--mist);
+    margin-top: 0.55rem;
+    letter-spacing: 0.06em;
+  }
+
+  /* ——— Stay / Food ——— */
+  .compare {
+    display: grid;
+    gap: 1rem;
+    margin: 1.25rem 0 0;
+  }
+
+  @media (min-width: 640px) {
+    .compare { grid-template-columns: 1fr 1fr; }
+  }
+
+  .compare article {
+    padding: 1.3rem 1.35rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+  }
+
+  .compare h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.55rem;
+    letter-spacing: 0.1em;
+  }
+
+  .compare p {
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+  }
+
+  .food-list {
+    list-style: none;
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .food-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.85rem;
+    align-items: start;
+  }
+
+  .food-list .seal {
+    font-family: "Noto Serif CJK SC", "Songti SC", serif;
+    font-size: 0.75rem;
+    width: 1.85rem;
+    height: 1.85rem;
+    display: grid;
+    place-items: center;
+    border: 1.5px solid var(--seal);
+    color: var(--seal);
+    border-radius: 2px;
+    letter-spacing: 0;
+    margin-top: 0.15rem;
+  }
+
+  .food-list strong {
+    display: block;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.15rem;
+  }
+
+  .food-list p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  /* ——— Pack ——— */
+  .checklist {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.55rem 1.5rem;
+    margin: 1rem 0 1.5rem;
+  }
+
+  @media (min-width: 520px) {
+    .checklist { grid-template-columns: 1fr 1fr; }
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  .checklist li::before {
+    content: "";
+    flex-shrink: 0;
+    width: 0.85rem;
+    height: 0.85rem;
+    margin-top: 0.4rem;
+    border: 1.5px solid var(--mist);
+    border-radius: 2px;
+  }
+
+  .note {
+    background: var(--paper-deep);
+    padding: 1.15rem 1.3rem;
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+    border-top: 2px solid var(--seal);
+  }
+
+  .note strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ——— Nearby ——— */
+  .nearby {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  @media (min-width: 720px) {
+    .nearby {
+      grid-template-columns: 1.1fr 1fr;
+      align-items: stretch;
+    }
+  }
+
+  .nearby__img {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    object-fit: cover;
+    object-position: center;
+    background: var(--wash);
+  }
+
+  .nearby__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .nearby__list h3 {
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+  }
+
+  .nearby__list p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  /* ——— Footer tip ——— */
+  .footer-tip {
+    margin: 3.5rem 0 0;
+    padding: 2rem 0 3rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-tip h2 {
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.85rem;
+  }
+
+  .footer-tip p {
+    font-size: 0.9rem;
+    color: var(--mist);
+    max-width: 40em;
+  }
+
+  .footer-tip .prices {
+    margin: 1rem 0;
+    padding: 1rem 1.15rem;
+    background: var(--paper-deep);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .colophon {
+    margin-top: 2rem;
+    font-size: 0.78rem;
+    color: var(--mist-light);
+    letter-spacing: 0.08em;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="hero__img" src="images/hero.jpg" alt="黄山云海日出全景，山峰浮于云雾之上" width="1600" height="900">
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <p class="hero__mark">世界文化与自然双遗产</p>
+    <h1>黄山旅游攻略</h1>
+    <p class="hero__lead">黄山以「五绝」著称——奇松、怪石、云海、温泉、冬雪。这是一份写给第一次上山的普通游客（含带娃家庭）的实用指南：怎么到、怎么走、住哪、带什么。</p>
+  </div>
+</header>
+
+<main class="shell">
+  <nav class="toc content" aria-label="目录">
+    <p class="toc__title">目录</p>
+    <ol>
+      <li><a href="#season">最佳季节</a></li>
+      <li><a href="#traffic">交通换乘</a></li>
+      <li><a href="#routes">经典路线</a></li>
+      <li><a href="#stay">住宿建议</a></li>
+      <li><a href="#food">当地美食</a></li>
+      <li><a href="#family">带娃与装备</a></li>
+      <li><a href="#nearby">周边顺游</a></li>
+      <li><a href="#tips">门票提示</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. 季节 -->
+  <section id="season" class="content">
+    <div class="sec-head">
+      <span class="sec-head__ink" aria-hidden="true"></span>
+      <h2>最佳季节</h2>
+    </div>
+    <p class="lede">四季皆可上山，景色各有侧重。云海、日出、雪景的出现与天气关系很大，以下为大致规律，出行前请关注景区天气与官方公告。</p>
+
+    <div class="seasons">
+      <article class="season">
+        <h3>春</h3>
+        <p class="season__when">约 3–5 月</p>
+        <p>山花渐开，气温回升，偶有云海。台阶可能湿滑，带娃需注意防滑。清明前后游客较多。</p>
+      </article>
+      <article class="season">
+        <h3>夏</h3>
+        <p class="season__when">约 6–8 月</p>
+        <p>山中相对凉爽，适合避暑。雨后易出云海，也要防暴雨与雷电。暑假是高峰，宜尽早订房。</p>
+      </article>
+      <article class="season">
+        <h3>秋</h3>
+        <p class="season__when">约 9–11 月</p>
+        <p>天高气爽，能见度好，是观景与拍日出的热门季节。国庆前后人流密集，建议错峰。</p>
+      </article>
+      <article class="season">
+        <h3>冬</h3>
+        <p class="season__when">约 12–2 月</p>
+        <p>有机会遇见雾凇与冬雪，山景如水墨。气温低、路面结冰，老人小孩需量力而行，必备防滑与保暖。</p>
+      </article>
+    </div>
+
+    <div class="tips-row" aria-label="观景提示">
+      <span class="chip">云海 · 雨后初晴较常见</span>
+      <span class="chip">日出 · 秋冬晴朗日更稳</span>
+      <span class="chip">雪景 · 隆冬，以官方路况为准</span>
+    </div>
+  </section>
+
+  <!-- 2. 交通 -->
+  <section id="traffic" class="content">
+    <div class="sec-head">
+      <span class="sec-head__ink" aria-hidden="true"></span>
+      <h2>交通换乘</h2>
+    </div>
+    <p class="lede">多数人先到黄山市，再转往景区门户汤口镇，然后选择前山或后山上山。</p>
+
+    <p><strong>到黄山市：</strong>高铁一般抵达<strong>黄山北站</strong>；飞机抵达<strong>屯溪机场</strong>。市区（屯溪）到汤口镇有班车或出租车/网约车，路程约一小时量级，具体以当日交通为准。</p>
+    <p><strong>汤口镇：</strong>景区南大门附近的集散与住宿重镇。行李可寄存在山下酒店，轻装上山更轻松。</p>
+
+    <div class="split">
+      <div class="panel panel--seal">
+        <h3>前山 · 玉屏 / 慈光阁</h3>
+        <p>多经慈光阁乘<strong>玉屏索道</strong>上山，出站即近迎客松、玉屏楼一带。</p>
+        <ul>
+          <li>经典「明信片」视角多，适合一日游抢精华</li>
+          <li>前半段台阶陡，体力消耗大</li>
+          <li>带娃家庭常选「前上后下」或反之，减少陡坡</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>后山 · 云谷寺 / 太平</h3>
+        <p>常见经<strong>云谷寺索道</strong>上山，靠近白鹅岭，通往北海、始信峰方向；另有太平索道等线路可选。</p>
+        <ul>
+          <li>相对平缓，适合体力一般或带老人</li>
+          <li>上山后去西海、北海更顺</li>
+          <li>两日游住北海/西海一带较方便看日出</li>
+        </ul>
+      </div>
+    </div>
+    <p>索道运行时间、是否停运受天气与检修影响，<strong>请以黄山风景区官方公告为准</strong>。旺季索道排队较长，尽量早点到站。</p>
+  </section>
+
+  <!-- 3. 路线 -->
+  <section id="routes" class="content">
+    <div class="sec-head">
+      <span class="sec-head__ink" aria-hidden="true"></span>
+      <h2>经典路线</h2>
+    </div>
+    <p class="lede">黄山步道以石阶为主，耗时因人而异。下列为一、两日游的常见走法，可按体力裁剪；带小孩建议选两日、少赶路。</p>
+
+    <div class="route-tabs" role="tablist" aria-label="路线选择">
+      <button class="route-tab" role="tab" id="tab-day1" aria-controls="panel-day1" aria-selected="true" type="button">一日游</button>
+      <button class="route-tab" role="tab" id="tab-day2" aria-controls="panel-day2" aria-selected="false" type="button">两日游</button>
+    </div>
+
+    <div class="route-panel" role="tabpanel" id="panel-day1" aria-labelledby="tab-day1">
+      <div class="route-meta">
+        <span><strong>走法</strong> 前上后下（玉屏 → 北海 → 云谷）</span>
+        <span><strong>耗时</strong> 约 8–10 小时</span>
+        <span><strong>难度</strong> 中高 · 赶路多</span>
+      </div>
+      <ol class="path">
+        <li>
+          <div class="path__name">玉屏索道 → 迎客松 / 玉屏楼</div>
+          <div class="path__meta"><span>约 0.5–1 小时含排队缓冲</span><span>体力中</span></div>
+          <p>出索道后即可看见迎客松与玉屏楼一带，黄山标志景观，适合拍照留念。</p>
+        </li>
+        <li class="is-peak">
+          <div class="path__name">莲花峰（可选）</div>
+          <div class="path__meta"><span>往返约 1–1.5 小时</span><span>体力高 · 台阶陡</span></div>
+          <p>黄山最高峰之一。时间紧或带小孩可远眺而不登顶，把体力留给后面。</p>
+        </li>
+        <li>
+          <div class="path__name">百步云梯 → 光明顶</div>
+          <div class="path__meta"><span>约 1.5–2 小时</span><span>体力中高</span></div>
+          <p>翻过陡峭路段抵达光明顶，视野开阔，是山上交通枢纽。</p>
+        </li>
+        <li>
+          <div class="path__name">飞来石</div>
+          <div class="path__meta"><span>约 20–40 分钟</span><span>体力低</span></div>
+          <p>光明顶往西海方向的著名怪石，路过即可，不必久留。</p>
+        </li>
+        <li>
+          <div class="path__name">排云亭 · 西海观景</div>
+          <div class="path__meta"><span>约 0.5–1 小时</span><span>体力低</span></div>
+          <p>西海落日与云海的热门观景点。一日游若太晚，可缩短停留。</p>
+        </li>
+        <li>
+          <div class="path__name">北海 → 始信峰 → 云谷索道下山</div>
+          <div class="path__meta"><span>约 1.5–2.5 小时</span><span>体力中</span></div>
+          <p>北海散心后经白鹅岭下云谷索道。务必预留排队与末班车时间，以官方为准。</p>
+        </li>
+      </ol>
+      <p style="margin-top:1.25rem;font-size:0.92rem;color:var(--mist);">提示：一日游很赶，体力一般或带学龄前儿童更推荐两日游。</p>
+    </div>
+
+    <div class="route-panel" role="tabpanel" id="panel-day2" aria-labelledby="tab-day2" hidden>
+      <div class="route-meta">
+        <span><strong>走法</strong> 后上前下，山上住一晚看日出</span>
+        <span><strong>耗时</strong> 两天，每天约 4–6 小时</span>
+        <span><strong>难度</strong> 中等 · 更从容</span>
+      </div>
+      <p style="margin-bottom:1rem;color:var(--ink-soft);font-size:0.95rem;"><strong>第一天</strong> · 云谷索道上山，轻走北海与西海，傍晚住山上。</p>
+      <ol class="path">
+        <li>
+          <div class="path__name">云谷索道 → 白鹅岭 → 北海</div>
+          <div class="path__meta"><span>约 1–1.5 小时</span><span>体力低到中</span></div>
+          <p>后山上山相对省力。北海是山上住宿与餐饮集中区域之一。</p>
+        </li>
+        <li>
+          <div class="path__name">始信峰</div>
+          <div class="path__meta"><span>往返约 40–60 分钟</span><span>体力低</span></div>
+          <p>奇松怪石密布，步道短，适合家庭慢走拍照。</p>
+        </li>
+        <li class="is-peak">
+          <div class="path__name">西海大峡谷（量力） / 排云亭</div>
+          <div class="path__meta"><span>排云亭约 0.5–1 小时；大峡谷另需 2–4 小时</span><span>峡谷体力高</span></div>
+          <p>时间与体力允许可下西海大峡谷（部分路段陡、台阶多）；带老人小孩建议只到排云亭观景。</p>
+        </li>
+        <li>
+          <div class="path__name">山上住宿 · 次日黎明看日出</div>
+          <div class="path__meta"><span>光明顶 / 狮子峰等常见观日点</span><span>需早起</span></div>
+          <p>住北海或西海附近，凌晨头灯出行。日出能否看见取决于云层，遇云海亦是惊喜。</p>
+        </li>
+      </ol>
+      <p style="margin:1.35rem 0 1rem;color:var(--ink-soft);font-size:0.95rem;"><strong>第二天</strong> · 日出后经光明顶、玉屏方向下山。</p>
+      <ol class="path">
+        <li>
+          <div class="path__name">光明顶 → 飞来石</div>
+          <div class="path__meta"><span>约 0.5–1 小时</span><span>体力低到中</span></div>
+          <p>补看白天未细看的枢纽与怪石，节奏可以很慢。</p>
+        </li>
+        <li>
+          <div class="path__name">莲花峰（可选）→ 玉屏楼 / 迎客松</div>
+          <div class="path__meta"><span>约 1.5–2.5 小时</span><span>体力中高</span></div>
+          <p>从容拍摄迎客松后，乘玉屏索道下山。也可全程步行至慈光阁，耗时更长。</p>
+        </li>
+      </ol>
+    </div>
+
+    <figure class="figure">
+      <img src="images/pine.jpg" alt="黄山迎客松，枝干横出如展臂迎客" width="1200" height="800">
+      <figcaption>迎客松 · 玉屏楼附近</figcaption>
+    </figure>
+  </section>
+
+  <!-- 4. 住宿 -->
+  <section id="stay" class="content">
+    <div class="sec-head">
+      <span class="sec-head__ink" aria-hidden="true"></span>
+      <h2>住宿建议</h2>
+    </div>
+    <p class="lede">核心取舍是：省钱与便利在山下，看日出与少赶路在山上。</p>
+
+    <div class="compare">
+      <article>
+        <h3>山下 · 汤口</h3>
+        <p>选择多、价格相对友好，餐饮与补给方便，适合一日游或预算有限的家庭。缺点是看日出需当天下半夜上山，或干脆放弃日出，改看日落与云海。</p>
+      </article>
+      <article>
+        <h3>山上 · 北海 / 西海一带</h3>
+        <p>紧挨观景点，清晨看日出最省事，两日游体验明显更好。房量有限、价格较高，热水与餐饮条件因酒店而异；旺季务必提前预订。</p>
+      </article>
+    </div>
+    <p style="margin-top:1.1rem;font-size:0.94rem;color:var(--mist);">带娃家庭若体力一般，优先考虑「山下一晚 + 山上偶住一晚」或直接两日住山上，避免把行程排得过满。</p>
+  </section>
+
+  <!-- 5. 美食 -->
+  <section id="food" class="content">
+    <div class="sec-head">
+      <span class="sec-head__ink" aria-hidden="true"></span>
+      <h2>当地美食</h2>
+    </div>
+    <p class="lede">徽菜口味偏重、善用发酵与熬煮。山上餐饮价格普遍高于山下，可自带些干粮与水。</p>
+
+    <ul class="food-list">
+      <li>
+        <span class="seal" aria-hidden="true">鳜</span>
+        <div>
+          <strong>臭鳜鱼</strong>
+          <p>徽州名菜。鲜鳜鱼经适度发酵再红烧，香而微臭，肉质紧实。接受不了「臭」味可先点小份尝试。</p>
+        </div>
+      </li>
+      <li>
+        <span class="seal" aria-hidden="true">毛</span>
+        <div>
+          <strong>毛豆腐</strong>
+          <p>豆腐表面长出白色菌丝后煎制，外脆里嫩，常配辣酱。孩子若介意观感，可改点普通煎豆腐。</p>
+        </div>
+      </li>
+      <li>
+        <span class="seal" aria-hidden="true">徽</span>
+        <div>
+          <strong>徽州烧饼</strong>
+          <p>层酥馅香，梅干菜肉馅最常见，适合当爬山干粮，山下街头与屯溪老街都容易买到。</p>
+        </div>
+      </li>
+      <li>
+        <span class="seal" aria-hidden="true">黄</span>
+        <div>
+          <strong>黄山烧饼</strong>
+          <p>体积小、甜咸皆有，便于分装入口袋。与徽州烧饼常被一起提到，买时看馅料与口感即可。</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 6. 带娃装备 -->
+  <section id="family" class="content">
+    <div class="sec-head">
+      <span class="sec-head__ink" aria-hidden="true"></span>
+      <h2>带娃 / 老人与装备</h2>
+    </div>
+    <p class="lede">山上步道几乎全是石阶，推车基本用不了；陡坡多、风雨多变。量力、减速、少带东西，比「打卡齐全」更重要。</p>
+
+    <p><strong>带小孩：</strong>学龄前儿童建议选索道、缩短步行、避开西海大峡谷深段；准备零食、饮水、换洗衣物。教孩子靠右慢行、不攀爬护栏外岩石。</p>
+    <p><strong>带老人：</strong>优先后山云谷索道上山，多休息，不去最陡支线。备好常用药，关注血压与膝盖，可带轻便登山杖（注意景区是否允许，以现场规定为准）。</p>
+
+    <p style="margin-top:1.25rem;margin-bottom:0.35rem;"><strong>装备清单</strong></p>
+    <ul class="checklist">
+      <li>防滑鞋或登山鞋（忌光滑平底鞋）</li>
+      <li>轻便雨衣 / 折叠伞（山中天气说变就变）</li>
+      <li>薄羽绒或抓绒（即使夏天早晚也凉）</li>
+      <li>头灯或手电（看日出、进隧道必备）</li>
+      <li>充电宝与备用电池</li>
+      <li>足够饮水与高能量零食</li>
+      <li>防晒、帽子、墨镜</li>
+      <li>创可贴、布洛芬等常备药</li>
+    </ul>
+
+    <div class="note">
+      <strong>少带行李。</strong>大行李箱留在汤口酒店；身上只留当日背包。索道对行李尺寸与重量常有限制，以现场规定为准。
+    </div>
+  </section>
+
+  <!-- 7. 周边 -->
+  <section id="nearby">
+    <div class="sec-head content">
+      <span class="sec-head__ink" aria-hidden="true"></span>
+      <h2>周边可顺游</h2>
+    </div>
+    <p class="lede content">若行程有余力，黄山下山后很适合转去徽州古村落与屯溪老街，换一种「人在画里」的节奏。</p>
+
+    <div class="nearby">
+      <img class="nearby__img" src="images/village.jpg" alt="宏村徽派民居，白墙青瓦与月沼倒影" width="1200" height="800">
+      <ul class="nearby__list content">
+        <li>
+          <h3>宏村</h3>
+          <p>以半月形水塘与牛形村落布局闻名，白墙青瓦倒影是经典画面。适合半日漫步拍照。</p>
+        </li>
+        <li>
+          <h3>西递</h3>
+          <p>保存完好的徽派古村落，巷弄与牌坊气质沉静，和宏村可同一天或分两日走访。</p>
+        </li>
+        <li>
+          <h3>屯溪老街</h3>
+          <p>黄山市区的步行老街，买烧饼、尝尝本地小吃、逛逛纪念品都很方便，适合行程收尾。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8. 底部提示 -->
+  <footer class="footer-tip content" id="tips">
+    <h2>门票与小提示</h2>
+    <div class="prices">
+      门票、索道票价格会随淡旺季与政策调整，文中不列具体数字。<strong>一律以黄山风景区官方公告为准（参考价，以官方为准）。</strong>购票、预约、索道时刻、临时交通管制也请只相信官方渠道。
+    </div>
+    <p>山上手机信号并非全程稳定；重要信息可提前截图。尊重护栏与禁行标志，不投喂野生猴群，不乱扔垃圾。愿云海与松风，不负这一程。</p>
+    <p class="colophon">黄山旅游攻略 · 写给第一次上山的人</p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var tabs = document.querySelectorAll('.route-tab');
+  var panels = {
+    'tab-day1': document.getElementById('panel-day1'),
+    'tab-day2': document.getElementById('panel-day2')
+  };
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) {
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.setAttribute('aria-selected', 'true');
+      Object.keys(panels).forEach(function (id) {
+        var panel = panels[id];
+        if (!panel) return;
+        if (id === tab.id) panel.removeAttribute('hidden');
+        else panel.setAttribute('hidden', '');
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

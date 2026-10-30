@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-season="autumn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>京都：同一座城，四个季节去四次</title>
+<style>
+  :root {
+    --ink: #2B2A28;
+    --ink-muted: #5C5954;
+    --vermilion: #C73E1D;
+    --matcha: #6E8B3D;
+    --wood: #8C6239;
+    --wood-pale: #E7D3B0;
+    --paper: #FBFAF7;
+    --accent: #C73E1D;
+    --leaf: #B5302A;
+    --leaf-2: #D9822B;
+    --sky-top: #E8DFD5;
+    --sky-bottom: #F5EFE8;
+    --hill-far: #A39C94;
+    --hill-mid: #6E6760;
+    --ground: #D9CFC3;
+    --roof: #3A3835;
+  }
+  html[data-season="spring"] {
+    --paper: #F7F3F4;
+    --accent: #C45C74;
+    --leaf: #F2C6CF;
+    --leaf-2: #FAF0F3;
+    --sky-top: #EBF0F2;
+    --sky-bottom: #F9F4F5;
+    --hill-far: #A3ABB0;
+    --hill-mid: #747C80;
+    --ground: #E8E2DC;
+    --roof: #4A4744;
+  }
+  html[data-season="summer"] {
+    --paper: #F3F6F1;
+    --accent: #4E6628;
+    --leaf: #6E8B3D;
+    --leaf-2: #8AA856;
+    --sky-top: #DCE8EC;
+    --sky-bottom: #F2F6F4;
+    --hill-far: #889B90;
+    --hill-mid: #576B5E;
+    --ground: #D4DDD0;
+    --roof: #3E463C;
+  }
+  html[data-season="autumn"] {
+    --paper: #FBFAF7;
+    --accent: #C73E1D;
+    --leaf: #B5302A;
+    --leaf-2: #D9822B;
+    --sky-top: #E8DFD5;
+    --sky-bottom: #F5EFE8;
+    --hill-far: #9C958E;
+    --hill-mid: #6E6760;
+    --ground: #D9CFC3;
+    --roof: #3A3835;
+  }
+  html[data-season="winter"] {
+    --paper: #F4F7F9;
+    --accent: #5C6B78;
+    --leaf: #F7FBFF;
+    --leaf-2: #E1E8F0;
+    --sky-top: #C9D3DC;
+    --sky-bottom: #E8EDF2;
+    --hill-far: #9BA6B0;
+    --hill-mid: #6B757E;
+    --ground: #F2F4F6;
+    --roof: #4E565C;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { background: var(--paper); }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "PingFang SC", "Noto Sans CJK SC", sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    transition: background-color 0.8s ease, color 0.8s ease;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 40;
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxODAnIGhlaWdodD0nMTgwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC44JyBudW1PY3RhdmVzPScyJyBzdGl0Y2hUaWxlcz0nc3RpdGNoJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoI24pJy8+PC9zdmc+");
+  }
+  h1, h2, h3 {
+    font-family: "Songti SC", "Noto Serif CJK SC", serif;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  h1, h2, h3, p { margin-top: 0; }
+  p, li, dd { max-width: 38em; }
+  a { color: var(--matcha); text-underline-offset: 0.2em; }
+  button:focus-visible, summary:focus-visible, a:focus-visible, .day-block:focus-visible {
+    outline: 2px solid var(--vermilion);
+    outline-offset: 3px;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 1.55rem;
+    margin: 0 0 1.75rem;
+  }
+  .section-title::before {
+    content: "";
+    width: 11px;
+    height: 11px;
+    background: var(--vermilion);
+    flex: none;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  .prose { max-width: 720px; }
+
+  #hero {
+    height: 100vh;
+    min-height: 560px;
+    position: relative;
+    overflow: hidden;
+    background: var(--sky-bottom);
+    transition: background-color 0.8s ease;
+  }
+  #scene {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }
+  #scene .sky { fill: var(--sky-top); transition: fill 0.8s ease; }
+  #scene .hill-far { fill: var(--hill-far); }
+  #scene .hill-mid { fill: var(--hill-mid); }
+  #scene .ground { fill: var(--ground); }
+  #scene .roof { fill: var(--roof); }
+  #scene .ink { fill: var(--ink); }
+  #scene .leaf { fill: var(--leaf); }
+  #scene .leaf2 { fill: var(--leaf-2); }
+  #scene .hill-far, #scene .hill-mid, #scene .ground, #scene .roof, #scene .leaf, #scene .leaf2 {
+    transition: fill 0.8s ease;
+  }
+  .cut { transform-box: fill-box; transform-origin: center; }
+  #petals {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .hero-copy {
+    position: absolute;
+    z-index: 3;
+    left: 4vw;
+    top: 6vh;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    pointer-events: none;
+  }
+  #hero h1 {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin: 0;
+    color: var(--ink);
+  }
+  .title-main {
+    writing-mode: vertical-rl;
+    font-size: 18vw;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  .title-rest {
+    writing-mode: vertical-rl;
+    font-size: clamp(1rem, 1.7vw, 1.35rem);
+    line-height: 1.7;
+    letter-spacing: 0.14em;
+    font-weight: 500;
+    max-height: 70vh;
+    padding-top: 0.4rem;
+  }
+  .vh { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .seal {
+    writing-mode: vertical-rl;
+    font-family: "Songti SC", "Noto Serif CJK SC", serif;
+    color: var(--vermilion);
+    border: 3px solid var(--vermilion);
+    width: 2.2rem;
+    height: 3.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    background: rgba(251, 250, 247, 0.35);
+    margin-top: 0.4rem;
+  }
+  .season-dock {
+    position: absolute;
+    z-index: 4;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.7rem;
+    padding: 0 12px 18px;
+  }
+  .season-btn {
+    appearance: none;
+    width: 68px;
+    min-height: 132px;
+    padding: 12px 6px 10px;
+    border: 1px solid rgba(43, 42, 40, 0.28);
+    background: #FBFAF7;
+    color: var(--ink);
+    cursor: pointer;
+    font-family: "Songti SC", "Noto Serif CJK SC", serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.45rem;
+    transition: transform 0.35s ease, background-color 0.8s ease, color 0.8s ease, border-color 0.8s ease;
+  }
+  .season-kanji {
+    font-size: 1.7rem;
+    line-height: 1;
+    letter-spacing: 0.05em;
+  }
+  .season-sub {
+    writing-mode: vertical-rl;
+    font-family: "PingFang SC", "Noto Sans CJK SC", sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+  }
+  .season-btn[aria-pressed="true"] {
+    background: var(--vermilion);
+    color: #FBFAF7;
+    border-color: var(--vermilion);
+    transform: translateY(-14px);
+  }
+  .season-btn:hover { transform: translateY(-6px); }
+  .season-btn[aria-pressed="true"]:hover { transform: translateY(-14px); }
+
+  .note-band {
+    background: var(--paper);
+    transition: background-color 0.8s ease;
+    padding: 1.4rem 0 0.2rem;
+  }
+  #season-note {
+    margin: 0;
+    padding: 0.9rem 0 0.2rem;
+    border-top: 1px solid rgba(43, 42, 40, 0.18);
+    font-size: 0.98rem;
+  }
+  .hero-lead {
+    margin: 0.4rem 0 0;
+    color: var(--ink-muted);
+  }
+
+  #days { padding: 4.2rem 0 3.5rem; }
+  .days-layout {
+    display: grid;
+    grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+    gap: 1.75rem 2rem;
+    align-items: start;
+  }
+  .map-wrap { width: 100%; }
+  #route-map {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: transparent;
+  }
+  #route-map .river { fill: none; stroke: #8AA0AE; stroke-width: 7; stroke-linecap: round; }
+  #route-map .river-name { font-size: 11px; fill: #5C6B78; font-family: "Songti SC", "Noto Serif CJK SC", serif; }
+  #route-map .route { fill: none; stroke-width: 2.4; stroke-dasharray: 5 4; opacity: 0.9; transition: opacity 0.3s ease, stroke-width 0.3s ease; }
+  #route-map .route-1 { stroke: #C73E1D; }
+  #route-map .route-2 { stroke: #6E8B3D; }
+  #route-map .route-3 { stroke: #2B2A28; }
+  #route-map .dot { stroke: #FBFAF7; stroke-width: 1.5; }
+  #route-map .dot-1 { fill: #C73E1D; }
+  #route-map .dot-2 { fill: #6E8B3D; }
+  #route-map .dot-3 { fill: #2B2A28; }
+  #route-map .place {
+    font-size: 12px;
+    fill: var(--ink);
+    font-family: "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  }
+  #route-map[data-active="1"] .route:not(.route-1),
+  #route-map[data-active="2"] .route:not(.route-2),
+  #route-map[data-active="3"] .route:not(.route-3) { opacity: 0.16; }
+  #route-map[data-active="1"] .route-1,
+  #route-map[data-active="2"] .route-2,
+  #route-map[data-active="3"] .route-3 { opacity: 1; stroke-width: 3.6; }
+  #route-map[data-active="1"] .dot:not(.dot-1),
+  #route-map[data-active="2"] .dot:not(.dot-2),
+  #route-map[data-active="3"] .dot:not(.dot-3),
+  #route-map[data-active="1"] .place:not(.place-1),
+  #route-map[data-active="2"] .place:not(.place-2),
+  #route-map[data-active="3"] .place:not(.place-3) { opacity: 0.28; }
+  .day-block {
+    margin: 0 0 1.6rem;
+    padding: 0.2rem 0 0.2rem 0.7rem;
+    border-left: 2px solid transparent;
+    cursor: pointer;
+  }
+  .day-block.is-hot { border-left-color: var(--accent); }
+  .day-title { font-size: 1.15rem; margin: 0 0 0.55rem; }
+  .day-schedule { margin: 0; }
+  .day-slot {
+    display: grid;
+    grid-template-columns: 3.2rem 1fr;
+    gap: 0.35rem 0.7rem;
+    margin-bottom: 0.45rem;
+  }
+  .day-slot dt {
+    font-family: "Songti SC", "Noto Serif CJK SC", serif;
+    font-weight: 600;
+  }
+  .day-slot dd { margin: 0; }
+  .day-transit { margin: 0.35rem 0 0; color: var(--ink-muted); font-size: 0.92rem; }
+  .map-key { display: flex; gap: 0.9rem; flex-wrap: wrap; margin: 0.4rem 0 0; font-size: 0.82rem; color: var(--ink-muted); }
+  .map-key i { display: inline-block; width: 1.1rem; border-top: 2px dashed currentColor; margin-right: 0.3rem; vertical-align: middle; }
+  .k1 { color: #C73E1D; } .k2 { color: #6E8B3D; } .k3 { color: #2B2A28; }
+
+  #areas { padding: 1rem 0 3rem; }
+  .area-band {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem 1.6rem;
+    align-items: center;
+    padding: 1.6rem 7vw;
+    border-top: 1px solid rgba(43, 42, 40, 0.12);
+    transition: background-color 0.8s ease;
+  }
+  .area-higashiyama { background: #F3E6E2; background: color-mix(in srgb, var(--leaf) 16%, var(--paper)); }
+  .area-arashiyama { background: #E7EEDC; background: color-mix(in srgb, var(--matcha) 14%, var(--paper)); }
+  .area-fushimi { background: #F6E4DE; background: color-mix(in srgb, var(--vermilion) 12%, var(--paper)); }
+  .area-mark {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .area-mark svg { width: 46px; height: 64px; flex: none; }
+  .area-mark svg path, .area-mark svg line, .area-mark svg rect, .area-mark svg circle {
+    fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round;
+  }
+  .area-title {
+    writing-mode: vertical-rl;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin: 0;
+    letter-spacing: 0.18em;
+    line-height: 1;
+  }
+  .area-desc { margin: 0 0 0.45rem; }
+  .area-meta { margin: 0.15rem 0; color: var(--ink-muted); font-size: 0.95rem; }
+  .area-meta strong { color: var(--ink); font-weight: 600; }
+
+  #food { padding: 1.5rem 0 3.5rem; }
+  .bento {
+    list-style: none;
+    margin: 0;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    background: var(--wood);
+    max-width: 880px;
+  }
+  .food-item {
+    background: var(--paper);
+    padding: 0.9rem 0.85rem 1rem;
+    min-width: 0;
+    transition: background-color 0.8s ease;
+  }
+  .food-ico { width: 42px; height: 42px; display: block; margin-bottom: 0.45rem; }
+  .food-ico path, .food-ico circle, .food-ico rect, .food-ico line, .food-ico ellipse {
+    fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round;
+  }
+  .food-header { display: flex; flex-wrap: wrap; gap: 0.35rem 0.55rem; align-items: baseline; margin-bottom: 0.2rem; }
+  .food-name-zh { font-family: "Songti SC", "Noto Serif CJK SC", serif; font-weight: 600; letter-spacing: 0.05em; font-size: 1.08rem; }
+  .food-name-jp { color: var(--ink-muted); font-size: 0.88rem; }
+  .food-when { margin: 0; font-size: 0.92rem; }
+
+  #tips { padding: 0.5rem 0 3rem; }
+  .tips-list { display: grid; gap: 0.8rem; max-width: 720px; }
+  .tip-details {
+    background: var(--wood-pale);
+    border: 2px solid var(--wood);
+    border-radius: 2px 2px 10px 10px;
+    padding: 0;
+    position: relative;
+  }
+  .tip-details summary {
+    font-family: "Songti SC", "Noto Serif CJK SC", serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    list-style: none;
+    padding: 0.85rem 1.1rem;
+  }
+  .tip-details summary::-webkit-details-marker { display: none; }
+  .tip-content {
+    margin: 0;
+    padding: 0 1.1rem 1rem;
+    font-size: 0.95rem;
+    transform-origin: top center;
+  }
+  .tip-details[open] .tip-content { animation: ema-open 0.45s ease; }
+  @keyframes ema-open {
+    from { transform: perspective(500px) rotateX(-55deg); opacity: 0.2; }
+    to { transform: none; opacity: 1; }
+  }
+
+  .site-footer {
+    padding: 2rem 0 3rem;
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(43, 42, 40, 0.15);
+  }
+  .site-footer p { margin: 0; }
+
+  @media (max-width: 800px) {
+    .title-main { font-size: 20vw; }
+    .days-layout { grid-template-columns: 1fr; }
+    .map-wrap { width: 100%; order: -1; }
+    .area-band { padding: 1.3rem 18px; }
+  }
+  @media (max-width: 420px) {
+    .hero-copy { left: 12px; top: 4vh; gap: 0.4rem; }
+    .title-rest { font-size: 0.92rem; max-height: 52vh; }
+    .seal { width: 1.9rem; height: 3.1rem; font-size: 0.8rem; }
+    .season-btn { width: 58px; min-height: 112px; }
+    .season-kanji { font-size: 1.45rem; }
+    .wrap { padding: 0 16px; }
+    .bento { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 5px; }
+    .food-item { padding: 0.55rem 0.4rem 0.7rem; }
+    .food-name-zh { font-size: 0.92rem; }
+    .food-when { font-size: 0.78rem; }
+    .day-slot { grid-template-columns: 1fr; gap: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+    #petals { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<header id="hero">
+  <svg id="scene" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="京都四季剪纸屏风：远山、中山、东山町屋、八坂五重塔、枫枝与朱红鸟居">
+    <defs>
+      <path id="mp" d="M-3.7,-8.2 L-2.6,-21.8 L0.0,-14.0 L2.6,-21.8 L3.7,-8.2 L6.7,-6.0 L20.0,-9.3 L13.3,-4.3 L21.6,-4.2 L8.9,1.0 L7.8,4.5 L15.0,16.1 L8.2,11.3 L10.7,19.2 L1.9,8.8 L-1.9,8.8 L-10.7,19.2 L-8.2,11.3 L-15.0,16.1 L-7.8,4.5 L-8.9,1.0 L-21.6,-4.2 L-13.3,-4.3 L-20.0,-9.3 L-6.7,-6.0 Z M0,6 L0,22" stroke="none"/>
+      <filter id="cutShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="4" stdDeviation="2.2" flood-color="#2B2A28" flood-opacity="0.28"/>
+      </filter>
+    </defs>
+    <rect class="sky" x="0" y="0" width="1200" height="800"/>
+    <g class="cut" data-depth="0.25" filter="url(#cutShadow)">
+      <path class="hill-far" d="M0,470 C160,360 280,400 420,340 C560,280 700,250 860,300 C980,336 1100,280 1200,320 L1200,800 L0,800 Z"/>
+    </g>
+    <g class="cut" data-depth="0.4" filter="url(#cutShadow)">
+      <path class="hill-mid" d="M0,530 C180,470 300,500 460,450 C640,390 780,420 940,390 C1060,368 1140,410 1200,400 L1200,800 L0,800 Z"/>
+    </g>
+    <g class="cut" data-depth="0.58" filter="url(#cutShadow)">
+      <path class="ground" d="M0,640 C300,610 700,650 1200,600 L1200,800 L0,800 Z"/>
+      <path class="roof" d="M80,640 L130,590 L180,640 L230,588 L280,640 L330,592 L380,640 L430,586 L480,640 L530,594 L580,640 L80,640 Z"/>
+      <path class="roof" d="M700,625 L748,578 L796,625 L844,574 L892,625 L940,580 L988,625 L1036,572 L1084,625 L1132,584 L1180,625 L700,625 Z"/>
+      <rect class="ink" x="150" y="628" width="18" height="28"/>
+      <rect class="ink" x="250" y="626" width="16" height="26"/>
+      <rect class="ink" x="360" y="624" width="20" height="30"/>
+      <rect class="ink" x="820" y="612" width="16" height="26"/>
+      <rect class="ink" x="980" y="610" width="18" height="28"/>
+    </g>
+    <g class="cut" data-depth="0.72" filter="url(#cutShadow)">
+      <g class="ink">
+        <rect x="688" y="250" width="3" height="28"/>
+        <circle cx="689.5" cy="246" r="3"/>
+        <path d="M658,292 L722,292 L714,282 L666,282 Z"/>
+        <rect x="672" y="292" width="36" height="14"/>
+        <path d="M648,322 L732,322 L722,310 L658,310 Z"/>
+        <rect x="666" y="322" width="48" height="16"/>
+        <path d="M636,356 L744,356 L732,342 L648,342 Z"/>
+        <rect x="660" y="356" width="60" height="18"/>
+        <path d="M622,394 L758,394 L744,378 L636,378 Z"/>
+        <rect x="652" y="394" width="76" height="22"/>
+        <path d="M606,438 L774,438 L758,418 L622,418 Z"/>
+        <rect x="644" y="438" width="92" height="86"/>
+      </g>
+    </g>
+    <g class="cut" data-depth="0.88" filter="url(#cutShadow)">
+      <g fill="none" stroke="#2B2A28" stroke-linecap="round">
+        <path stroke-width="16" d="M1215,30 C1130,90 1070,150 1010,240 C980,290 960,330 945,380"/>
+        <path stroke-width="8" d="M1080,135 C1030,140 980,160 930,200"/>
+        <path stroke-width="7" d="M1030,205 C1060,250 1080,290 1090,340"/>
+        <path stroke-width="5" d="M985,270 C950,280 910,300 880,330"/>
+        <path stroke-width="4" d="M960,165 C945,140 925,120 900,110"/>
+      </g>
+      <g class="leaf">
+        <use href="#mp" transform="translate(1100 110) rotate(-34) scale(1.14)"/>
+        <use href="#mp" transform="translate(1060 140) rotate(28) scale(0.94)"/>
+        <use href="#mp" transform="translate(960 180) rotate(24) scale(0.93)"/>
+        <use href="#mp" transform="translate(925 205) rotate(-29) scale(1.03)"/>
+        <use href="#mp" transform="translate(930 135) rotate(30) scale(1.04)"/>
+        <use href="#mp" transform="translate(1000 240) rotate(32) scale(1.15)"/>
+        <use href="#mp" transform="translate(1065 280) rotate(34) scale(1.28)"/>
+        <use href="#mp" transform="translate(1085 330) rotate(33) scale(1.47)"/>
+        <use href="#mp" transform="translate(925 300) rotate(-35) scale(1.49)"/>
+        <use href="#mp" transform="translate(885 330) rotate(-23) scale(1.23)"/>
+        <use href="#mp" transform="translate(1180 45) rotate(33) scale(1.22)"/>
+        <use href="#mp" transform="translate(1120 160) rotate(-17) scale(1.09)"/>
+      </g>
+      <g class="leaf2">
+        <use href="#mp" transform="translate(1150 70) rotate(-21) scale(1.09)"/>
+        <use href="#mp" transform="translate(1010 150) rotate(34) scale(0.96)"/>
+        <use href="#mp" transform="translate(895 115) rotate(-32) scale(1.16)"/>
+        <use href="#mp" transform="translate(1040 230) rotate(-12) scale(0.97)"/>
+        <use href="#mp" transform="translate(970 300) rotate(-34) scale(1.25)"/>
+        <use href="#mp" transform="translate(960 350) rotate(-22) scale(1.07)"/>
+        <use href="#mp" transform="translate(1020 190) rotate(33) scale(0.96)"/>
+      </g>
+    </g>
+    <g class="cut" data-depth="1" filter="url(#cutShadow)">
+      <path fill="#C73E1D" d="M430,470 L448,470 L454,700 L424,700 Z"/>
+      <path fill="#C73E1D" d="M560,470 L578,470 L584,700 L554,700 Z"/>
+      <rect fill="#2B2A28" x="420" y="668" width="38" height="34"/>
+      <rect fill="#2B2A28" x="550" y="668" width="38" height="34"/>
+      <rect fill="#2B2A28" x="498" y="468" width="16" height="36"/>
+      <rect fill="#C73E1D" x="400" y="500" width="210" height="14"/>
+      <path fill="#2B2A28" d="M388,452 Q505,468 622,452 L612,470 Q505,484 398,470 Z"/>
+      <path fill="#C73E1D" d="M396,462 Q505,476 614,462 L608,476 Q505,488 402,476 Z"/>
+    </g>
+  </svg>
+  <canvas id="petals" aria-hidden="true"></canvas>
+  <div class="hero-copy">
+    <h1>
+      <span class="title-main">京都</span>
+      <span class="title-rest"><span class="vh">：</span>同一座城，四个季节去四次</span>
+    </h1>
+    <div class="seal" aria-hidden="true">四季</div>
+  </div>
+  <div class="season-dock" role="group" aria-label="切换京都四季景色">
+    <button type="button" id="season-spring" class="season-btn" data-season-target="spring" aria-pressed="false"><span class="season-kanji">春</span><span class="season-sub">樱</span></button>
+    <button type="button" id="season-summer" class="season-btn" data-season-target="summer" aria-pressed="false"><span class="season-kanji">夏</span><span class="season-sub">青枫</span></button>
+    <button type="button" id="season-autumn" class="season-btn" data-season-target="autumn" aria-pressed="true"><span class="season-kanji">秋</span><span class="season-sub">红叶</span></button>
+    <button type="button" id="season-winter" class="season-btn" data-season-target="winter" aria-pressed="false"><span class="season-kanji">冬</span><span class="season-sub">雪</span></button>
+  </div>
+</header>
+
+<div class="note-band">
+  <div class="wrap prose">
+    <p id="season-note" aria-live="polite">秋·红叶：最值得去东福寺（通天桥看漫山红叶如海）和永观堂（庭院与多宝塔层林尽染）。提醒：十一月中下旬是红叶最盛期，热门寺院务必赶在开门前抵达。</p>
+    <p class="hero-lead">给第一次带家人慢游三天的你：不赶路，顺着四时风物看古都。</p>
+  </div>
+</div>
+
+<main>
+  <section id="days" class="wrap" aria-labelledby="heading-days">
+    <h2 id="heading-days" class="section-title">三天慢游行程</h2>
+    <div class="days-layout">
+      <div class="map-wrap">
+        <svg id="route-map" viewBox="0 0 320 460" role="img" aria-label="京都三日路线简图，含鸭川、桂川与三天行程">
+          <path class="river" d="M196,8 C188,80 210,140 206,210 C202,280 226,340 214,452"/>
+          <path class="river" d="M36,70 C48,140 30,190 70,240 C120,300 150,330 168,452"/>
+          <text class="river-name" x="214" y="28">鸭川</text>
+          <text class="river-name" x="8" y="168">桂川</text>
+          <polyline class="route route-1" points="262,168 246,206 228,246 206,286"/>
+          <polyline class="route route-2" points="188,400 230,348 198,292 176,250"/>
+          <polyline class="route route-3" points="78,150 96,196 72,236 128,92 196,300"/>
+          <g class="dot dot-1"><circle cx="262" cy="168" r="4.5"/><circle cx="246" cy="206" r="4.5"/><circle cx="228" cy="246" r="4.5"/><circle cx="206" cy="286" r="4.5"/></g>
+          <g class="dot dot-2"><circle cx="188" cy="400" r="4.5"/><circle cx="230" cy="348" r="4.5"/><circle cx="198" cy="292" r="4.5"/><circle cx="176" cy="250" r="4.5"/></g>
+          <g class="dot dot-3"><circle cx="78" cy="150" r="4.5"/><circle cx="96" cy="196" r="4.5"/><circle cx="72" cy="236" r="4.5"/><circle cx="128" cy="92" r="4.5"/><circle cx="196" cy="300" r="4.5"/></g>
+          <text class="place place-1" x="268" y="164">清水寺</text>
+          <text class="place place-1" x="252" y="202">二年坂</text>
+          <text class="place place-1" x="234" y="242">八坂</text>
+          <text class="place place-1" x="148" y="282">祇园</text>
+          <text class="place place-2" x="118" y="408">伏见稻荷</text>
+          <text class="place place-2" x="236" y="352">东福寺</text>
+          <text class="place place-2" x="204" y="288">宇治方向</text>
+          <text class="place place-2" x="112" y="246">锦市场</text>
+          <text class="place place-3" x="8" y="142">竹林</text>
+          <text class="place place-3" x="102" y="192">天龙寺</text>
+          <text class="place place-3" x="8" y="248">渡月桥</text>
+          <text class="place place-3" x="136" y="88">金阁寺</text>
+          <text class="place place-3" x="150" y="324">鸭川边</text>
+        </svg>
+        <p class="map-key"><span class="k1"><i></i>第一天</span><span class="k2"><i></i>第二天</span><span class="k3"><i></i>第三天</span></p>
+      </div>
+      <div>
+        <article class="day-block" data-day="1" tabindex="0">
+          <h3 class="day-title">第一天：东山古街与寺院初见</h3>
+          <dl class="day-schedule">
+            <div class="day-slot"><dt>上午</dt><dd>前往清水寺，站在悬空的清水舞台远眺京都城景，随后顺着石板台阶走进音羽山麓。</dd></div>
+            <div class="day-slot"><dt>下午</dt><dd>沿着二年坂、三年坂慢步下坡，穿过八坂塔下的老街巷，一路走到八坂神社参拜。</dd></div>
+            <div class="day-slot"><dt>傍晚</dt><dd>转入祇园花见小路，在木造茶屋亮起暖黄提灯时感受古都暮色。</dd></div>
+          </dl>
+          <p class="day-transit">交通提示：从京都站搭乘市营巴士至五条坂下车上山；全程多为下坡步石道，带孩子推行婴儿车建议改走侧边平缓绕行路线。</p>
+        </article>
+        <article class="day-block" data-day="2" tabindex="0">
+          <h3 class="day-title">第二天：千本鸟居与茶香古刹</h3>
+          <dl class="day-schedule">
+            <div class="day-slot"><dt>上午</dt><dd>前往伏见稻荷大社走千本鸟居，一定要早上去以避开人流，体力有限走到奥社奉拜所即可折返。</dd></div>
+            <div class="day-slot"><dt>下午</dt><dd>前往东福寺在通天桥赏枫看庭院，或继续乘车去宇治参观平等院凤凰堂、在宇治川畔品尝抹茶。</dd></div>
+            <div class="day-slot"><dt>傍晚</dt><dd>回到市中心逛锦市场，在遮雨拱廊下边走边尝地道熟食与点心。</dd></div>
+          </dl>
+          <p class="day-transit">交通提示：这天景点全在轨道沿线，搭乘JR奈良线或京阪本线往返最为准时，回市区可在京阪祇园四条站下车步行至锦市场。</p>
+        </article>
+        <article class="day-block" data-day="3" tabindex="0">
+          <h3 class="day-title">第三天：岚山竹影与鸭川晚风</h3>
+          <dl class="day-schedule">
+            <div class="day-slot"><dt>上午</dt><dd>抵达岚山，先穿过幽静的竹林小径，再从北门进入天龙寺曹源池庭园，最后走到渡月桥畔看山景。</dd></div>
+            <div class="day-slot"><dt>下午</dt><dd>前往金阁寺（鹿苑寺），绕镜湖池一周，欣赏贴满金箔的舍利殿倒映在水面。</dd></div>
+            <div class="day-slot"><dt>傍晚</dt><dd>回到三条或四条大桥附近，下到鸭川边的河滩步道散步吹风，看水鸟与归家行人。</dd></div>
+          </dl>
+          <p class="day-transit">交通提示：去岚山优先搭乘JR山阴本线（嵯峨野线）；从岚山去金阁寺可搭乘岚电（京福电铁）至北野白梅町再换乘短途公交。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="areas" aria-labelledby="heading-areas">
+    <div class="wrap"><h2 id="heading-areas" class="section-title">三大核心区域</h2></div>
+    <article class="area-band area-higashiyama">
+      <div class="area-mark">
+        <svg viewBox="0 0 48 68" aria-hidden="true"><path d="M24 4 v8 M16 16 h16 l-2 6 H18 Z M14 26 h20 l-2 6 H16 Z M12 36 h24 l-2 6 H14 Z M18 46 h12 v16 H18 Z"/></svg>
+        <h3 class="area-title">东山</h3>
+      </div>
+      <div>
+        <p class="area-desc">东山保留了京都最完整的木造町家街巷，寺院、神社与老字号店铺顺着山势层层铺开。走在石板路上，随时能抬头看见八坂塔的飞檐。这里是体验传统京都风貌最集中的片区。</p>
+        <p class="area-meta"><strong>适合谁去：</strong>第一次来京都、喜欢边走边逛寺院与传统小店的游客。</p>
+        <p class="area-meta"><strong>怎么去：</strong>搭乘京阪本线（至清水五条站或祇园四条站）或京都市营巴士。</p>
+      </div>
+    </article>
+    <article class="area-band area-arashiyama">
+      <div class="area-mark">
+        <svg viewBox="0 0 48 68" aria-hidden="true"><path d="M10 64 C12 40 14 20 16 6 M24 64 C24 36 26 18 28 4 M36 64 C34 42 38 22 40 8 M8 28 h12 M20 22 h14 M32 30 h10"/></svg>
+        <h3 class="area-title">岚山</h3>
+      </div>
+      <div>
+        <p class="area-desc">位于京都西郊的岚山依山傍水，桂川穿过开阔河谷，两岸山林随四季变换色彩。除了高耸入云的竹林与世界遗产天龙寺，河岸边的步道也非常平缓开阔。整体节奏比市中心舒缓许多。</p>
+        <p class="area-meta"><strong>适合谁去：</strong>带着老人或孩子同行、偏爱自然山水与禅意庭院的家庭。</p>
+        <p class="area-meta"><strong>怎么去：</strong>搭乘JR山阴本线（嵯峨野线）、阪急岚山线或岚电（京福电铁岚山本线）。</p>
+      </div>
+    </article>
+    <article class="area-band area-fushimi">
+      <div class="area-mark">
+        <svg viewBox="0 0 48 68" aria-hidden="true"><path d="M8 18 h32 M6 24 h36 M14 24 v36 M34 24 v36 M20 24 v14 h8 V24"/></svg>
+        <h3 class="area-title">伏见与宇治</h3>
+      </div>
+      <div>
+        <p class="area-desc">京都南线的伏见与宇治串联在同一条轨道方向上，既有绵延山间的朱红千本鸟居，也有印在硬币上的平等院凤凰堂。宇治小城安静温润，空气里常年飘着烘焙茶香。两处合在一起恰好能充实度过大半天。</p>
+        <p class="area-meta"><strong>适合谁去：</strong>想拍朱红鸟居经典画面、同时喜欢抹茶文化与安静河畔小城的人。</p>
+        <p class="area-meta"><strong>怎么去：</strong>搭乘JR奈良线或京阪本线转京阪宇治线。</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="food" class="wrap" aria-labelledby="heading-food">
+    <h2 id="heading-food" class="section-title">京都必吃清单</h2>
+    <ul class="bento">
+      <li class="food-item">
+        <svg class="food-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 20 h28 l-3 16 H13 Z M8 20 h32 M16 20 v-6 h16 v6 M20 28 h8"/></svg>
+        <div class="food-header"><span class="food-name-zh">汤豆腐</span><span class="food-name-jp">湯豆腐</span></div>
+        <p class="food-when">适合在游览南禅寺或岚山天龙寺周边的午间，坐进庭院餐厅温热品尝。</p>
+      </li>
+      <li class="food-item">
+        <svg class="food-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M16 10 h16 l-2 8 H18 Z M14 18 h20 l-2 16 H16 Z M22 34 v6 M18 40 h12"/></svg>
+        <div class="food-header"><span class="food-name-zh">抹茶甜品</span><span class="food-name-jp">抹茶パフェ</span></div>
+        <p class="food-when">适合在午后逛完宇治平等院或东山坡道走累时，进茶房歇脚享用。</p>
+      </li>
+      <li class="food-item">
+        <svg class="food-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 16 h20 c0 14-4 20-10 20 S12 30 12 16 Z M32 20 h6 c0 8-3 12-6 12 M18 14 v-4 M24 14 v-6 M30 14 v-4"/></svg>
+        <div class="food-header"><span class="food-name-zh">鲱鱼荞麦面</span><span class="food-name-jp">にしんそば</span></div>
+        <p class="food-when">适合在第一天傍晚逛祇园或四条一带时，作为暖胃又快捷的晚餐。</p>
+      </li>
+      <li class="food-item">
+        <svg class="food-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M16 14 h16 v22 H16 Z M16 20 h16 M20 14 v-4 h8 v4 M22 26 h4 M22 30 h6"/></svg>
+        <div class="food-header"><span class="food-name-zh">京都渍物</span><span class="food-name-jp">京漬物</span></div>
+        <p class="food-when">适合在正餐配白米饭解腻时吃，或离京前在锦市场与百货地下层买作伴手礼。</p>
+      </li>
+      <li class="food-item">
+        <svg class="food-ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="26" r="10"/><path d="M24 16 c4-6 8-6 8-6 M18 22 h12"/></svg>
+        <div class="food-header"><span class="food-name-zh">和果子</span><span class="food-name-jp">和菓子</span></div>
+        <p class="food-when">适合在寺院茶席或老字号茶铺里，搭配一碗现点抹茶在上午或下午慢尝。</p>
+      </li>
+      <li class="food-item">
+        <svg class="food-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M14 34 L34 14 M16 30 c4 1 6 4 6 4 M22 24 c4 1 6 4 6 4 M28 18 c4 1 6 4 6 4"/></svg>
+        <div class="food-header"><span class="food-name-zh">锦市场小吃</span><span class="food-name-jp">錦市場の食べ歩き</span></div>
+        <p class="food-when">适合在下午四五点店铺尚未收摊前去逛，请注意在所购店铺门前吃完再继续走。</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="tips" class="wrap" aria-labelledby="heading-tips">
+    <h2 id="heading-tips" class="section-title">行前实用提醒</h2>
+    <div class="tips-list">
+      <details class="tip-details">
+        <summary>ICOCA 交通卡</summary>
+        <p class="tip-content">提前在手机钱包开通或抵达车站后办理一张 ICOCA 卡，京都的地铁、市营巴士、JR 与私铁均可直接刷卡进出，便利店买水也能用，免去每次排队找零的麻烦。</p>
+      </details>
+      <details class="tip-details">
+        <summary>公交与地铁怎么选（旺季公交很堵）</summary>
+        <p class="tip-content">京都许多老景点门口只有公交，但春秋旺季路面极易堵车且车厢拥挤；凡是能坐地铁、JR 或京阪电车、阪急电铁抵达的方向，优先选择轨道交通或“地铁加步行”，把公交留给最后一段短途接驳。</p>
+      </details>
+      <details class="tip-details">
+        <summary>寺社参拜礼仪</summary>
+        <p class="tip-content">进入神社和寺院前先在手水舍净手，步入铺设榻榻米的殿堂需脱鞋（建议穿方便穿脱且干净的袜子）；注意留意殿内禁止摄影的标识，切勿触摸木造构件、枯山水白砂与青苔。</p>
+      </details>
+      <details class="tip-details">
+        <summary>红叶和樱花高峰要早出门</summary>
+        <p class="tip-content">三月底四月初的樱花季与十一月中下旬的红叶季游客极多，清水寺、伏见稻荷大社和岚山竹林建议在早上七点半至八点半之间抵达，不仅光线柔和，也能避开上午十点后的旅行团大军。</p>
+      </details>
+      <details class="tip-details">
+        <summary>行李寄送（手ぶら観光）</summary>
+        <p class="tip-content">京都禁止携带大型行李箱乘坐市营巴士，抵达京都站后可使用车站内的“空手观光（手ぶら観光）”当日行李配送服务，将箱子直接寄送到下榻酒店，轻装开始第一天的行程。</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><p>信息仅供参考，出发前请核实开放时间</p></div>
+</footer>
+
+<script>
+(function () {
+  var notes = {
+    spring: "春·樱：最值得去哲学之道（沿溪盛开的染井吉野樱）和醍醐寺（垂枝樱与古老五重塔交相辉映）。提醒：樱花满开期仅一周左右，清晨八点前散步最清静。",
+    summer: "夏·青枫：最值得去琉璃光院（满窗青枫倒映在漆木桌面上）和贵船神社（溪谷川床纳凉与石阶红灯笼）。提醒：京都夏季盆地湿热，午后适合安排室内茶歇并随身备好防蚊用品。",
+    autumn: "秋·红叶：最值得去东福寺（通天桥看漫山红叶如海）和永观堂（庭院与多宝塔层林尽染）。提醒：十一月中下旬是红叶最盛期，热门寺院务必赶在开门前抵达。",
+    winter: "冬·雪：最值得去金阁寺（白雪覆顶的金色舍利殿）和贵船神社（积雪石阶配朱红春日灯笼）。提醒：京都市区下雪可遇不可求，冬日进寺院参观需脱鞋踩木地板，记得穿厚实的保暖袜。"
+  };
+  var htmlEl = document.documentElement;
+  var noteEl = document.getElementById("season-note");
+  var buttons = document.querySelectorAll(".season-btn");
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function setSeason(season) {
+    if (!notes[season]) return;
+    htmlEl.setAttribute("data-season", season);
+    for (var i = 0; i < buttons.length; i++) {
+      var on = buttons[i].getAttribute("data-season-target") === season;
+      buttons[i].setAttribute("aria-pressed", on ? "true" : "false");
+    }
+    noteEl.textContent = notes[season];
+  }
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function (e) {
+      setSeason(e.currentTarget.getAttribute("data-season-target"));
+    });
+  }
+
+  var layers = document.querySelectorAll("#scene .cut");
+  function parallax(nx, ny) {
+    if (reduced) return;
+    for (var i = 0; i < layers.length; i++) {
+      var d = parseFloat(layers[i].getAttribute("data-depth")) || 0;
+      var px = Math.max(-12, Math.min(12, nx * 12 * d));
+      var py = Math.max(-12, Math.min(12, ny * 12 * d));
+      layers[i].style.transform = "translate(" + px + "px," + py + "px)";
+    }
+  }
+  var hero = document.getElementById("hero");
+  hero.addEventListener("mousemove", function (e) {
+    var r = hero.getBoundingClientRect();
+    parallax((e.clientX - r.left) / r.width * 2 - 1, (e.clientY - r.top) / r.height * 2 - 1);
+  });
+  hero.addEventListener("mouseleave", function () { parallax(0, 0); });
+  window.addEventListener("deviceorientation", function (e) {
+    if (e.gamma == null) return;
+    var nx = Math.max(-1, Math.min(1, e.gamma / 30));
+    var ny = Math.max(-1, Math.min(1, (e.beta - 40) / 30));
+    parallax(nx, ny);
+  });
+
+  var canvas = document.getElementById("petals");
+  var ctx = canvas.getContext("2d");
+  var parts = [];
+  var raf = 0;
+  var visible = true;
+  var pageOn = true;
+
+  function seed() {
+    parts = [];
+    for (var i = 0; i < 36; i++) {
+      parts.push({
+        x: Math.random(),
+        y: Math.random(),
+        s: 0.45 + Math.random() * 0.9,
+        v: 0.00035 + Math.random() * 0.0007,
+        a: Math.random() * Math.PI * 2,
+        spin: (Math.random() - 0.5) * 0.02,
+        drift: (Math.random() - 0.5) * 0.0004
+      });
+    }
+  }
+  function fit() {
+    var r = hero.getBoundingClientRect();
+    canvas.width = Math.max(1, Math.floor(r.width));
+    canvas.height = Math.max(1, Math.floor(r.height));
+  }
+  function glyph(p, w, h, season) {
+    var x = p.x * w;
+    var y = p.y * h;
+    var s = p.s * 8;
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(p.a);
+    if (season === "spring") {
+      ctx.fillStyle = "rgba(242,198,207,0.9)";
+      ctx.beginPath();
+      ctx.ellipse(0, 0, s, s * 0.55, 0, 0, Math.PI * 2);
+      ctx.fill();
+    } else if (season === "summer") {
+      ctx.fillStyle = "rgba(210,220,120,0.85)";
+      ctx.beginPath();
+      ctx.arc(0, 0, s * 0.35, 0, Math.PI * 2);
+      ctx.fill();
+    } else if (season === "winter") {
+      ctx.fillStyle = "rgba(255,255,255,0.92)";
+      ctx.beginPath();
+      ctx.arc(0, 0, s * 0.35, 0, Math.PI * 2);
+      ctx.fill();
+    } else {
+      ctx.fillStyle = "rgba(181,48,42,0.88)";
+      ctx.beginPath();
+      ctx.moveTo(0, -s);
+      ctx.lineTo(s * 0.7, 0);
+      ctx.lineTo(0, s);
+      ctx.lineTo(-s * 0.7, 0);
+      ctx.closePath();
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+  function tick() {
+    if (!visible || !pageOn || reduced) { raf = 0; return; }
+    var season = htmlEl.getAttribute("data-season");
+    var w = canvas.width;
+    var h = canvas.height;
+    ctx.clearRect(0, 0, w, h);
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      p.y += p.v * (season === "summer" ? 0.35 : 1);
+      p.x += p.drift + Math.sin(p.a) * 0.0002;
+      p.a += p.spin;
+      if (p.y > 1.05) { p.y = -0.05; p.x = Math.random(); }
+      if (p.x < -0.05) p.x = 1.05;
+      if (p.x > 1.05) p.x = -0.05;
+      glyph(p, w, h, season);
+    }
+    raf = requestAnimationFrame(tick);
+  }
+  function start() {
+    if (reduced || raf || !visible || !pageOn) return;
+    raf = requestAnimationFrame(tick);
+  }
+  seed();
+  fit();
+  window.addEventListener("resize", fit);
+  document.addEventListener("visibilitychange", function () {
+    pageOn = !document.hidden;
+    if (pageOn) start();
+  });
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+      if (visible) start();
+    }, { threshold: 0.05 });
+    io.observe(hero);
+  }
+  start();
+
+  var map = document.getElementById("route-map");
+  var days = document.querySelectorAll(".day-block");
+  var locked = null;
+  function hot(day) {
+    map.setAttribute("data-active", day || "");
+    for (var i = 0; i < days.length; i++) {
+      var on = days[i].getAttribute("data-day") === day;
+      days[i].classList.toggle("is-hot", on);
+    }
+  }
+  for (var d = 0; d < days.length; d++) {
+    (function (el) {
+      var id = el.getAttribute("data-day");
+      el.addEventListener("mouseenter", function () { if (!locked) hot(id); });
+      el.addEventListener("mouseleave", function () { if (!locked) hot(""); });
+      el.addEventListener("click", function () {
+        locked = locked === id ? null : id;
+        hot(locked || "");
+      });
+      el.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          locked = locked === id ? null : id;
+          hot(locked || "");
+        }
+      });
+    })(days[d]);
+  }
+})();
+</script>
+</body>
+</html>

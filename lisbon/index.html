@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>里斯本 · 城市旅游指南 | Lisboa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>:root{
+  --azul:#1F4E9C; --azul-d:#123270; --azul-l:#DCE6F5;
+  --tram:#F2B705; --terra:#C8553D; --sunset:#F28F3B; --rose:#E9B8A6;
+  --cream:#FBF6EC; --paper:#F4ECDD; --ink:#1D1B19; --muted:#6B645B;
+  --serif:"Playfair Display","Noto Serif SC","Noto Serif CJK SC","Songti SC",serif;
+  --sans:"Inter","Noto Sans SC","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --tile:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23FBF6EC'/%3E%3Cg fill='none' stroke='%231F4E9C' stroke-width='2.2'%3E%3Ccircle cx='0' cy='0' r='22'/%3E%3Ccircle cx='80' cy='0' r='22'/%3E%3Ccircle cx='0' cy='80' r='22'/%3E%3Ccircle cx='80' cy='80' r='22'/%3E%3Ccircle cx='40' cy='40' r='14'/%3E%3C/g%3E%3Cg fill='%231F4E9C'%3E%3Cpath d='M40 14 Q46 28 40 40 Q34 28 40 14Z'/%3E%3Cpath d='M40 66 Q46 52 40 40 Q34 52 40 66Z'/%3E%3Cpath d='M14 40 Q28 34 40 40 Q28 46 14 40Z'/%3E%3Cpath d='M66 40 Q52 34 40 40 Q52 46 66 40Z'/%3E%3Ccircle cx='0' cy='0' r='9'/%3E%3Ccircle cx='80' cy='0' r='9'/%3E%3Ccircle cx='0' cy='80' r='9'/%3E%3Ccircle cx='80' cy='80' r='9'/%3E%3C/g%3E%3Ccircle cx='40' cy='40' r='5' fill='%23F2B705'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px;overflow-x:clip}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:clip;min-width:0}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+
+/* tags */
+.tag-demo,.tag-ok{display:inline-block;font:600 10px/1 var(--sans);letter-spacing:.05em;border-radius:3px;padding:3px 5px;margin-left:6px;vertical-align:middle}
+.tag-demo{color:var(--terra);border:1px solid var(--terra);background:#fff8}
+.tag-ok{color:var(--azul);border:1px solid var(--azul);background:var(--azul-l)}
+
+/* focus-visible */
+a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[role="tab"]:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid var(--tram);
+  outline-offset:2px;
+  box-shadow:inset 0 0 0 1.5px var(--azul),0 0 0 1px var(--azul);
+}
+.pin:focus-visible{outline:2px solid var(--tram);outline-offset:3px}
+.pin:focus-visible .dot{stroke:var(--tram);stroke-width:3.5px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.9);backdrop-filter:blur(12px);border-bottom:1px solid #00000012}
+.nav .wrap{display:flex;align-items:center;gap:24px;height:60px}
+.logo{font:900 22px/1 var(--serif);color:var(--azul);text-decoration:none;white-space:nowrap;letter-spacing:-.01em}
+.logo span{color:var(--terra);font-style:italic;font-weight:500}
+.nav ul{display:flex;gap:4px;list-style:none;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0;max-width:100%}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a.lnk{display:block;padding:7px 14px;border-radius:99px;font-size:14px;text-decoration:none;color:var(--muted);white-space:nowrap;transition:color .2s,background .2s,transform .12s}
+.nav a.lnk:hover{color:var(--azul);background:var(--azul-l)}
+.nav a.lnk:active{transform:scale(.97)}
+.nav a.lnk.active{background:var(--azul);color:#fff}
+
+/* hero */
+.hero{position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;
+  background:linear-gradient(180deg,#F6D7B0 0%,#F5B78A 38%,#E98B6A 62%,#C8553D 100%)}
+.hero-text{position:relative;z-index:3;padding:9vh 0 0;text-align:left}
+.eyebrow{font:600 12px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--azul-d)}
+.hero h1{font:900 clamp(72px,14vw,190px)/.86 var(--serif);color:var(--azul-d);letter-spacing:-.025em;margin:18px 0 8px}
+.hero h1 em{font-style:italic;font-weight:500;color:#fff;text-shadow:0 2px 0 #0001}
+.hero .zh{font:700 clamp(28px,4vw,48px)/1.22 var(--serif);color:var(--ink);letter-spacing:.01em}
+.hero .tagline{max-width:520px;margin-top:16px;font-size:17px;color:#3a2a22;line-height:1.75}
+.hero .cta{display:inline-flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:99px;font-weight:600;font-size:15px;text-decoration:none;border:2px solid var(--azul-d);transition:transform .18s,box-shadow .18s,background .18s;cursor:pointer;font-family:var(--sans)}
+.btn.primary{background:var(--azul-d);color:#fff}
+.btn.ghost{color:var(--azul-d);background:transparent}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 0 -2px var(--tram)}
+.btn:active{transform:translateY(1px);box-shadow:0 2px 0 -1px var(--tram)}
+.hero-art{position:relative;z-index:2;margin-top:-40px;width:100%}
+.hero-art svg{width:100%;height:auto}
+.tram-move{animation:tram 14s linear infinite}
+@keyframes tram{0%{transform:translateX(-260px)}100%{transform:translateX(1700px)}}
+.sun{animation:pulse 6s ease-in-out infinite;transform-origin:1120px 150px}
+@keyframes pulse{50%{transform:scale(1.05)}}
+.coords{position:absolute;right:32px;top:28px;z-index:3;font:500 12px/1.6 var(--sans);letter-spacing:.15em;color:var(--azul-d);text-align:right}
+
+/* tile band */
+.tile-band{height:56px;background:var(--tile);background-size:56px;border-top:4px solid var(--azul);border-bottom:4px solid var(--azul)}
+
+/* sections */
+section{padding:112px 0}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:end;margin-bottom:50px}
+.sec-no{font:italic 500 92px/.8 var(--serif);color:var(--tram);-webkit-text-stroke:1px var(--azul-d);letter-spacing:-.03em}
+.sec-head h2{font:900 clamp(34px,4.4vw,56px)/1.12 var(--serif);color:var(--azul-d);letter-spacing:-.015em}
+.sec-head h2 small{display:block;font:600 12px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:12px}
+.sec-head p{color:var(--muted);max-width:560px;margin-top:10px}
+
+/* quick facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.fact{background:#fff;border-radius:18px;padding:26px 24px;position:relative;overflow:hidden;border:1px solid #12327012;box-shadow:0 2px 6px #12327008,0 12px 24px -12px #12327014;transition:transform .25s,box-shadow .25s}
+.fact:hover{transform:translateY(-4px);box-shadow:0 6px 14px #12327012,0 20px 42px -18px #1F4E9C55}
+.fact::after{content:"";position:absolute;right:-30px;top:-30px;width:90px;height:90px;background:var(--tile);background-size:45px;border-radius:50%;opacity:.35;pointer-events:none}
+.fact .k{font-size:12px;letter-spacing:.2em;color:var(--terra);font-weight:700}
+.fact .v{font:700 26px/1.25 var(--serif);color:var(--azul-d);margin:8px 0 6px;letter-spacing:-.01em}
+.fact p{font-size:14px;color:var(--muted);line-height:1.65}
+.tips{margin-top:26px;background:var(--azul-d);color:#fff;border-radius:22px;padding:32px 36px;display:grid;grid-template-columns:200px 1fr;gap:28px;position:relative;overflow:hidden;box-shadow:0 20px 44px -24px #12327099}
+.tips h3{font:700 26px/1.22 var(--serif);color:var(--tram);letter-spacing:-.01em}
+.tips ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 32px}
+.tips li{font-size:15px;padding-left:22px;position:relative;line-height:1.65}
+.tips li::before{content:"✦";position:absolute;left:0;color:var(--tram)}
+
+/* neighborhoods */
+#bairros{background:var(--paper)}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;position:relative}
+.tab{font:600 15px/1 var(--sans);padding:12px 20px;border-radius:99px;border:1.5px solid var(--azul-d);background:transparent;color:var(--azul-d);cursor:pointer;transition:background .2s,color .2s,transform .12s,box-shadow .2s}
+.tab:hover{background:var(--azul-l)}
+.tab:active{transform:translateY(1px) scale(.98)}
+.tab.active{background:var(--azul-d);color:#fff;box-shadow:0 4px 12px -4px #12327066}
+.hood{display:none;grid-template-columns:1.05fr 1fr;gap:0;background:#fff;border-radius:26px;overflow:hidden;border:1px solid #12327012;box-shadow:0 6px 16px #1232700d,0 30px 60px -36px #12327077;animation:fade .45s ease}
+.hood.active{display:grid}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.hood-art{min-height:380px;position:relative;display:flex;align-items:flex-end;padding:30px}
+.hood-art .big{font:italic 500 clamp(48px,6vw,86px)/.9 var(--serif);color:#fff;text-shadow:0 3px 18px #0003;position:relative;z-index:2;letter-spacing:-.02em}
+.hood-art svg.deco{position:absolute;inset:0;width:100%;height:100%}
+.hood-body{padding:40px 44px}
+.hood-body h3{font:900 34px/1.2 var(--serif);color:var(--azul-d);letter-spacing:-.015em}
+.hood-body .vibe{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}
+.pill{font-size:12px;padding:5px 11px;border-radius:99px;background:var(--azul-l);color:var(--azul-d);font-weight:600}
+.pill.y{background:#FCEFC2;color:#7a5a00}
+.hood-body p{color:#3d3833;line-height:1.75}
+.hood-body dl{display:grid;grid-template-columns:88px 1fr;gap:10px 14px;margin-top:22px;font-size:14px;border-top:1px dashed #0002;padding-top:20px}
+.hood-body dt{color:var(--terra);font-weight:700}
+
+/* sights */
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.chip{cursor:pointer;font:500 14px/1 var(--sans);padding:10px 18px;border-radius:99px;background:#fff;border:1px solid #12327022;transition:border-color .2s,background .2s,transform .12s,box-shadow .2s;color:var(--ink)}
+.chip:hover{border-color:var(--azul);background:var(--azul-l)}
+.chip:active{transform:translateY(1px)}
+.chip.active{background:var(--tram);border-color:var(--tram);color:var(--ink);font-weight:700;box-shadow:0 4px 0 var(--azul-d)}
+.chip.active:active{transform:translateY(2px);box-shadow:0 2px 0 var(--azul-d)}
+.chip .n{opacity:.6;margin-left:5px;font-size:12px}
+.sights{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sight{background:#fff;border-radius:20px;overflow:hidden;border:1px solid #12327014;box-shadow:0 2px 8px #12327008,0 14px 28px -16px #1232701a;transition:transform .3s,box-shadow .3s,opacity .3s;display:flex;flex-direction:column}
+.sight:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 8px 18px #12327012,0 26px 44px -22px #12327088}
+.sight.hide{display:none}
+.sight .ph{height:150px;position:relative;overflow:hidden;flex-shrink:0}
+.sight .ph .lbl{position:absolute;left:16px;bottom:12px;font:italic 500 22px/1 var(--serif);color:#fff;text-shadow:0 2px 8px #0004}
+.sight .ph .cat{position:absolute;right:12px;top:12px;font-size:11px;font-weight:700;background:#fff;color:var(--azul-d);padding:4px 10px;border-radius:99px;box-shadow:0 2px 6px #0002}
+.sight .bd{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.sight h4{font:700 20px/1.3 var(--serif);color:var(--azul-d);letter-spacing:-.01em}
+.sight p{font-size:14px;color:var(--muted);margin:6px 0 12px;line-height:1.65}
+.sight .hours{font-size:12px;line-height:1.45;color:var(--muted);margin-top:auto;margin-bottom:10px;display:flex;flex-wrap:wrap;gap:4px 12px}
+.sight .meta{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;color:var(--ink);border-top:1px solid #0000000f;padding-top:10px;margin-top:auto}
+.sight .hours + .meta{margin-top:0}
+
+/* food */
+#comer{background:var(--azul-d);color:#fff;position:relative;overflow:hidden}
+#comer::before{content:"";position:absolute;inset:0;background:var(--tile);background-size:90px;opacity:.06;pointer-events:none}
+#comer .sec-head h2{color:#fff}
+#comer .sec-head p{color:#c9d5ec}
+.foods{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
+.food{background:var(--cream);color:var(--ink);border-radius:200px 200px 22px 22px;padding:30px 22px 26px;text-align:center;box-shadow:0 14px 32px -16px #0006;transition:transform .3s,box-shadow .3s;cursor:default}
+.food:hover{transform:translateY(-8px);box-shadow:0 22px 44px -16px #0008}
+.food .ic{width:130px;height:130px;margin:0 auto 14px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:inset 0 0 0 6px var(--azul-l)}
+.food h4{font:700 22px/1.2 var(--serif);color:var(--azul-d);letter-spacing:-.01em}
+.food .pt{font:italic 500 14px var(--serif);color:var(--terra);margin:4px 0 10px}
+.food p{font-size:14px;color:#4a443d;line-height:1.65}
+.food .where{margin-top:12px;font-size:12px;font-weight:700;color:var(--azul)}
+
+/* itinerary */
+.days{display:flex;gap:0;border-bottom:2px solid #0000001a;margin-bottom:36px}
+.day{flex:1;cursor:pointer;background:none;border:none;padding:16px 12px 18px;text-align:left;font-family:var(--sans);position:relative;color:var(--muted);transition:color .2s,background .2s,transform .12s}
+.day b{display:block;font:900 30px/1.05 var(--serif);color:inherit;letter-spacing:-.015em}
+.day span{font-size:14px}
+.day::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:4px;background:var(--tram);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.day:hover{color:var(--azul)}
+.day:active{transform:translateY(1px)}
+.day.active{color:var(--azul-d)}
+.day.active::after{transform:scaleX(1)}
+.timeline{display:none;position:relative;padding-left:40px;animation:fade .4s}
+.timeline.active{display:block}
+.timeline::before{content:"";position:absolute;left:12px;top:6px;bottom:6px;width:3px;background:repeating-linear-gradient(var(--azul) 0 10px,transparent 10px 18px)}
+.stop{position:relative;display:grid;grid-template-columns:110px 1fr;gap:18px;padding:0 0 28px}
+.stop::before{content:"";position:absolute;left:-36px;top:4px;width:18px;height:18px;border-radius:50%;background:var(--cream);border:4px solid var(--azul-d);transition:background .2s,transform .2s}
+.stop:hover::before{background:var(--tram);transform:scale(1.1)}
+.stop .t{font:700 20px/1.3 var(--serif);color:var(--terra)}
+.stop .c{background:#fff;border-radius:16px;padding:16px 20px;border:1px solid #12327012;box-shadow:0 2px 8px #12327008;transition:border-color .2s,transform .2s,box-shadow .2s}
+.stop:hover .c{border-color:var(--azul);transform:translateX(4px);box-shadow:0 8px 20px -10px #12327033}
+.stop h5{font:700 18px/1.3 var(--serif);color:var(--azul-d);letter-spacing:-.01em}
+.stop p{font-size:14px;color:var(--muted);margin-top:2px}
+
+/* map */
+#mapa{background:var(--paper)}
+.map-wrap{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;align-items:stretch}
+.map{background:#fff;border-radius:26px;padding:14px;border:1px solid #12327012;box-shadow:0 6px 16px #1232700d,0 30px 60px -36px #12327077;display:flex}
+.map-viewport{position:relative;width:100%;border-radius:18px;overflow:hidden;background:var(--paper);touch-action:pan-y;user-select:none}
+#mapview.zoomed,.map-viewport.zoomed{cursor:grab;touch-action:none}
+#mapview.zoomed:active,.map-viewport.zoomed:active{cursor:grabbing}
+.map svg{width:100%;height:100%;display:block;border-radius:18px}
+.map-ctrl{position:absolute;right:14px;bottom:14px;z-index:5;display:flex;flex-direction:column;gap:8px}
+.map-ctrl button{width:44px;height:44px;min-width:44px;min-height:44px;border-radius:50%;border:2px solid #fff;background:var(--azul);color:#fff;font:700 20px/1 var(--sans);display:grid;place-items:center;cursor:pointer;box-shadow:0 4px 12px #12327055;transition:background .18s,transform .12s,box-shadow .18s}
+.map-ctrl button:hover{background:var(--azul-d);transform:translateY(-1px);box-shadow:0 6px 14px #12327077}
+.map-ctrl button:active{transform:translateY(1px) scale(.95);box-shadow:0 2px 6px #12327055}
+.pin{cursor:pointer}
+.pin circle.dot{transition:r .2s,fill .2s}
+.pin:hover .dot,.pin.active .dot{r:13}
+.pin.active .dot{fill:var(--terra)}
+.pin{pointer-events:bounding-box}
+.pin .hit{pointer-events:all}
+.pin text{font:700 13px var(--sans);fill:var(--azul-d);pointer-events:auto;cursor:pointer;paint-order:stroke;stroke:var(--cream);stroke-width:3.5px;stroke-linecap:round;stroke-linejoin:round}
+.pin .ring{fill:none;stroke:var(--terra);stroke-width:2;opacity:0}
+.pin.active .ring{opacity:1;animation:ring 1.6s ease-out infinite}
+@keyframes ring{from{r:12;opacity:.9}to{r:30;opacity:0}}
+.map-info{background:var(--azul-d);color:#fff;border-radius:26px;padding:34px;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 20px 44px -24px #12327099}
+.map-info::after{content:"";position:absolute;left:0;right:0;bottom:0;height:60px;background:var(--tile);background-size:60px;opacity:.9;pointer-events:none}
+.map-info .k{font-size:12px;letter-spacing:.25em;color:var(--tram);font-weight:700}
+.map-info h3{font:900 34px/1.15 var(--serif);margin:10px 0 4px;letter-spacing:-.015em}
+.map-info .pt{font:italic 500 16px var(--serif);color:#bcd0f0}
+.map-info p{margin-top:14px;color:#e4ebf7;font-size:15px;line-height:1.7}
+.map-info .hint{margin-top:auto;padding-bottom:70px;font-size:13px;color:#9fb5dd}
+
+/* footer */
+footer{background:var(--ink);color:#e9e2d6;padding:90px 0 40px;position:relative}
+footer .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+footer .tag-demo{color:var(--tram);border-color:var(--tram);background:transparent}
+footer h4{font:700 18px/1.3 var(--serif);color:var(--tram);margin-bottom:12px}
+footer li{list-style:none;font-size:14px;color:#c9c1b4;margin-bottom:8px;line-height:1.6}
+footer .end{margin-top:60px;padding-top:26px;border-top:1px solid #ffffff1a;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:#8d857a}
+footer .big{font:900 clamp(60px,12vw,160px)/.8 var(--serif);color:transparent;-webkit-text-stroke:1px #ffffff2a;margin-bottom:50px;letter-spacing:-.02em}
+.totop{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--tram);border:2px solid var(--azul-d);display:grid;place-items:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,transform .15s,box-shadow .2s;z-index:60;font-size:20px;color:var(--azul-d);box-shadow:0 6px 16px #12327044}
+.totop:hover{transform:translateY(-2px);box-shadow:0 8px 20px #12327066}
+.totop:active{transform:translateY(1px) scale(.96)}
+.totop.show{opacity:1;pointer-events:auto}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+
+/* responsive */
+@media (max-width:1000px){
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .sights{grid-template-columns:repeat(2,1fr)}
+  .foods{grid-template-columns:repeat(2,1fr)}
+  .map-wrap{grid-template-columns:1fr}
+  footer .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:700px){
+  .wrap{padding:0 18px}
+  .nav .wrap{gap:10px}
+  .logo{font-size:18px}
+  .nav ul{
+    padding-right:18px;
+    -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent 100%);
+    mask-image:linear-gradient(to right,#000 calc(100% - 28px),transparent 100%);
+  }
+  section{padding:72px 0}
+  .hero{min-height:auto}
+  .hero-art{margin-top:10px}
+  .coords{display:none}
+  .sec-head{grid-template-columns:1fr;gap:6px;margin-bottom:34px}
+  .sec-no{font-size:64px;margin-bottom:8px}
+  .facts{grid-template-columns:1fr 1fr;gap:12px}
+  .fact{padding:18px 14px}
+  .fact .v{font-size:20px}
+  .tips{grid-template-columns:1fr;padding:24px 20px;gap:14px}
+  .tips ul{grid-template-columns:1fr}
+  .tabs,.chips{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    padding-bottom:6px;
+    padding-right:28px;
+    scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 32px),transparent 100%);
+    mask-image:linear-gradient(to right,#000 calc(100% - 32px),transparent 100%);
+  }
+  .tabs::-webkit-scrollbar,.chips::-webkit-scrollbar{display:none}
+  .tab,.chip{white-space:nowrap;flex-shrink:0}
+  .hood.active{grid-template-columns:1fr}
+  .hood-art{min-height:200px}
+  .hood-body{padding:26px 20px}
+  .hood-body dl{grid-template-columns:72px 1fr;gap:8px 12px}
+  .sights{grid-template-columns:1fr}
+  .foods{grid-template-columns:1fr 1fr;gap:12px}
+  .food{padding:22px 12px 18px}
+  .food .ic{width:86px;height:86px}
+  .food .ic svg{width:60px;height:60px}
+  .food h4{font-size:18px}
+  .food p{font-size:13px}
+  .stop{grid-template-columns:1fr;gap:6px;padding-bottom:22px}
+  .timeline{padding-left:34px}
+  .day{padding:14px 8px 16px}
+  .day b{font-size:22px}
+  .day span{font-size:12px}
+  .map{padding:10px}
+  .map-viewport{aspect-ratio:4/3.6;min-height:300px}
+  .map svg{width:100%;height:100%}
+  .pin text{font-size:17px;stroke-width:4px}
+  .pin .dot{r:12}
+  .map-info{min-height:280px;padding:26px 22px}
+  .map-info h3{font-size:28px}
+  footer .grid{grid-template-columns:1fr 1fr;gap:22px 16px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .tram-move,.sun,.pin.active .ring,.hood,.timeline{animation:none!important}
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+@media print{
+  @page{margin:14mm}
+  html,body{background:#fff!important;color:#000!important;font-size:12pt}
+  .nav,.totop,.map-ctrl,.hero .cta{display:none!important}
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+  section{padding:28px 0!important;break-inside:avoid-page}
+  #bairros,#mapa,#comer,footer{background:#fff!important;color:#000!important}
+  #comer .sec-head h2,footer h4,footer li,footer .end{color:#000!important}
+  #comer .sec-head p{color:#333!important}
+  footer .big{display:none!important}
+  .hood{display:grid!important;margin-bottom:20px;box-shadow:none!important;border:1px solid #ccc!important;break-inside:avoid}
+  .hood-art{-webkit-print-color-adjust:exact;print-color-adjust:exact;min-height:160px!important}
+  .sight{display:flex!important;box-shadow:none!important;border:1px solid #ccc!important;break-inside:avoid}
+  .sight.hide{display:flex!important}
+  .sight .ph{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .timeline{display:block!important;margin-bottom:24px;break-inside:avoid}
+  .fact,.stop .c,.food,.map,.map-info{box-shadow:none!important;border:1px solid #ccc!important;break-inside:avoid}
+  .tips,.map-info{background:#f7f7f7!important;color:#000!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .tips h3,.map-info .k,.map-info h3,.map-info .pt,.map-info p,.map-info .hint{color:#000!important}
+}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="主导航">
+  <div class="wrap">
+    <a href="#top" class="logo">Lisboa<span> 里斯本</span></a>
+    <ul>
+      <li><a class="lnk" href="#rapido">速览</a></li>
+      <li><a class="lnk" href="#bairros">街区</a></li>
+      <li><a class="lnk" href="#ver">景点</a></li>
+      <li><a class="lnk" href="#comer">美食</a></li>
+      <li><a class="lnk" href="#roteiro">行程</a></li>
+      <li><a class="lnk" href="#mapa">地图</a></li>
+      <li><a class="lnk" href="#info">实用</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="coords">38.7223° N<br>9.1393° W<br>七丘之城</div>
+  <div class="wrap hero-text">
+    <div class="eyebrow">城市指南 · Portugal · Vol.01</div>
+    <h1>Lis<em>boa</em></h1>
+    <div class="zh">里斯本，坐在七座山丘上的黄昏</div>
+    <p class="tagline">黄色电车爬过陡坡，瓷砖墙在午后反光，法朵从小巷深处传出来。这是一座要用脚和耐心慢慢读的城市。</p>
+    <div class="cta">
+      <a class="btn primary" href="#roteiro">看 3 日行程 →</a>
+      <a class="btn ghost" href="#mapa">打开城市地图</a>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice">
+      <g class="sun"><circle cx="1120" cy="150" r="90" fill="#FCE3B0" opacity=".9"/><circle cx="1120" cy="150" r="130" fill="#FCE3B0" opacity=".25"/></g>
+      <!-- far hill + castle -->
+      <path d="M0 250 Q200 160 420 210 T860 190 T1440 230 V420 H0Z" fill="#E7A483"/>
+      <g fill="#C97B5E">
+        <rect x="560" y="140" width="150" height="60"/>
+        <rect x="550" y="120" width="24" height="40"/><rect x="620" y="110" width="26" height="50"/><rect x="690" y="122" width="24" height="40"/>
+        <path d="M550 120h24v-8h-6v4h-4v-4h-4v4h-4v-4h-6zM620 110h26v-8h-6v4h-4v-4h-6v4h-4v-4h-6zM690 122h24v-8h-6v4h-4v-4h-4v4h-4v-4h-6z"/>
+      </g>
+      <!-- cathedral -->
+      <g fill="#D88D6C"><rect x="240" y="170" width="70" height="70"/><rect x="232" y="140" width="22" height="100"/><rect x="296" y="140" width="22" height="100"/><path d="M232 140 l11 -12 l11 12zM296 140 l11 -12 l11 12z"/></g>
+      <!-- houses row -->
+      <g>
+        <path d="M0 300 Q300 250 700 280 T1440 270 V420 H0Z" fill="#B9583F"/>
+        <g stroke="#7d3424" stroke-width="0">
+          <rect x="40" y="255" width="70" height="90" fill="#F2B705"/><path d="M36 258 L75 232 L114 258Z" fill="#9c3f2b"/>
+          <rect x="120" y="245" width="60" height="100" fill="#F6E7CF"/><path d="M116 248 L150 222 L184 248Z" fill="#9c3f2b"/>
+          <rect x="190" y="265" width="80" height="80" fill="#E9B8A6"/><path d="M186 268 L230 240 L274 268Z" fill="#9c3f2b"/>
+          <rect x="280" y="250" width="64" height="95" fill="#5D8BC9"/><path d="M276 253 L312 228 L348 253Z" fill="#9c3f2b"/>
+          <rect x="360" y="262" width="76" height="83" fill="#F6E7CF"/><path d="M356 265 L398 238 L440 265Z" fill="#9c3f2b"/>
+          <rect x="980" y="250" width="70" height="95" fill="#E9B8A6"/><path d="M976 253 L1015 226 L1054 253Z" fill="#9c3f2b"/>
+          <rect x="1060" y="240" width="66" height="105" fill="#F2B705"/><path d="M1056 243 L1093 216 L1130 243Z" fill="#9c3f2b"/>
+          <rect x="1136" y="258" width="74" height="87" fill="#5D8BC9"/><path d="M1132 261 L1173 234 L1214 261Z" fill="#9c3f2b"/>
+          <rect x="1220" y="248" width="62" height="97" fill="#F6E7CF"/><path d="M1216 251 L1251 226 L1286 251Z" fill="#9c3f2b"/>
+          <rect x="1292" y="262" width="90" height="83" fill="#E9B8A6"/><path d="M1288 265 L1337 236 L1386 265Z" fill="#9c3f2b"/>
+        </g>
+        <g fill="#1F4E9C" opacity=".75">
+          <rect x="54" y="272" width="14" height="20"/><rect x="82" y="272" width="14" height="20"/><rect x="54" y="305" width="14" height="20"/><rect x="82" y="305" width="14" height="20"/>
+          <rect x="134" y="262" width="12" height="18"/><rect x="156" y="262" width="12" height="18"/><rect x="134" y="296" width="12" height="18"/><rect x="156" y="296" width="12" height="18"/>
+          <rect x="294" y="268" width="12" height="18"/><rect x="318" y="268" width="12" height="18"/>
+          <rect x="1074" y="258" width="14" height="20"/><rect x="1100" y="258" width="14" height="20"/><rect x="1074" y="292" width="14" height="20"/><rect x="1100" y="292" width="14" height="20"/>
+          <rect x="1236" y="266" width="12" height="18"/><rect x="1258" y="266" width="12" height="18"/>
+        </g>
+      </g>
+      <!-- street -->
+      <rect x="0" y="345" width="1440" height="75" fill="#3B2A24"/>
+      <rect x="0" y="352" width="1440" height="3" fill="#8d6a5c"/>
+      <rect x="0" y="372" width="1440" height="3" fill="#8d6a5c"/>
+      <!-- calçada wave -->
+      <path d="M0 395 Q40 385 80 395 T160 395 T240 395 T320 395 T400 395 T480 395 T560 395 T640 395 T720 395 T800 395 T880 395 T960 395 T1040 395 T1120 395 T1200 395 T1280 395 T1360 395 T1440 395 V420 H0Z" fill="#F4ECDD"/>
+      <!-- overhead wire -->
+      <line x1="0" y1="250" x2="1440" y2="250" stroke="#2a1d18" stroke-width="1.5"/>
+      <!-- tram -->
+      <g class="tram-move">
+        <line x1="120" y1="250" x2="140" y2="282" stroke="#2a1d18" stroke-width="2"/>
+        <rect x="20" y="282" width="210" height="68" rx="12" fill="#F2B705"/>
+        <rect x="20" y="318" width="210" height="10" fill="#fff"/>
+        <rect x="28" y="290" width="194" height="24" rx="5" fill="#FBF6EC"/>
+        <g fill="#5b86c4"><rect x="34" y="293" width="30" height="18" rx="3"/><rect x="70" y="293" width="30" height="18" rx="3"/><rect x="106" y="293" width="30" height="18" rx="3"/><rect x="142" y="293" width="30" height="18" rx="3"/><rect x="178" y="293" width="38" height="18" rx="3"/></g>
+        <text x="38" y="345" font-family="Inter,sans-serif" font-weight="700" font-size="13" fill="#123270">28 · PRAZERES</text>
+        <circle cx="62" cy="352" r="9" fill="#1d1b19"/><circle cx="188" cy="352" r="9" fill="#1d1b19"/>
+      </g>
+    </svg>
+  </div>
+</header>
+<div class="tile-band" aria-hidden="true"></div>
+
+<!-- 01 速览 -->
+<section id="rapido">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-no">01</div>
+      <div><h2><small>Num Relance</small>城市速览</h2><p>出发前五分钟读完，落地不慌。</p></div>
+    </div>
+    <div class="facts" id="facts"></div>
+    <div class="tips reveal"><h3>本地人才知道的小提示</h3><ul id="tips"></ul></div>
+  </div>
+</section>
+
+<!-- 02 街区 -->
+<section id="bairros">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-no">02</div>
+      <div><h2><small>Bairros</small>五个街区，五种性格</h2><p>点选街区，看看它适合什么样的你。</p></div>
+    </div>
+    <div class="tabs" id="hood-tabs" role="tablist" aria-label="选择街区"></div>
+    <div id="hoods"></div>
+  </div>
+</section>
+
+<!-- 03 景点 -->
+<section id="ver">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-no">03</div>
+      <div><h2><small>O Que Ver</small>必去景点</h2><p>按兴趣筛选。门票价格仅为示意，请以官网为准。</p></div>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="sights" id="sights"></div>
+  </div>
+</section>
+
+<!-- 04 美食 -->
+<section id="comer">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-no">04</div>
+      <div><h2><small>Comer & Beber</small>必吃的四样</h2><p>葡式蛋挞只是开始。</p></div>
+    </div>
+    <div class="foods" id="foods"></div>
+  </div>
+</section>
+
+<!-- 05 行程 -->
+<section id="roteiro">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-no">05</div>
+      <div><h2><small>Roteiro</small>经典 3 日行程</h2><p>节奏不赶，每天留出发呆和看日落的时间。</p></div>
+    </div>
+    <div class="days" id="day-tabs" role="tablist" aria-label="选择行程天数"></div>
+    <div id="timelines"></div>
+  </div>
+</section>
+
+<!-- 06 地图 -->
+<section id="mapa">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-no">06</div>
+      <div><h2><small>Mapa</small>一张图看懂里斯本</h2><p>示意地图，非真实比例。点击图钉查看地点；可缩放、拖动。</p></div>
+    </div>
+    <div class="map-wrap">
+      <div class="map">
+       <div class="map-viewport" id="mapview">
+        <svg viewBox="0 0 800 500" id="mapsvg" role="group" aria-label="里斯本示意地图">
+          <defs>
+            <pattern id="water" width="24" height="12" patternUnits="userSpaceOnUse"><path d="M0 6 q6 -5 12 0 t12 0" stroke="#9fbbe3" stroke-width="1.5" fill="none"/></pattern>
+          </defs>
+          <rect width="800" height="500" fill="#F4ECDD"/>
+          <!-- land contours -->
+          <path d="M0 0 H800 V300 Q700 320 620 300 Q520 280 430 320 Q330 360 220 350 Q110 345 0 380Z" fill="#FBF6EC"/>
+          <g fill="none" stroke="#e5d6bd" stroke-width="1.2">
+            <path d="M520 150 q40 -40 90 -10 q30 30 -10 60 q-50 20 -80 -50z"/><path d="M540 155 q30 -25 60 -5 q15 20 -10 35 q-35 10 -50 -30z"/>
+            <path d="M330 120 q50 -30 90 0 q20 30 -30 50 q-60 10 -60 -50z"/><path d="M150 90 q60 -30 110 10 q10 40 -60 40 q-60 -10 -50 -50z"/>
+          </g>
+          <!-- river Tejo -->
+          <path d="M0 380 Q110 345 220 350 Q330 360 430 320 Q520 280 620 300 Q700 320 800 300 V500 H0Z" fill="#CFDDF2"/>
+          <path d="M0 380 Q110 345 220 350 Q330 360 430 320 Q520 280 620 300 Q700 320 800 300 V500 H0Z" fill="url(#water)"/>
+          <text x="520" y="420" font-family="Playfair Display,serif" font-style="italic" font-size="30" fill="#1F4E9C" opacity=".55">Rio Tejo · 特茹河</text>
+          <!-- avenues -->
+          <g stroke="#e3cfae" stroke-width="5" fill="none" stroke-linecap="round">
+            <path d="M440 40 L450 250"/><path d="M60 330 Q300 300 470 300 Q560 290 700 260"/><path d="M450 250 L500 290"/>
+          </g>
+          <!-- bridge -->
+          <g stroke="#C8553D" stroke-width="4"><line x1="200" y1="352" x2="230" y2="500"/><line x1="185" y1="420" x2="245" y2="420" stroke-width="3"/></g>
+          <text x="250" y="470" font-family="Inter,sans-serif" font-size="12" fill="#C8553D">4 月 25 日大桥</text>
+          <!-- tram line 28 -->
+          <path d="M330 230 Q400 260 460 270 Q520 260 560 220 Q590 200 610 210" stroke="#F2B705" stroke-width="4" fill="none" stroke-dasharray="8 6"/>
+          <text x="290" y="222" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#9a7400">28 路电车</text>
+          <!-- compass -->
+          <g transform="translate(730 70)"><circle r="28" fill="#fff" stroke="#1F4E9C" stroke-width="2"/><path d="M0 -22 L6 0 L0 22 L-6 0Z" fill="#1F4E9C"/><path d="M0 -22 L6 0 L-6 0Z" fill="#C8553D"/><text y="-32" text-anchor="middle" font-family="Inter" font-size="11" font-weight="700" fill="#1F4E9C">N</text></g>
+          <g id="pins"></g>
+        </svg>
+        <div class="map-ctrl" role="group" aria-label="地图缩放"><button type="button" data-zoom="in" aria-label="放大">+</button><button type="button" data-zoom="out" aria-label="缩小">−</button><button type="button" data-zoom="reset" aria-label="复位">⟲</button></div>
+       </div>
+      </div>
+      <aside class="map-info" id="mapinfo" aria-live="polite">
+        <div class="k" id="mi-k">地点</div>
+        <h3 id="mi-h">点一个图钉</h3>
+        <div class="pt" id="mi-pt">Toque num pin</div>
+        <p id="mi-p">地图上标了 7 个地点，覆盖本指南的全部街区。点击任意图钉，这里会显示介绍和交通方式。</p>
+        <div class="hint">提示：黄色虚线是 28 路电车的大致走向。</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 07 实用 -->
+<footer id="info">
+  <div class="wrap">
+    <div class="big">Até já, Lisboa.</div>
+    <div class="grid" id="info-grid"></div>
+    <div class="end"><span>© 2026 里斯本城市指南 · v1.0 · 资料更新 <span id="updated"></span></span><span>插画与图案均为代码生成 · 价格类信息仅为示例</span></div>
+  </div>
+</footer>
+<button class="totop" id="totop" aria-label="回到顶部">↑</button>
+
+<script>// 里斯本指南内容数据（价格 verified:true 的已于 2026-10-29 对照官网核实，见 sources.md）
+window.LISBON = {
+ "updated": "2026-10",
+ "facts": [
+  {
+   "k": "最佳季节",
+   "v": "3–5 月 · 9–10 月",
+   "p": "春秋温暖少雨、人少。6 月有圣安东尼节，满城烤沙丁鱼；7–8 月热且游客最多。",
+   "price": null
+  },
+  {
+   "k": "货币",
+   "v": "欧元 €",
+   "p": "大多数店可刷卡、支持非接触支付；小咖啡馆和集市备些零钱。",
+   "price": null
+  },
+  {
+   "k": "语言",
+   "v": "葡萄牙语",
+   "p": "年轻人和旅游区英语普遍。学一句 Obrigado / Obrigada（谢谢）很加分。",
+   "price": null
+  },
+  {
+   "k": "交通卡",
+   "v": "Viva Viagem / navegante",
+   "p": "可充值纸卡（€0.50，新卡名为 navegante ocasional），地铁、公交、电车、升降机通用；24 小时 Carris/地铁通票",
+   "price": {
+    "text": "€7.25",
+    "verified": true,
+    "src": "https://carris.pt/descubra/novo-tarifario-2026/"
+   }
+  },
+  {
+   "k": "时差",
+   "v": "比北京晚 8 小时",
+   "p": "夏令时（3 月底至 10 月底）期间晚 7 小时。",
+   "price": null
+  },
+  {
+   "k": "电源",
+   "v": "230V · 欧标圆插",
+   "p": "C / F 型两脚圆插，记得带转换头。",
+   "price": null
+  },
+  {
+   "k": "机场进城",
+   "v": "地铁红线 ≈ 20 分钟",
+   "p": "机场站直通市区，换乘可达 Baixa-Chiado。",
+   "price": null
+  },
+  {
+   "k": "建议天数",
+   "v": "3–4 天",
+   "p": "3 天看城区与贝伦，第 4 天留给辛特拉或卡斯凯什。",
+   "price": null
+  }
+ ],
+ "tips": [
+  "满城是坡和光滑的石子路（calçada），穿防滑平底鞋。",
+  "28 路电车人多拥挤，留意随身财物。",
+  "餐前端上的面包橄榄（couvert）不是免费的，不吃可以请服务员撤下。",
+  "本地人晚餐常在 20 点以后，热门餐厅最好提前订位。",
+  "日落去观景台（miradouro）占位，最美的时间就那半小时。",
+  "国立博物馆和古迹多在周一闭馆（古尔本基安是周二），安排行程时错开。",
+  "没买 Lisboa Card 的话，24 小时通票很划算：地铁、电车、轮渡一次搞定。",
+  "电车上车现买 €3.30，刷卡只要 €1.90，先在地铁站机器买卡充值。"
+ ],
+ "hoods": [
+  {
+   "id": "alfama",
+   "name": "Alfama 阿尔法玛",
+   "pt": "Alfama",
+   "bg": "linear-gradient(160deg,#1F4E9C,#5D8BC9 60%,#E9B8A6)",
+   "vibe": [
+    "最古老",
+    "法朵",
+    "迷宫小巷",
+    "观景台"
+   ],
+   "tag": "适合：慢逛、拍照、听法朵",
+   "desc": "1755 年大地震中幸存的摩尔时代老城。窄巷、台阶、晾衣绳和瓷砖墙层层叠叠，傍晚的小酒馆里会响起法朵（Fado）。",
+   "dl": [
+    [
+     "必做",
+     "圣卢西亚观景台看红屋顶与河景"
+    ],
+    [
+     "夜晚",
+     "在 Casa de Fado 听一场法朵"
+    ],
+    [
+     "交通",
+     "28 路电车 / 步行上坡"
+    ],
+    [
+     "提醒",
+     "路线容易迷，迷路正是乐趣"
+    ]
+   ]
+  },
+  {
+   "id": "baixa",
+   "name": "Baixa 下城",
+   "pt": "Baixa Pombalina",
+   "bg": "linear-gradient(160deg,#C8553D,#F28F3B 60%,#F2B705)",
+   "vibe": [
+    "网格街道",
+    "广场",
+    "购物",
+    "交通枢纽"
+   ],
+   "tag": "适合：第一次到、购物、吃饭",
+   "desc": "大地震后按庞巴尔侯爵规划重建的网格街区，是欧洲最早的抗震城区之一。从罗西奥广场一路走到临河的商业广场。",
+   "dl": [
+    [
+     "必做",
+     "穿过奥古斯塔街凯旋门到商业广场"
+    ],
+    [
+     "打卡",
+     "圣胡斯塔升降机"
+    ],
+    [
+     "交通",
+     "地铁 Baixa-Chiado / Rossio"
+    ],
+    [
+     "提醒",
+     "奥古斯塔街餐厅偏贵，往小巷找"
+    ]
+   ]
+  },
+  {
+   "id": "chiado",
+   "name": "Chiado · Bairro Alto",
+   "pt": "Chiado & Bairro Alto",
+   "bg": "linear-gradient(160deg,#123270,#6a4c93 55%,#F28F3B)",
+   "vibe": [
+    "文艺",
+    "书店",
+    "咖啡馆",
+    "夜生活"
+   ],
+   "tag": "适合：文艺青年、夜猫子",
+   "desc": "白天的希亚多优雅从容，有老咖啡馆、剧院和书店；入夜后隔壁的上城（Bairro Alto）变成露天酒吧街，人群挤满小巷。",
+   "dl": [
+    [
+     "必做",
+     "Café A Brasileira 门口与佩索阿铜像合影"
+    ],
+    [
+     "书店",
+     "Bertrand，世界最古老营业书店之一"
+    ],
+    [
+     "观景",
+     "São Pedro de Alcântara 观景台"
+    ],
+    [
+     "提醒",
+     "周末夜里很吵，住宿需权衡"
+    ]
+   ]
+  },
+  {
+   "id": "belem",
+   "name": "Belém 贝伦",
+   "pt": "Belém",
+   "bg": "linear-gradient(160deg,#5D8BC9,#9fbbe3 50%,#F6D7B0)",
+   "vibe": [
+    "大航海",
+    "世界遗产",
+    "蛋挞",
+    "河岸"
+   ],
+   "tag": "适合：历史迷、半日游",
+   "desc": "大航海时代船队出发的地方。热罗尼莫斯修道院和贝伦塔都是世界文化遗产，旁边就是蛋挞的老店。",
+   "dl": [
+    [
+     "必做",
+     "修道院 + 贝伦塔 + 发现者纪念碑"
+    ],
+    [
+     "必吃",
+     "Pastéis de Belém 蛋挞"
+    ],
+    [
+     "交通",
+     "15E 电车或火车，约 20–30 分钟"
+    ],
+    [
+     "提醒",
+     "周一部分景点闭馆，排队要趁早"
+    ]
+   ]
+  },
+  {
+   "id": "lx",
+   "name": "LX Factory",
+   "pt": "LX Factory · Alcântara",
+   "bg": "linear-gradient(160deg,#2a1d18,#C8553D 55%,#F2B705)",
+   "vibe": [
+    "创意园",
+    "工业风",
+    "书店",
+    "周末市集"
+   ],
+   "tag": "适合：逛店、拍照、周末早午餐",
+   "desc": "4 月 25 日大桥下的旧纺织厂园区，如今是餐厅、设计店和工作室的聚集地。Ler Devagar 书店的高墙书架很出片。",
+   "dl": [
+    [
+     "必做",
+     "Ler Devagar 书店"
+    ],
+    [
+     "时间",
+     "周日有创意市集"
+    ],
+    [
+     "交通",
+     "15E 电车 / 火车 Alcântara-Mar"
+    ],
+    [
+     "提醒",
+     "可与贝伦连成一天"
+    ]
+   ]
+  }
+ ],
+ "cats": [
+  "全部",
+  "历史",
+  "观景",
+  "博物馆",
+  "街头"
+ ],
+ "sights": [
+  {
+   "id": "jeronimos",
+   "n": "热罗尼莫斯修道院",
+   "pt": "Mosteiro dos Jerónimos",
+   "c": "历史",
+   "d": "曼努埃尔式建筑的巅峰，航海家达·伽马长眠于此。世界文化遗产。",
+   "a": "贝伦",
+   "price": {
+    "text": "€18",
+    "verified": true,
+    "src": "https://www.museusemonumentos.pt/pt/pagina/bilhetes"
+   },
+   "hours": "9:30–17:30（17:00 停止入场）",
+   "closed": "周一",
+   "g": [
+    "#1F4E9C",
+    "#E9B8A6"
+   ]
+  },
+  {
+   "id": "torre",
+   "n": "贝伦塔",
+   "pt": "Torre de Belém",
+   "c": "历史",
+   "d": "16 世纪的河口防御塔，大航海时代的象征。2026 年 5 月修复后重开，改为分时段限量入场，建议提前网购。",
+   "a": "贝伦",
+   "price": {
+    "text": "€15",
+    "verified": true,
+    "src": "https://www.museusemonumentos.pt/pt/pagina/bilhetes"
+   },
+   "hours": "9:30–17:30，按时段预约入场",
+   "closed": "周一",
+   "g": [
+    "#5D8BC9",
+    "#F6D7B0"
+   ]
+  },
+  {
+   "id": "castelo",
+   "n": "圣乔治城堡",
+   "pt": "Castelo de São Jorge",
+   "c": "观景",
+   "d": "山顶摩尔城堡，城墙上可以俯瞰整座城市和特茹河。",
+   "a": "阿尔法玛",
+   "price": {
+    "text": "€17",
+    "verified": true,
+    "src": "https://castelodesaojorge.pt/como-visitar/escolher-o-bilhete/"
+   },
+   "hours": "3–10 月 9:00–21:00 · 11–2 月 9:00–18:00",
+   "closed": "",
+   "g": [
+    "#C8553D",
+    "#F2B705"
+   ]
+  },
+  {
+   "id": "santalucia",
+   "n": "圣卢西亚观景台",
+   "pt": "Miradouro de Santa Luzia",
+   "c": "观景",
+   "d": "爬满九重葛的瓷砖露台，正对阿尔法玛的红屋顶。免费。",
+   "a": "阿尔法玛",
+   "price": {
+    "text": "免费",
+    "verified": true
+   },
+   "hours": "全天开放",
+   "closed": "",
+   "g": [
+    "#123270",
+    "#F28F3B"
+   ]
+  },
+  {
+   "id": "santajusta",
+   "n": "圣胡斯塔升降机",
+   "pt": "Elevador de Santa Justa",
+   "c": "观景",
+   "d": "1902 年启用的铁艺升降机，连接下城与卡尔莫区。车上买票含往返两程；持 24 小时通票可直接乘坐。",
+   "a": "下城",
+   "price": {
+    "text": "€6.20",
+    "verified": true,
+    "src": "https://carris.pt/descubra/novo-tarifario-2026/"
+   },
+   "hours": "",
+   "closed": "",
+   "g": [
+    "#2a1d18",
+    "#C8553D"
+   ]
+  },
+  {
+   "id": "tram28",
+   "n": "28 路电车",
+   "pt": "Elétrico 28",
+   "c": "街头",
+   "d": "黄色老电车穿过最陡最窄的街巷，建议清晨从 Martim Moniz 起点站上车。车上买票 €3.30，刷卡 €1.90。",
+   "a": "全城",
+   "price": {
+    "text": "€3.30",
+    "verified": true,
+    "src": "https://carris.pt/descubra/novo-tarifario-2026/"
+   },
+   "hours": "",
+   "closed": "",
+   "g": [
+    "#F2B705",
+    "#F28F3B"
+   ]
+  },
+  {
+   "id": "pracacomercio",
+   "n": "商业广场",
+   "pt": "Praça do Comércio",
+   "c": "街头",
+   "d": "面朝特茹河的巨大黄色广场，旧时王宫所在地，傍晚最美。",
+   "a": "下城",
+   "price": {
+    "text": "免费",
+    "verified": true
+   },
+   "hours": "全天开放",
+   "closed": "",
+   "g": [
+    "#F2B705",
+    "#5D8BC9"
+   ]
+  },
+  {
+   "id": "azulejo",
+   "n": "国家瓷砖博物馆",
+   "pt": "Museu Nacional do Azulejo",
+   "c": "博物馆",
+   "d": "五百年葡萄牙瓷砖史，镇馆之宝是一幅里斯本全景瓷砖画。注意：2025 年 11 月起整修闭馆，出发前查官网。",
+   "a": "东区",
+   "price": {
+    "text": "€10",
+    "verified": true,
+    "src": "https://www.museusemonumentos.pt/pt/museus-e-monumentos/museu-nacional-do-azulejo"
+   },
+   "hours": "",
+   "closed": "整修闭馆中，预计 2027 年初重开",
+   "g": [
+    "#1F4E9C",
+    "#9fbbe3"
+   ]
+  },
+  {
+   "id": "gulbenkian",
+   "n": "古尔本基安博物馆",
+   "pt": "Museu Calouste Gulbenkian",
+   "c": "博物馆",
+   "d": "私人收藏从埃及到雷内·拉利克，花园本身也值得一逛。周日 14:00 后免费。",
+   "a": "新城",
+   "price": {
+    "text": "€16",
+    "verified": true,
+    "src": "https://gulbenkian.pt/informacoes-uteis/bilhetes/"
+   },
+   "hours": "10:00–18:00（周六至 21:00）",
+   "closed": "周二",
+   "g": [
+    "#3b6b2a",
+    "#F6D7B0"
+   ]
+  }
+ ],
+ "foods": [
+  {
+   "id": "nata",
+   "icon": "nata",
+   "n": "葡式蛋挞",
+   "pt": "Pastel de Nata",
+   "d": "酥皮层层起，蛋奶馅烤出焦斑。撒点肉桂粉和糖粉，趁热吃。",
+   "where": "Pastéis de Belém（1837 年开业）",
+   "price": {
+    "text": "€1.60",
+    "verified": true,
+    "src": "https://pasteisdebelem.pt/menu/"
+   }
+  },
+  {
+   "id": "bacalhau",
+   "icon": "bacalhau",
+   "n": "鳕鱼干",
+   "pt": "Bacalhau",
+   "d": "据说有 365 种做法。先试 Bacalhau à Brás：鳕鱼丝配土豆丝和炒蛋。",
+   "where": "下城与阿尔法玛的家常小馆",
+   "price": null
+  },
+  {
+   "id": "ginja",
+   "icon": "ginja",
+   "n": "樱桃酒",
+   "pt": "Ginjinha",
+   "d": "酸樱桃泡的甜酒，小杯一口闷。问一句 com ou sem（带不带果）？",
+   "where": "A Ginjinha，圣多明戈广场",
+   "price": {
+    "text": "€1.5",
+    "verified": false
+   }
+  },
+  {
+   "id": "sardinha",
+   "icon": "sardinha",
+   "n": "烤沙丁鱼",
+   "pt": "Sardinhas Assadas",
+   "d": "炭火烤，粗盐调味，放在面包上吃。6 月圣安东尼节最地道。",
+   "where": "阿尔法玛街头烧烤摊（夏季）",
+   "price": null
+  }
+ ],
+ "days": [
+  {
+   "day": 1,
+   "title": "Day 1",
+   "sub": "老城与观景台",
+   "stops": [
+    {
+     "t": "09:00",
+     "h": "28 路电车",
+     "p": "从 Martim Moniz 起点站上车，避开人潮，坐到阿尔法玛。"
+    },
+    {
+     "t": "10:30",
+     "h": "圣乔治城堡",
+     "p": "登城墙看全城，建议提前在线购票。"
+    },
+    {
+     "t": "12:30",
+     "h": "阿尔法玛午餐",
+     "p": "找一家家常小馆点烤沙丁鱼或鳕鱼。"
+    },
+    {
+     "t": "14:30",
+     "h": "圣卢西亚观景台 → 下城",
+     "p": "一路下坡步行，穿过奥古斯塔街到商业广场。"
+    },
+    {
+     "t": "17:00",
+     "h": "A Ginjinha",
+     "p": "在罗西奥旁的小店来一杯樱桃酒。"
+    },
+    {
+     "t": "19:30",
+     "h": "日落 + 法朵晚餐",
+     "p": "São Pedro de Alcântara 看日落，再回阿尔法玛听法朵。"
+    }
+   ]
+  },
+  {
+   "day": 2,
+   "title": "Day 2",
+   "sub": "贝伦与河岸",
+   "stops": [
+    {
+     "t": "09:00",
+     "h": "Pastéis de Belém",
+     "p": "先吃热蛋挞当早餐，排外带队通常更快。"
+    },
+    {
+     "t": "10:00",
+     "h": "热罗尼莫斯修道院",
+     "p": "重点看回廊；周一闭馆。"
+    },
+    {
+     "t": "12:00",
+     "h": "贝伦塔 · 发现者纪念碑",
+     "p": "沿河散步，两处步行十几分钟；贝伦塔需按时段入场，提前网购。"
+    },
+    {
+     "t": "14:00",
+     "h": "MAAT 河岸",
+     "p": "白色波浪形美术馆，屋顶可走。"
+    },
+    {
+     "t": "15:30",
+     "h": "LX Factory",
+     "p": "逛 Ler Devagar 书店和设计小店。"
+    },
+    {
+     "t": "19:00",
+     "h": "Time Out Market",
+     "p": "在 Cais do Sodré 的美食市场一次吃遍本地名店。"
+    }
+   ]
+  },
+  {
+   "day": 3,
+   "title": "Day 3",
+   "sub": "辛特拉一日游",
+   "stops": [
+    {
+     "t": "08:30",
+     "h": "Rossio 站出发",
+     "p": "火车约 40 分钟到辛特拉，早去避开旅行团。"
+    },
+    {
+     "t": "09:30",
+     "h": "佩纳宫",
+     "p": "山顶的彩色童话宫殿。宫殿内部须预约入场时段，从园区入口步行到宫殿约 30 分钟，也可买接驳车。"
+    },
+    {
+     "t": "12:30",
+     "h": "辛特拉老镇午餐",
+     "p": "尝一尝当地甜点 travesseiro（枕头酥）。"
+    },
+    {
+     "t": "14:00",
+     "h": "雷加莱拉庄园",
+     "p": "下探神秘的井状螺旋阶梯 Initiation Well。"
+    },
+    {
+     "t": "16:30",
+     "h": "罗卡角（可选）",
+     "p": "欧洲大陆最西端，陆止于此，海始于斯。"
+    },
+    {
+     "t": "19:30",
+     "h": "回城晚餐",
+     "p": "回到 Chiado 吃顿好的，为旅程收尾。"
+    }
+   ]
+  }
+ ],
+ "pins": [
+  {
+   "id": "belem",
+   "x": 95,
+   "y": 345,
+   "k": "街区 · 世界遗产",
+   "s": "贝伦",
+   "h": "贝伦 Belém",
+   "pt": "Mosteiro & Torre",
+   "p": "修道院、贝伦塔、发现者纪念碑和蛋挞老店都在这一带。15E 电车或火车可达。"
+  },
+  {
+   "id": "lx",
+   "x": 250,
+   "y": 320,
+   "k": "创意园区",
+   "s": "LX Factory",
+   "h": "LX Factory",
+   "pt": "Alcântara",
+   "p": "大桥下的旧厂房，书店、餐厅和设计店。周日有市集。"
+  },
+  {
+   "id": "chiado",
+   "x": 380,
+   "y": 235,
+   "k": "街区 · 夜生活",
+   "s": "希亚多/上城",
+   "h": "希亚多 / 上城",
+   "pt": "Chiado & Bairro Alto",
+   "p": "白天咖啡馆和书店，晚上酒吧街。São Pedro de Alcântara 观景台在此。"
+  },
+  {
+   "id": "baixa",
+   "x": 450,
+   "y": 270,
+   "k": "街区 · 市中心",
+   "s": "下城",
+   "h": "下城 Baixa",
+   "pt": "Baixa Pombalina",
+   "p": "网格街道和圣胡斯塔升降机，交通枢纽，适合作为住宿据点。"
+  },
+  {
+   "id": "praca",
+   "x": 470,
+   "y": 310,
+   "k": "广场",
+   "s": "商业广场",
+   "h": "商业广场",
+   "pt": "Praça do Comércio",
+   "p": "面朝特茹河的黄色广场，傍晚看河景和日落的好地方。"
+  },
+  {
+   "id": "castelo",
+   "x": 540,
+   "y": 205,
+   "k": "城堡 · 观景",
+   "s": "圣乔治城堡",
+   "h": "圣乔治城堡",
+   "pt": "Castelo de São Jorge",
+   "p": "全城最高处之一，城墙环绕，俯瞰红屋顶与河口。"
+  },
+  {
+   "id": "alfama",
+   "x": 590,
+   "y": 250,
+   "k": "街区 · 老城",
+   "s": "阿尔法玛",
+   "h": "阿尔法玛 Alfama",
+   "pt": "Alfama",
+   "p": "最古老的街区，迷宫般的小巷和法朵酒馆。圣卢西亚观景台在此。"
+  }
+ ],
+ "info": [
+  {
+   "title": "紧急电话",
+   "demo": false,
+   "items": [
+    "欧盟通用急救：112",
+    "旅游警察站：Praça dos Restauradores",
+    "中国驻葡使馆：出发前请查询官网获取最新电话"
+   ]
+  },
+  {
+   "title": "交通",
+   "demo": false,
+   "items": [
+    "地铁 4 条线：蓝 / 黄 / 绿 / 红",
+    "去辛特拉：Rossio 站火车约 40 分钟",
+    "去卡斯凯什：Cais do Sodré 站沿海火车",
+    "打车：Uber、Bolt 普遍"
+   ]
+  },
+  {
+   "title": "花费参考",
+   "demo": true,
+   "items": [
+    "咖啡 bica：€1 左右",
+    "蛋挞：€1.5 左右",
+    "午餐套餐 prato do dia：€10–14",
+    "中档酒店：€120–200 / 晚"
+   ]
+  },
+  {
+   "title": "礼仪与安全",
+   "demo": false,
+   "items": [
+    "小费非强制，满意可留 5–10%",
+    "街头有人兜售假药，直接走开",
+    "教堂内注意着装，勿高声"
+   ]
+  }
+ ]
+};
+</script>
+<script>(function () {
+  'use strict';
+
+  var D = window.LISBON;
+  if (!D || typeof D !== 'object') return;
+
+  function esc(v) {
+    return String(v == null ? '' : v)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function isArr(a) { return Array.isArray(a) && a.length > 0; }
+  function el(id) { return document.getElementById(id); }
+
+  function priceHTML(price, prefix) {
+    if (!price || price.text == null || price.text === '') return '';
+    var text = String(price.text);
+    if (text === '免费') return esc('免费');
+    var amount = text.charAt(0) === '€' ? text : ('€' + text);
+    var tag = price.verified
+      ? '<span class="tag-ok">官网价 2026</span>'
+      : '<span class="tag-demo">示例</span>';
+    return esc((prefix == null ? '' : prefix) + amount) + tag;
+  }
+
+  var ICONS = {
+    nata: '<svg width="84" height="84" viewBox="0 0 80 80"><path d="M10 40 Q12 64 40 66 Q68 64 70 40Z" fill="#E8B46A"/><ellipse cx="40" cy="40" rx="30" ry="12" fill="#D9963E"/><ellipse cx="40" cy="40" rx="24" ry="9" fill="#F6D27A"/><circle cx="34" cy="38" r="4" fill="#7a3f12"/><circle cx="46" cy="42" r="3" fill="#7a3f12"/><circle cx="44" cy="36" r="2" fill="#7a3f12"/></svg>',
+    bacalhau: '<svg width="84" height="84" viewBox="0 0 80 80"><ellipse cx="40" cy="48" rx="32" ry="14" fill="#1F4E9C"/><ellipse cx="40" cy="45" rx="27" ry="10" fill="#FBF6EC"/><path d="M18 44 q6 -8 14 -2 q6 -8 14 -1 q7 -7 14 1" stroke="#F2C14E" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="30" cy="42" r="2.5" fill="#2f2f2f"/><circle cx="50" cy="43" r="2.5" fill="#2f2f2f"/><path d="M36 40 l3 -4 l3 4" stroke="#5a9a4a" stroke-width="2" fill="none"/></svg>',
+    ginja: '<svg width="84" height="84" viewBox="0 0 80 80"><path d="M28 22 h24 l-4 40 h-16z" fill="#fff" stroke="#c9c1b4" stroke-width="2"/><path d="M30 34 h20 l-3 26 h-14z" fill="#8E1B2C"/><circle cx="40" cy="50" r="4" fill="#5a0f1b"/><path d="M40 12 q4 6 0 10" stroke="#3b6b2a" stroke-width="2" fill="none"/></svg>',
+    sardinha: '<svg width="84" height="84" viewBox="0 0 80 80"><g transform="rotate(-18 40 40)"><path d="M10 38 Q30 26 56 36 L68 30 L66 42 L68 52 L56 46 Q30 54 10 42Z" fill="#8FA7BF"/><path d="M14 40 Q32 34 54 40" stroke="#4d6680" stroke-width="2" fill="none"/><circle cx="18" cy="38" r="2" fill="#1d1b19"/></g><g transform="rotate(10 40 54) translate(0 18)"><path d="M14 38 Q32 28 54 36 L64 31 L62 41 L64 50 L54 45 Q32 52 14 42Z" fill="#7d96b0"/><circle cx="21" cy="38" r="2" fill="#1d1b19"/></g><path d="M8 66 L72 66" stroke="#2a1d18" stroke-width="3" stroke-dasharray="4 4"/></svg>'
+  };
+
+  var SIGHT_DECO = '<svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;opacity:.25"><g fill="none" stroke="#fff" stroke-width="2"><circle cx="0" cy="0" r="40"/><circle cx="300" cy="150" r="60"/><circle cx="240" cy="30" r="22"/><circle cx="240" cy="30" r="10"/></g></svg>';
+
+  function hoodArt(id) {
+    var pid = 't-' + String(id).replace(/[^a-z0-9_-]/gi, '');
+    return '<svg class="deco" viewBox="0 0 400 380" preserveAspectRatio="xMidYMid slice"><defs><pattern id="' + pid + '" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="16" fill="none" stroke="#fff" stroke-width="1.5" opacity=".35"/><circle cx="0" cy="0" r="10" fill="#fff" opacity=".18"/><circle cx="60" cy="60" r="10" fill="#fff" opacity=".18"/></pattern></defs><rect width="400" height="380" fill="url(#' + pid + ')"/></svg>';
+  }
+
+  function safeGradient(bg) {
+    return typeof bg === 'string' && /^linear-gradient\([^;{}<>]*\)$/.test(bg) ? bg : '';
+  }
+  function safeHex(c) {
+    return typeof c === 'string' && /^#[0-9A-Fa-f]{3,8}$/.test(c) ? c : '#1F4E9C';
+  }
+
+  /* ---------- facts & tips ---------- */
+  if (isArr(D.facts)) {
+    var factsEl = el('facts');
+    if (factsEl) {
+      factsEl.innerHTML = D.facts.map(function (f) {
+        var price = priceHTML(f && f.price);
+        return '<div class="fact reveal"><div class="k">' + esc(f && f.k) + '</div><div class="v">' + esc(f && f.v) + '</div><p>' + esc(f && f.p) + (price ? ' ' + price : '') + '</p></div>';
+      }).join('');
+    }
+  }
+  if (isArr(D.tips)) {
+    var tipsEl = el('tips');
+    if (tipsEl) {
+      tipsEl.innerHTML = D.tips.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
+    }
+  }
+
+  /* ---------- tabs (roving tabindex, arrows activate) ---------- */
+  function bindTabs(tabs, onShow) {
+    if (!tabs.length) return;
+    function apply(index, focus) {
+      tabs.forEach(function (tab, i) {
+        var on = i === index;
+        tab.classList.toggle('active', on);
+        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+        tab.tabIndex = on ? 0 : -1;
+      });
+      onShow(tabs[index], index);
+      if (focus) tabs[index].focus();
+    }
+    tabs.forEach(function (tab, i) {
+      tab.tabIndex = i === 0 ? 0 : -1;
+      tab.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      tab.addEventListener('click', function () { apply(i, false); });
+    });
+    var list = tabs[0].parentElement;
+    if (list) {
+      list.addEventListener('keydown', function (e) {
+        var key = e.key;
+        if (key !== 'ArrowLeft' && key !== 'ArrowRight' && key !== 'Home' && key !== 'End') return;
+        var cur = tabs.indexOf(document.activeElement);
+        if (cur < 0) return;
+        e.preventDefault();
+        var next = cur;
+        if (key === 'ArrowLeft') next = (cur - 1 + tabs.length) % tabs.length;
+        else if (key === 'ArrowRight') next = (cur + 1) % tabs.length;
+        else if (key === 'Home') next = 0;
+        else next = tabs.length - 1;
+        apply(next, true);
+      });
+    }
+    onShow(tabs[0], 0);
+  }
+
+  function replay(node) {
+    if (!node) return;
+    node.style.animation = 'none';
+    void node.offsetWidth;
+    node.style.animation = '';
+  }
+
+  /* ---------- neighborhoods ---------- */
+  if (isArr(D.hoods)) {
+    var tabHost = el('hood-tabs');
+    var hoodHost = el('hoods');
+    if (tabHost && hoodHost) {
+      tabHost.innerHTML = D.hoods.map(function (h, i) {
+        var id = esc(h && h.id);
+        return '<button type="button" class="tab' + (i ? '' : ' active') + '" role="tab" data-hood="' + id + '" aria-selected="' + (i ? 'false' : 'true') + '" aria-controls="hood-' + id + '" id="tab-hood-' + id + '">' + esc(h && h.name) + '</button>';
+      }).join('');
+      hoodHost.innerHTML = D.hoods.map(function (h, i) {
+        var id = esc(h && h.id);
+        var vibe = (h && h.vibe || []).map(function (v) { return '<span class="pill">' + esc(v) + '</span>'; }).join('');
+        var dl = (h && h.dl || []).map(function (pair) {
+          var a = pair && pair[0], b = pair && pair[1];
+          return '<dt>' + esc(a) + '</dt><dd>' + esc(b) + '</dd>';
+        }).join('');
+        var bg = safeGradient(h && h.bg);
+        return '<article class="hood' + (i ? '' : ' active') + '" id="hood-' + id + '" role="tabpanel" aria-labelledby="tab-hood-' + id + '">' +
+          '<div class="hood-art"' + (bg ? ' style="background:' + bg + '"' : '') + '>' + hoodArt(h && h.id) + '<div class="big">' + esc(h && h.pt) + '</div></div>' +
+          '<div class="hood-body"><h3>' + esc(h && h.name) + '</h3><div class="vibe">' + vibe + '<span class="pill y">' + esc(h && h.tag) + '</span></div><p>' + esc(h && h.desc) + '</p><dl>' + dl + '</dl></div></article>';
+      }).join('');
+      bindTabs([].slice.call(tabHost.querySelectorAll('.tab')), function (tab) {
+        var id = tab.getAttribute('data-hood');
+        [].forEach.call(hoodHost.querySelectorAll('.hood'), function (node) {
+          var on = node.id === 'hood-' + id;
+          node.classList.toggle('active', on);
+          if (on) replay(node);
+        });
+      });
+    }
+  }
+
+  /* ---------- sights ---------- */
+  if (isArr(D.sights)) {
+    var sightsEl = el('sights');
+    if (sightsEl) {
+      sightsEl.innerHTML = D.sights.map(function (s) {
+        var g0 = safeHex(s && s.g && s.g[0]);
+        var g1 = safeHex(s && s.g && s.g[1]);
+        var price = priceHTML(s && s.price, '门票 ');
+        var hours = '';
+        if (s && (s.hours || s.closed)) {
+          var line = s.hours ? ('开放 ' + s.hours) : '';
+          if (s.closed) line += (line ? ' · ' : '') + s.closed + (/闭馆|重开/.test(s.closed) ? '' : '闭馆');
+          hours = '<div class="hours">' + esc(line) + '</div>';
+        }
+        return '<article class="sight reveal" data-c="' + esc(s && s.c) + '">' +
+          '<div class="ph" style="background:linear-gradient(135deg,' + g0 + ',' + g1 + ')">' + SIGHT_DECO +
+          '<span class="cat">' + esc(s && s.c) + '</span><span class="lbl">' + esc(s && s.pt) + '</span></div>' +
+          '<div class="bd"><h4>' + esc(s && s.n) + '</h4><p>' + esc(s && s.d) + '</p>' +
+          hours + '<div class="meta"><span>📍 ' + esc(s && s.a) + '</span><span>' + price + '</span></div></div></article>';
+      }).join('');
+    }
+  }
+  if (isArr(D.cats) && el('chips') && el('sights')) {
+    var chipsEl = el('chips');
+    var cards = [].slice.call(el('sights').querySelectorAll('.sight'));
+    chipsEl.innerHTML = D.cats.map(function (c, i) {
+      var n = c === '全部' ? cards.length : cards.filter(function (card) { return card.getAttribute('data-c') === c; }).length;
+      return '<button type="button" class="chip' + (i ? '' : ' active') + '" data-c="' + esc(c) + '" aria-pressed="' + (i ? 'false' : 'true') + '">' + esc(c) + '<span class="n">' + n + '</span></button>';
+    }).join('');
+    chipsEl.addEventListener('click', function (e) {
+      var b = e.target.closest('.chip');
+      if (!b || !chipsEl.contains(b)) return;
+      [].forEach.call(chipsEl.querySelectorAll('.chip'), function (x) {
+        var on = x === b;
+        x.classList.toggle('active', on);
+        x.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      var cat = b.getAttribute('data-c');
+      cards.forEach(function (card) {
+        card.classList.toggle('hide', cat !== '全部' && card.getAttribute('data-c') !== cat);
+      });
+    });
+  }
+
+  /* ---------- foods ---------- */
+  if (isArr(D.foods)) {
+    var foodsEl = el('foods');
+    if (foodsEl) {
+      foodsEl.innerHTML = D.foods.map(function (f) {
+        var icon = ICONS[f && f.icon] || '';
+        var price = priceHTML(f && f.price, ' · ');
+        return '<div class="food reveal"><div class="ic">' + icon + '</div><h4>' + esc(f && f.n) + '</h4><div class="pt">' + esc(f && f.pt) + '</div><p>' + esc(f && f.d) + '</p><div class="where">📍 ' + esc(f && f.where) + (price ? ' ' + price : '') + '</div></div>';
+      }).join('');
+    }
+  }
+
+  /* ---------- itinerary ---------- */
+  if (isArr(D.days)) {
+    var dayTabs = el('day-tabs');
+    var tls = el('timelines');
+    if (dayTabs && tls) {
+      dayTabs.innerHTML = D.days.map(function (d, i) {
+        var n = d && d.day;
+        return '<button type="button" class="day' + (i ? '' : ' active') + '" role="tab" data-day="' + esc(n) + '" aria-selected="' + (i ? 'false' : 'true') + '" aria-controls="tl-' + esc(n) + '" id="tab-day-' + esc(n) + '"><b>' + esc(d && d.title) + '</b><span>' + esc(d && d.sub) + '</span></button>';
+      }).join('');
+      tls.innerHTML = D.days.map(function (d, i) {
+        var n = esc(d && d.day);
+        var stops = (d && d.stops || []).map(function (s) {
+          return '<div class="stop"><div class="t">' + esc(s && s.t) + '</div><div class="c"><h5>' + esc(s && s.h) + '</h5><p>' + esc(s && s.p) + '</p></div></div>';
+        }).join('');
+        return '<div class="timeline' + (i ? '' : ' active') + '" id="tl-' + n + '" role="tabpanel" aria-labelledby="tab-day-' + n + '">' + stops + '</div>';
+      }).join('');
+      bindTabs([].slice.call(dayTabs.querySelectorAll('.day')), function (tab) {
+        var n = tab.getAttribute('data-day');
+        [].forEach.call(tls.querySelectorAll('.timeline'), function (node) {
+          var on = node.id === 'tl-' + n;
+          node.classList.toggle('active', on);
+          if (on) replay(node);
+        });
+      });
+    }
+  }
+
+  /* ---------- map ---------- */
+  var pins = isArr(D.pins) ? D.pins : null;
+  var pinsG = el('pins');
+  var svg = el('mapsvg');
+  var mapview = el('mapview');
+  if (pins && pinsG) {
+    pinsG.innerHTML = pins.map(function (p, i) {
+      var x = Number(p && p.x) || 0;
+      var y = Number(p && p.y) || 0;
+      return '<g class="pin" data-i="' + i + '" tabindex="0" role="button" aria-label="' + esc(p && p.h) + '" transform="translate(' + x + ' ' + y + ')">' +
+        '<circle class="hit" r="22" fill="transparent"/><circle class="ring" r="12"/><circle class="dot" r="10" fill="#1F4E9C" stroke="#fff" stroke-width="3"/><text x="16" y="-10">' + esc(p && p.s) + '</text></g>';
+    }).join('');
+  }
+
+  function setText(id, value) {
+    var node = el(id);
+    if (node) node.textContent = value == null ? '' : String(value);
+  }
+
+  var didCenterPin = false;
+  function selectPin(i) {
+    if (!pins || !pins[i]) return;
+    var p = pins[i];
+    if (pinsG) {
+      [].forEach.call(pinsG.querySelectorAll('.pin'), function (g) {
+        g.classList.toggle('active', +g.getAttribute('data-i') === i);
+      });
+    }
+    setText('mi-k', p.k);
+    setText('mi-h', p.h);
+    setText('mi-pt', p.pt);
+    setText('mi-p', p.p);
+    if (!didCenterPin && mapview && mapview.classList.contains('zoomed') && window.matchMedia('(max-width: 700px)').matches) {
+      didCenterPin = true;
+      centerOn(Number(p.x) || 0, Number(p.y) || 0);
+    }
+  }
+
+  if (pinsG) {
+    pinsG.addEventListener('click', function (e) {
+      if (suppressClick) { suppressClick = false; return; }
+      var g = e.target.closest && e.target.closest('.pin');
+      if (g) selectPin(+g.getAttribute('data-i'));
+    });
+    pinsG.addEventListener('keydown', function (e) {
+      var g = e.target.closest && e.target.closest('.pin');
+      if (!g) return;
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectPin(+g.getAttribute('data-i'));
+      }
+    });
+  }
+
+  var BASE_W = 800, BASE_H = 500, MIN_W = BASE_W / 4;
+  var vb = { x: 0, y: 0, w: BASE_W, h: BASE_H };
+  var suppressClick = false;
+
+  function applyVB() {
+    if (!svg) return;
+    vb.w = Math.max(MIN_W, Math.min(BASE_W, vb.w));
+    vb.h = vb.w * (BASE_H / BASE_W);
+    if (vb.w >= BASE_W - 0.01) {
+      vb.x = 0; vb.y = 0; vb.w = BASE_W; vb.h = BASE_H;
+    } else {
+      if (vb.x < 0) vb.x = 0;
+      if (vb.y < 0) vb.y = 0;
+      if (vb.x + vb.w > BASE_W) vb.x = BASE_W - vb.w;
+      if (vb.y + vb.h > BASE_H) vb.y = BASE_H - vb.h;
+    }
+    svg.setAttribute('viewBox', vb.x + ' ' + vb.y + ' ' + vb.w + ' ' + vb.h);
+    var zoomed = vb.w < BASE_W - 0.5;
+    if (mapview) {
+      mapview.classList.toggle('zoomed', zoomed);
+      mapview.style.touchAction = zoomed ? 'none' : 'pan-y';
+    }
+    if (svg) svg.style.touchAction = zoomed ? 'none' : 'pan-y';
+  }
+
+  function zoomAt(factor, ox, oy) {
+    var w = vb.w / factor;
+    if (w < MIN_W) w = MIN_W;
+    if (w > BASE_W) w = BASE_W;
+    var h = w * (BASE_H / BASE_W);
+    var relX = (ox - vb.x) / vb.w;
+    var relY = (oy - vb.y) / vb.h;
+    vb.w = w;
+    vb.h = h;
+    vb.x = ox - relX * w;
+    vb.y = oy - relY * h;
+    applyVB();
+  }
+
+  function centerOn(x, y) {
+    vb.x = x - vb.w / 2;
+    vb.y = y - vb.h / 2;
+    applyVB();
+  }
+
+  function clientToSvg(cx, cy) {
+    if (!svg || !svg.createSVGPoint || !svg.getScreenCTM) {
+      return { x: vb.x + vb.w / 2, y: vb.y + vb.h / 2 };
+    }
+    var pt = svg.createSVGPoint();
+    pt.x = cx;
+    pt.y = cy;
+    var ctm = svg.getScreenCTM();
+    if (!ctm) return { x: vb.x + vb.w / 2, y: vb.y + vb.h / 2 };
+    var p = pt.matrixTransform(ctm.inverse());
+    return { x: p.x, y: p.y };
+  }
+
+  if (svg && mapview) {
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    applyVB();
+
+    var ctrl = mapview.querySelector('.map-ctrl');
+    if (ctrl) {
+      ctrl.addEventListener('click', function (e) {
+        var b = e.target.closest && e.target.closest('button');
+        if (!b) return;
+        var z = b.getAttribute('data-zoom');
+        var cx = vb.x + vb.w / 2;
+        var cy = vb.y + vb.h / 2;
+        if (z === 'in') zoomAt(1.25, cx, cy);
+        else if (z === 'out') zoomAt(1 / 1.25, cx, cy);
+        else if (z === 'reset') { vb = { x: 0, y: 0, w: BASE_W, h: BASE_H }; applyVB(); }
+      });
+    }
+
+    svg.addEventListener('wheel', function (e) {
+      var zoomed = mapview.classList.contains('zoomed');
+      if (!e.ctrlKey && !zoomed) return;
+      e.preventDefault();
+      var pt = clientToSvg(e.clientX, e.clientY);
+      var dy = e.deltaY;
+      if (e.deltaMode === 1) dy *= 16;
+      else if (e.deltaMode === 2) dy *= 400;
+      var factor = dy < 0 ? 1.12 : (1 / 1.12);
+      zoomAt(factor, pt.x, pt.y);
+    }, { passive: false });
+
+    var ptrs = new Map();
+    var drag = null;
+    var pinch = null;
+
+    function ptrPos(id) { return ptrs.get(id); }
+
+    mapview.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (ptrs.size >= 2) {
+        var pts = [];
+        ptrs.forEach(function (p) { pts.push(p); });
+        var a = pts[0], b = pts[1];
+        var mid = clientToSvg((a.x + b.x) / 2, (a.y + b.y) / 2);
+        pinch = {
+          dist: Math.hypot(a.x - b.x, a.y - b.y) || 1,
+          mid: mid,
+          base: { x: vb.x, y: vb.y, w: vb.w, h: vb.h }
+        };
+        drag = null;
+      } else if (mapview.classList.contains('zoomed')) {
+        drag = { x: e.clientX, y: e.clientY, ox: vb.x, oy: vb.y, moved: 0 };
+        pinch = null;
+      }
+    });
+
+    mapview.addEventListener('pointermove', function (e) {
+      if (!ptrs.has(e.pointerId)) return;
+      ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (ptrs.size >= 2 && pinch) {
+        var pts = [];
+        ptrs.forEach(function (p) { pts.push(p); });
+        var a = pts[0], b = pts[1];
+        var dist = Math.hypot(a.x - b.x, a.y - b.y) || 1;
+        var factor = dist / pinch.dist;
+        var base = pinch.base;
+        var w = base.w / factor;
+        if (w < MIN_W) w = MIN_W;
+        if (w > BASE_W) w = BASE_W;
+        var h = w * (BASE_H / BASE_W);
+        var ox = pinch.mid.x, oy = pinch.mid.y;
+        var relX = (ox - base.x) / base.w;
+        var relY = (oy - base.y) / base.h;
+        vb.w = w; vb.h = h;
+        vb.x = ox - relX * w;
+        vb.y = oy - relY * h;
+        applyVB();
+        e.preventDefault();
+        return;
+      }
+      if (drag && mapview.classList.contains('zoomed')) {
+        var rect = svg.getBoundingClientRect();
+        var dx = e.clientX - drag.x;
+        var dy = e.clientY - drag.y;
+        drag.moved += Math.hypot(dx, dy);
+        if (drag.moved < 6) return; // not a drag yet: let taps reach the pins
+        if (!drag.captured && mapview.setPointerCapture) {
+          drag.captured = true;
+          try { mapview.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
+        }
+        var sx = rect.width ? vb.w / rect.width : 1;
+        var sy = rect.height ? vb.h / rect.height : 1;
+        vb.x = drag.ox - dx * sx;
+        vb.y = drag.oy - dy * sy;
+        applyVB();
+        drag.ox = vb.x;
+        drag.oy = vb.y;
+        drag.x = e.clientX;
+        drag.y = e.clientY;
+        e.preventDefault();
+      }
+    });
+
+    function endPtr(e) {
+      var was = drag;
+      ptrs.delete(e.pointerId);
+      if (ptrs.size < 2) pinch = null;
+      if (ptrs.size === 0) {
+        if (was && was.moved > 6) {
+          suppressClick = true;
+          setTimeout(function () { suppressClick = false; }, 0);
+        }
+        drag = null;
+      } else if (ptrs.size === 1 && mapview.classList.contains('zoomed')) {
+        var rest = null;
+        ptrs.forEach(function (p) { rest = p; });
+        drag = { x: rest.x, y: rest.y, ox: vb.x, oy: vb.y, moved: 0 };
+      }
+    }
+    mapview.addEventListener('pointerup', endPtr);
+    mapview.addEventListener('pointercancel', endPtr);
+  }
+
+  /* ---------- footer ---------- */
+  if (isArr(D.info)) {
+    var grid = el('info-grid');
+    if (grid) {
+      grid.innerHTML = D.info.map(function (col) {
+        var tag = col && col.demo ? ' <span class="tag-demo">示例</span>' : '';
+        var items = (col && col.items || []).map(function (it) { return '<li>' + esc(it) + '</li>'; }).join('');
+        return '<div><h4>' + esc(col && col.title) + tag + '</h4><ul>' + items + '</ul></div>';
+      }).join('');
+    }
+  }
+  if (D.updated != null) setText('updated', D.updated);
+
+  /* ---------- reveal, nav, totop ---------- */
+  var reduce = false;
+  try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (err) { reduce = false; }
+  var staticMode = false;
+  try { staticMode = new URLSearchParams(location.search).has('static'); } catch (err2) { staticMode = false; }
+
+  var reveals = [].slice.call(document.querySelectorAll('.reveal'));
+  if (reduce || staticMode) {
+    reveals.forEach(function (node) { node.classList.add('in'); });
+  } else if ('IntersectionObserver' in window) {
+    var ro = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        ro.unobserve(en.target);
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(function (node) { ro.observe(node); });
+  } else {
+    reveals.forEach(function (node) { node.classList.add('in'); });
+  }
+
+  var links = [].slice.call(document.querySelectorAll('.nav a.lnk'));
+  function setCurrent(id) {
+    links.forEach(function (l) {
+      var on = l.getAttribute('href') === '#' + id;
+      l.classList.toggle('active', on);
+      if (on) l.setAttribute('aria-current', 'true');
+      else l.removeAttribute('aria-current');
+    });
+  }
+  if ('IntersectionObserver' in window && links.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        setCurrent(en.target.id);
+        var a = links.filter(function (l) { return l.classList.contains('active'); })[0];
+        // scroll only the nav strip horizontally; scrollIntoView would cancel the page's smooth scroll
+        var ul = a && a.parentNode && a.parentNode.parentNode;
+        if (ul && ul.scrollWidth > ul.clientWidth) ul.scrollTo({ left: a.offsetLeft - (ul.clientWidth - a.offsetWidth) / 2, behavior: 'auto' });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    [].forEach.call(document.querySelectorAll('section[id], footer[id]'), function (s) { io.observe(s); });
+  }
+
+  function navOffset() {
+    var nav = document.querySelector('.nav');
+    return nav ? nav.offsetHeight : 60;
+  }
+  [].forEach.call(document.querySelectorAll('a[href^="#"]'), function (a) {
+    a.addEventListener('click', function (e) {
+      var href = a.getAttribute('href');
+      if (!href || href === '#') return;
+      var target = el(href.slice(1));
+      if (!target) return;
+      e.preventDefault();
+      var top = target.getBoundingClientRect().top + window.scrollY - navOffset() - 8;
+      if (top < 0) top = 0;
+      window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
+
+  var tt = el('totop');
+  if (tt) {
+    window.addEventListener('scroll', function () {
+      tt.classList.toggle('show', window.scrollY > 700);
+    }, { passive: true });
+    tt.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  }
+})();
+</script>
+</body>
+</html>

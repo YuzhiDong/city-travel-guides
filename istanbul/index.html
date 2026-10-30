@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>伊斯坦布尔：坐渡轮，在两大洲之间过三天</title>
+  <style>
+    :root {
+      --cobalt: #1F3F8F;
+      --turquoise: #2A9D9A;
+      --tulip: #C8102E;
+      --saffron: #E0A526;
+      --porcelain: #F7F9FC;
+      --ink: #14213D;
+      --border-tint: #D5E0EE;
+      --surface-tint: #EEF3F9;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--porcelain);
+      color: var(--ink);
+      font-family: "PingFang SC", "Noto Sans CJK SC", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: "Songti SC", "Noto Serif CJK SC", serif;
+      color: var(--cobalt);
+      margin-top: 0;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      max-width: 38em;
+    }
+
+    a {
+      color: var(--turquoise);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--cobalt);
+      outline-offset: 3px;
+    }
+
+    /* 首屏：通栏海峡插画与标题 */
+    #hero {
+      width: 100%;
+      padding-bottom: 1.5rem;
+    }
+
+    .skyline-wrap {
+      width: 100%;
+      overflow: hidden;
+      border-bottom: 2px solid var(--cobalt);
+      background-color: var(--cobalt);
+    }
+
+    #skyline {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      min-height: 210px;
+      object-fit: cover;
+    }
+
+    /* 渡轮单次横渡动画：约 6 秒从欧洲岸驶向亚洲岸 */
+    @keyframes cross-bosphorus {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(520px);
+      }
+    }
+
+    #ferry {
+      animation: cross-bosphorus 6s cubic-bezier(0.25, 0.1, 0.25, 1) 1 forwards;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #ferry {
+        animation: none !important;
+        transform: translateX(240px);
+      }
+    }
+
+    .hero-header {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.25rem 1.25rem 0.5rem;
+      text-align: left;
+    }
+
+    .hero-header h1 {
+      font-size: clamp(1.65rem, 4vw, 2.35rem);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+      text-wrap: balance;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--ink);
+      margin-bottom: 0;
+      max-width: 38em;
+    }
+
+    /* 主体单栏容器 */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    section {
+      padding: 1.5rem 0;
+      text-align: left;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-lead {
+      margin-bottom: 1.5rem;
+      color: var(--ink);
+    }
+
+    /* 伊兹尼克瓷砖花纹 SVG 分隔带 */
+    .iznik-divider {
+      width: 100%;
+      height: 24px;
+      margin: 0.5rem 0;
+      display: block;
+    }
+
+    /* 三天行程 (#days) */
+    .day-block {
+      padding: 1.25rem 0 1.5rem;
+      border-top: 1px solid var(--border-tint);
+    }
+
+    .day-block:first-of-type {
+      border-top: none;
+      padding-top: 0.25rem;
+    }
+
+    .day-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.65rem;
+      margin-bottom: 1rem;
+    }
+
+    .day-header h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0;
+    }
+
+    .day-route {
+      font-size: 0.95rem;
+      color: var(--turquoise);
+      font-weight: 500;
+    }
+
+    .period-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .period-item {
+      display: grid;
+      grid-template-columns: 3.5rem 1fr;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      align-items: baseline;
+    }
+
+    .period-time {
+      font-family: "Songti SC", "Noto Serif CJK SC", serif;
+      font-weight: 700;
+      color: var(--cobalt);
+    }
+
+    .period-desc {
+      margin: 0;
+      max-width: 38em;
+    }
+
+    .transit-note {
+      margin-top: 0.85rem;
+      margin-bottom: 0;
+      padding: 0.65rem 0.9rem;
+      background-color: var(--surface-tint);
+      border-left: 3px solid var(--turquoise);
+      font-size: 0.95rem;
+      max-width: 38em;
+    }
+
+    /* 两岸街区 (#sides) */
+    .side-switcher {
+      display: inline-flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      padding: 0.25rem;
+      background-color: var(--surface-tint);
+      border: 1px solid var(--border-tint);
+    }
+
+    .side-btn {
+      appearance: none;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--ink);
+      font-family: "PingFang SC", "Noto Sans CJK SC", sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.45rem 1.15rem;
+      cursor: pointer;
+    }
+
+    .side-btn[aria-pressed="true"] {
+      background-color: var(--tulip);
+      color: var(--porcelain);
+    }
+
+    .side-btn[aria-pressed="false"]:hover {
+      border-color: var(--cobalt);
+      color: var(--cobalt);
+    }
+
+    .neighborhood-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .neighborhood-card {
+      padding: 1rem 0 1.25rem;
+      border-top: 1px solid var(--border-tint);
+    }
+
+    .neighborhood-card[hidden] {
+      display: none !important;
+    }
+
+    .neighborhood-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .neighborhood-card p {
+      margin-bottom: 0.4rem;
+    }
+
+    .suitability {
+      font-size: 0.92rem;
+      color: var(--cobalt);
+      margin-bottom: 0;
+    }
+
+    /* 必吃清单 (#food) */
+    .food-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .food-item {
+      padding: 1rem 0;
+      border-top: 1px solid var(--border-tint);
+    }
+
+    .food-item:first-child {
+      border-top: none;
+      padding-top: 0.25rem;
+    }
+
+    .food-title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .food-title h3 {
+      font-size: 1.12rem;
+      margin-bottom: 0;
+    }
+
+    .food-tr {
+      font-size: 0.95rem;
+      color: var(--turquoise);
+      font-weight: 500;
+    }
+
+    .food-when {
+      margin-bottom: 0;
+      max-width: 38em;
+    }
+
+    /* 实用贴士 (#tips) */
+    .tips-group {
+      border-top: 1px solid var(--border-tint);
+    }
+
+    .tip-entry {
+      border-bottom: 1px solid var(--border-tint);
+    }
+
+    .tip-entry summary {
+      padding: 0.95rem 0;
+      font-family: "Songti SC", "Noto Serif CJK SC", serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cobalt);
+      cursor: pointer;
+      list-style-position: inside;
+    }
+
+    .tip-entry summary:hover {
+      color: var(--turquoise);
+    }
+
+    .tip-body {
+      padding: 0 0 1rem 0;
+    }
+
+    .tip-body p {
+      margin-bottom: 0;
+    }
+
+    /* 页脚 */
+    footer {
+      max-width: 760px;
+      margin: 1rem auto 0;
+      padding: 1.5rem 1.25rem 3rem;
+      font-size: 0.9rem;
+      color: var(--ink);
+      text-align: left;
+    }
+
+    @media (max-width: 480px) {
+      .hero-header {
+        padding: 1.5rem 1rem 0.5rem;
+      }
+
+      main {
+        padding: 0 1rem;
+      }
+
+      .period-item {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+      }
+
+      footer {
+        padding: 1.25rem 1rem 2.5rem;
+      }
+    }
+  h1,h2{text-wrap:balance}p{text-wrap:pretty}
+</style>
+</head>
+<body>
+
+  <!-- 共享伊兹尼克瓷砖花纹定义（八角星与郁金香几何纹） -->
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+    <defs>
+      <pattern id="iznik-pattern" x="0" y="0" width="48" height="24" patternUnits="userSpaceOnUse">
+        <!-- 细边线 -->
+        <line x1="0" y1="1" x2="48" y2="1" stroke="#1F3F8F" stroke-width="1" stroke-opacity="0.35" />
+        <line x1="0" y1="23" x2="48" y2="23" stroke="#1F3F8F" stroke-width="1" stroke-opacity="0.35" />
+        <!-- 伊兹尼克八角星 (Seljuk Star) -->
+        <rect x="7" y="7" width="10" height="10" fill="none" stroke="#1F3F8F" stroke-width="1.2" />
+        <rect x="7" y="7" width="10" height="10" fill="none" stroke="#2A9D9A" stroke-width="1.2" transform="rotate(45 12 12)" />
+        <circle cx="12" cy="12" r="2" fill="#C8102E" />
+        <!-- 几何郁金香与绿松石菱形点缀 -->
+        <path d="M36 5 C33.5 9, 32.5 13, 36 17 C39.5 13, 38.5 9, 36 5 Z" fill="none" stroke="#2A9D9A" stroke-width="1.2" />
+        <path d="M33 10 Q36 14 39 10" fill="none" stroke="#1F3F8F" stroke-width="1.1" />
+        <circle cx="36" cy="19" r="1.3" fill="#1F3F8F" />
+        <circle cx="24" cy="12" r="1.3" fill="#2A9D9A" />
+        <circle cx="48" cy="12" r="1.3" fill="#2A9D9A" />
+      </pattern>
+    </defs>
+  </svg>
+
+  <header id="hero">
+    <div class="skyline-wrap">
+      <svg id="skyline" viewBox="0 0 1200 360" preserveAspectRatio="xMidYMid slice" role="img" aria-label="博斯普鲁斯海峡两岸剪影与横渡海峡的渡轮">
+        <defs>
+          <!-- 日落天空渐变：伊兹尼克钴蓝过渡至藏红花金 -->
+          <linearGradient id="sky-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#1F3F8F" />
+            <stop offset="52%" stop-color="#5E6E9E" />
+            <stop offset="100%" stop-color="#E0A526" />
+          </linearGradient>
+          <!-- 博斯普鲁斯海峡水面渐变 -->
+          <linearGradient id="sea-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#2A9D9A" />
+            <stop offset="100%" stop-color="#1A7478" />
+          </linearGradient>
+        </defs>
+
+        <!-- 天空与落日余晖 -->
+        <rect x="0" y="0" width="1200" height="235" fill="url(#sky-grad)" />
+        <circle cx="640" cy="185" r="46" fill="#E0A526" opacity="0.55" />
+
+        <!-- 远景地平线薄雾 -->
+        <path d="M0 235 L480 218 L600 235 L760 222 L1200 235 Z" fill="#1F3F8F" opacity="0.35" />
+
+        <!-- 左岸：欧洲岸剪影（苏丹艾哈迈德清真寺圆顶、细高宣礼塔、加拉塔塔） -->
+        <g id="europe-bank" fill="#14213D">
+          <!-- 老城基座与城墙坡地 -->
+          <path d="M0 236 L0 198 L35 198 L45 190 L265 190 L290 205 L360 205 L430 175 L515 236 Z" />
+
+          <!-- 第一座細高宣礼塔 -->
+          <rect x="52" y="96" width="5" height="98" />
+          <rect x="50" y="122" width="9" height="3" />
+          <rect x="50" y="150" width="9" height="3" />
+          <polygon points="52,96 54.5,72 57,96" />
+
+          <!-- 蓝色清真寺与圣索菲亚层叠大圆顶与半圆顶 -->
+          <path d="M72 192 A26 24 0 0 1 118 192 Z" />
+          <path d="M98 192 A48 44 0 0 1 194 192 Z" />
+          <path d="M122 156 A24 18 0 0 1 170 156 Z" />
+          <!-- 穹顶新月标 -->
+          <line x1="146" y1="130" x2="146" y2="140" stroke="#E0A526" stroke-width="2" />
+          <path d="M178 192 A26 24 0 0 1 224 192 Z" />
+
+          <!-- 第二座细高宣礼塔 -->
+          <rect x="232" y="88" width="5" height="104" />
+          <rect x="230" y="114" width="9" height="3" />
+          <rect x="230" y="144" width="9" height="3" />
+          <polygon points="232,88 234.5,64 237,88" />
+
+          <!-- 第三座宣礼塔（远景） -->
+          <rect x="272" y="118" width="4" height="88" />
+          <polygon points="272,118 274,98 276,118" />
+
+          <!-- 金角湾对岸的加拉塔塔（圆柱塔身、观景廊与锥形尖顶） -->
+          <rect x="386" y="116" width="24" height="72" />
+          <rect x="383" y="113" width="30" height="5" />
+          <polygon points="384,113 398,74 412,113" />
+          <line x1="398" y1="64" x2="398" y2="74" stroke="#14213D" stroke-width="2" />
+          <!-- 加拉塔山坡阶梯屋顶 -->
+          <rect x="355" y="182" width="26" height="28" />
+          <rect x="415" y="176" width="28" height="34" />
+          <rect x="446" y="188" width="24" height="28" />
+          <rect x="473" y="198" width="22" height="26" />
+          <!-- 老城温暖窗光 -->
+          <rect x="395" y="126" width="3" height="6" fill="#E0A526" />
+          <rect x="401" y="126" width="3" height="6" fill="#E0A526" />
+          <rect x="424" y="186" width="4" height="5" fill="#E0A526" />
+        </g>
+
+        <!-- 右岸：亚洲岸剪影（于斯屈达尔与卡德柯伊低矮房屋、岸边小码头与少女塔） -->
+        <g id="asia-bank" fill="#14213D">
+          <!-- 近岸礁石上的少女塔（Kız Kulesi） -->
+          <path d="M778 236 L786 227 L812 227 L820 236 Z" />
+          <rect x="794" y="202" width="10" height="25" />
+          <rect x="792" y="199" width="14" height="4" />
+          <polygon points="793,199 799,187 805,199" />
+          <circle cx="799" cy="196" r="1.8" fill="#E0A526" />
+
+          <!-- 亚洲岸缓坡与成排低矮传统屋舍 -->
+          <path d="M835 236 L865 212 L1200 198 L1200 236 Z" />
+
+          <!-- 木结构老屋与斜顶民居群 -->
+          <rect x="875" y="196" width="30" height="26" />
+          <polygon points="872,196 890,183 908,196" />
+
+          <rect x="910" y="200" width="26" height="24" />
+          <polygon points="908,200 923,189 938,200" />
+
+          <rect x="942" y="192" width="34" height="30" />
+          <polygon points="939,192 959,179 979,192" />
+
+          <!-- 亚洲岸小清真寺低矮圆顶与单座短宣礼塔 -->
+          <path d="M988 206 A18 15 0 0 1 1024 206 Z" />
+          <rect x="1030" y="162" width="3.5" height="44" />
+          <polygon points="1030,162 1031.75,150 1033.5,162" />
+
+          <!-- 卡德柯伊一侧低矮街屋 -->
+          <rect x="1044" y="190" width="32" height="28" />
+          <polygon points="1041,190 1060,178 1079,190" />
+
+          <rect x="1082" y="195" width="28" height="25" />
+          <polygon points="1080,195 1096,184 1112,195" />
+
+          <rect x="1116" y="186" width="36" height="30" />
+          <polygon points="1113,186 1134,173 1155,186" />
+
+          <rect x="1158" y="192" width="34" height="28" />
+          <polygon points="1155,192 1175,180 1195,192" />
+
+          <!-- 亚洲岸人家灯火 -->
+          <rect x="886" y="202" width="4" height="5" fill="#E0A526" />
+          <rect x="954" y="198" width="4" height="5" fill="#E0A526" />
+          <rect x="962" y="198" width="4" height="5" fill="#E0A526" />
+          <rect x="1056" y="197" width="4" height="5" fill="#E0A526" />
+          <rect x="1130" y="194" width="4" height="5" fill="#E0A526" />
+          <rect x="1170" y="199" width="4" height="5" fill="#E0A526" />
+        </g>
+
+        <!-- 中间：博斯普鲁斯海峡水面 -->
+        <rect x="0" y="235" width="1200" height="125" fill="url(#sea-grad)" />
+
+        <!-- 水面波纹与夕阳倒影 -->
+        <g stroke="#F7F9FC" stroke-width="1.5" stroke-linecap="round" opacity="0.38">
+          <line x1="90" y1="262" x2="195" y2="262" />
+          <line x1="310" y1="285" x2="440" y2="285" />
+          <line x1="560" y1="258" x2="710" y2="258" />
+          <line x1="610" y1="274" x2="680" y2="274" stroke="#E0A526" stroke-width="2.5" opacity="0.8" />
+          <line x1="590" y1="292" x2="695" y2="292" stroke="#E0A526" stroke-width="2" opacity="0.65" />
+          <line x1="780" y1="312" x2="910" y2="312" />
+          <line x1="180" y1="326" x2="320" y2="326" />
+          <line x1="960" y1="276" x2="1090" y2="276" />
+        </g>
+
+        <!-- 博斯普鲁斯经典客轮 (#ferry)：从左岸驶向右岸 -->
+        <g id="ferry">
+          <!-- 船尾白浪 -->
+          <path d="M185 304 Q210 301 232 304" fill="none" stroke="#F7F9FC" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+          <!-- 墨蓝船体与护舷线 -->
+          <polygon points="228,292 342,292 332,305 236,305" fill="#14213D" />
+          <line x1="232" y1="296" x2="338" y2="296" stroke="#E0A526" stroke-width="1.8" />
+          <!-- 一层客舱（瓷白） -->
+          <rect x="240" y="280" width="86" height="12" rx="2" fill="#F7F9FC" />
+          <!-- 一层客舱玻璃窗 -->
+          <g fill="#1F3F8F">
+            <rect x="246" y="283" width="8" height="5" />
+            <rect x="258" y="283" width="8" height="5" />
+            <rect x="270" y="283" width="8" height="5" />
+            <rect x="282" y="283" width="8" height="5" />
+            <rect x="294" y="283" width="8" height="5" />
+            <rect x="306" y="283" width="8" height="5" />
+          </g>
+          <!-- 二层甲板客舱与驾驶室 -->
+          <rect x="252" y="270" width="60" height="10" rx="1.5" fill="#F7F9FC" />
+          <g fill="#1F3F8F">
+            <rect x="258" y="273" width="7" height="4" />
+            <rect x="269" y="273" width="7" height="4" />
+            <rect x="280" y="273" width="7" height="4" />
+            <rect x="291" y="273" width="7" height="4" />
+            <rect x="302" y="273" width="7" height="4" />
+          </g>
+          <!-- 郁金香红 (#C8102E) 标志性烟囱 -->
+          <rect x="277" y="256" width="11" height="14" fill="#C8102E" />
+          <rect x="277" y="256" width="11" height="3" fill="#14213D" />
+          <!-- 船首桅杆 -->
+          <line x1="318" y1="270" x2="318" y2="259" stroke="#F7F9FC" stroke-width="1.5" />
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-header">
+      <h1>伊斯坦布尔：坐渡轮，在两大洲之间过三天</h1>
+      <p class="hero-subtitle">这是一份写给初次造访者与携家带口旅人的慢节奏指南——不必赶路打卡，把公共交通换成博斯普鲁斯海峡的渡轮，在欧洲岸的宣礼塔与亚洲岸的集市茶座之间从容往返。</p>
+    </div>
+  </header>
+
+  <main>
+    <svg class="iznik-divider" aria-hidden="true">
+      <rect width="100%" height="24" fill="url(#iznik-pattern)" />
+    </svg>
+
+    <!-- 2. 三天行程 (#days) -->
+    <section id="days" aria-labelledby="heading-days">
+      <h2 id="heading-days">三天慢游行程</h2>
+      <p class="section-lead">每天只聚焦一片核心区域，留出充足的喝茶与歇脚时间，带老人或孩子也能轻松走完全程。</p>
+
+      <article class="day-block">
+        <div class="day-header">
+          <h3>第一天</h3>
+          <span class="day-route">老城苏丹艾哈迈德区与大巴扎周边</span>
+        </div>
+        <ul class="period-list">
+          <li class="period-item">
+            <span class="period-time">上午</span>
+            <p class="period-desc">在苏丹艾哈迈德广场趁早入场参观圣索菲亚与蓝色清真寺。清晨团队游客较少，殿内光线柔和，参观后可在广场长椅上买一个热芝麻圈歇脚。</p>
+          </li>
+          <li class="period-item">
+            <span class="period-time">下午</span>
+            <p class="period-desc">午饭后步入地下水宫，在幽暗凉爽的古罗马石柱与水影之间避开正午日晒，找一找柱础上的美杜莎石雕，孩子们通常会对水里的游鱼很感兴趣。</p>
+          </li>
+          <li class="period-item">
+            <span class="period-time">傍晚</span>
+            <p class="period-desc">沿着平缓的步道慢行至大巴扎附近，不必执着于在迷宫般的主廊深处购物，逛一逛外围的铜器铺、书市与老客栈庭院，在屋顶或巷口喝一杯热红茶看夕阳落入宣礼塔后。</p>
+          </li>
+        </ul>
+        <p class="transit-note">交通提示：老城核心景点彼此相距仅数百米，全天步行即可；从大巴扎返回酒店可搭乘路面有轨电车一号线，无需爬坡，对推婴儿车的家庭十分友好。</p>
+      </article>
+
+      <article class="day-block">
+        <div class="day-header">
+          <h3>第二天</h3>
+          <span class="day-route">加拉塔桥、加拉塔塔、独立大街与博斯普鲁斯海峡游船</span>
+        </div>
+        <ul class="period-list">
+          <li class="period-item">
+            <span class="period-time">上午</span>
+            <p class="period-desc">从老城步行走过横跨金角湾的加拉塔桥，看上层密密麻麻的垂钓者与水面上掠过的海鸥，过桥后在卡拉柯伊乘复古地下缆车或缓步上坡前往加拉塔塔，俯瞰金角湾与海峡交汇。</p>
+          </li>
+          <li class="period-item">
+            <span class="period-time">下午</span>
+            <p class="period-desc">沿着独立大街自南向北漫步，看红色复古叮当车缓缓驶过石板路面，随时拐进安静的侧巷书店、十九世纪拱廊街或甜品老铺歇脚。</p>
+          </li>
+          <li class="period-item">
+            <span class="period-time">傍晚</span>
+            <p class="period-desc">回到岸边码头坐博斯普鲁斯海峡游船。随着船身向北航行，两岸的奥斯曼滨水夏宫、木质别墅与跨海大桥在晚霞中次第展开，海风吹拂格外惬意。</p>
+          </li>
+        </ul>
+        <p class="transit-note">交通提示：从卡拉柯伊桥头前往加拉塔塔可搭乘古老的地下缆车，一两分钟即可免去陡坡；傍晚游船可直接在艾米诺努或卡拉柯伊码头刷交通卡或现场购票登船。</p>
+      </article>
+
+      <article class="day-block">
+        <div class="day-header">
+          <h3>第三天</h3>
+          <span class="day-route">坐渡轮去亚洲岸卡德柯伊、于斯屈达尔与少女塔日落</span>
+        </div>
+        <ul class="period-list">
+          <li class="period-item">
+            <span class="period-time">上午</span>
+            <p class="period-desc">坐渡轮去亚洲岸卡德柯伊逛市场。下船后步入热闹的本地集市，橄榄、蜂蜜、无花果、香料与海鲜摊位琳琅满目，找一家街角早餐店慢享丰盛的土耳其早餐。</p>
+          </li>
+          <li class="period-item">
+            <span class="period-time">下午</span>
+            <p class="period-desc">下午去于斯屈达尔，在海边的米赫里马赫苏丹清真寺与老街茶园间散步，感受比欧洲岸更舒缓、更贴近本地日常的生活气息。</p>
+          </li>
+          <li class="period-item">
+            <span class="period-time">傍晚</span>
+            <p class="period-desc">从于斯屈达尔水岸向南散步至萨拉贾克海滨步道，在岸边阶梯坐下，点一杯热红茶，静静看少女塔日落，目送对岸欧洲老城的天际线染上金红色的余晖。</p>
+          </li>
+        </ul>
+        <p class="transit-note">交通提示：欧洲岸的艾米诺努、卡拉柯伊与贝西克塔什码头每十几分钟就有发往卡德柯伊和于斯屈达尔的公共渡轮；看完日落后从于斯屈达尔坐渡轮或海底地铁马尔马拉线几分钟即可回到欧洲岸。</p>
+      </article>
+    </section>
+
+    <svg class="iznik-divider" aria-hidden="true">
+      <rect width="100%" height="24" fill="url(#iznik-pattern)" />
+    </svg>
+
+    <!-- 3. 两岸街区 (#sides) -->
+    <section id="sides" aria-labelledby="heading-sides">
+      <h2 id="heading-sides">两岸街区</h2>
+      <p class="section-lead">博斯普鲁斯海峡将城市自然分成两种性格：西侧的欧洲岸浓缩了帝国古迹与近代都会风貌，东侧的亚洲岸则保留着接地气的集市与看海看落日的绝佳视角。</p>
+
+      <div class="side-switcher" role="group" aria-label="切换欧洲岸与亚洲岸街区">
+        <button type="button" id="btn-europe" class="side-btn" aria-pressed="true">欧洲岸</button>
+        <button type="button" id="btn-asia" class="side-btn" aria-pressed="false">亚洲岸</button>
+      </div>
+
+      <div class="neighborhood-list">
+        <!-- 欧洲岸 3 个街区 -->
+        <article class="neighborhood-card" data-side="europe">
+          <h3>老城（苏丹艾哈迈德）</h3>
+          <p>拜占庭与奥斯曼帝国的千年都城中心，圣索菲亚、蓝色清真寺、托普卡帕宫与地下水宫都集中在这片平缓的半岛高地上。街巷古朴安静，清晨与傍晚散步尤有历史纵深感。</p>
+          <p class="suitability">适合谁去：第一次来伊斯坦布尔、希望少走弯路看核心古迹的家庭与长辈。</p>
+        </article>
+
+        <article class="neighborhood-card" data-side="europe">
+          <h3>加拉塔</h3>
+          <p>从金角湾北岸码头一路向上延伸到加拉塔塔脚下，既有百年渡轮码头与桥头鱼肉三明治摊的市井烟火，也有改建自老银行与仓库的独立书店、手工作坊和安静咖啡馆。</p>
+          <p class="suitability">适合谁去：喜欢边走边拍城市高低错落街景、想随时坐下来喝杯咖啡歇脚的旅人。</p>
+        </article>
+
+        <article class="neighborhood-card" data-side="europe">
+          <h3>贝伊奥卢</h3>
+          <p>十九世纪以来的欧洲使馆区与文化街区，红色复古电车穿行在长长的独立大街上，两侧藏着新艺术风格的铸铁拱廊、百年甜品铺、古董店与静谧的街心庭院。</p>
+          <p class="suitability">适合谁去：偏爱近代建筑风貌、想带孩子看叮当车并品尝传统甜点的游客。</p>
+        </article>
+
+        <!-- 亚洲岸 3 个街区 -->
+        <article class="neighborhood-card" data-side="asia" hidden>
+          <h3>卡德柯伊</h3>
+          <p>亚洲岸最具活力的生活街区，紧邻渡轮码头的露天市场终日飘着烤鱼、现磨咖啡与甜品的香气。没有紧凑的旅游景点，却处处是本地人采买、聚餐与喝茶的鲜活日常。</p>
+          <p class="suitability">适合谁去：热爱逛菜市场、想避开游客扎堆餐厅、体验地道市民美食的人。</p>
+        </article>
+
+        <article class="neighborhood-card" data-side="asia" hidden>
+          <h3>于斯屈达尔</h3>
+          <p>与欧洲老城隔海相望的传统街区，码头广场旁就坐落着精巧的海畔清真寺。沿着海岸往南走到少女塔对面的步道，能将整个欧洲岸的圆顶与宣礼塔尽收眼底。</p>
+          <p class="suitability">适合谁去：想在海边吹风散步、等待一场完整海峡日落的慢节奏旅人。</p>
+        </article>
+
+        <article class="neighborhood-card" data-side="asia" hidden>
+          <h3>莫达海滨</h3>
+          <p>从卡德柯伊市场往南慢走十几分钟就能抵达的宁静海滨住宅区，绿树成荫的街道通向开阔的滨海草坪与步道，街角常见手工冰淇淋铺和晒太阳的猫咪。</p>
+          <p class="suitability">适合谁去：带着孩子需要开阔草坪奔跑放松、追求安静海滨午后的家庭。</p>
+        </article>
+      </div>
+    </section>
+
+    <svg class="iznik-divider" aria-hidden="true">
+      <rect width="100%" height="24" fill="url(#iznik-pattern)" />
+    </svg>
+
+    <!-- 4. 必吃清单 (#food) -->
+    <section id="food" aria-labelledby="heading-food">
+      <h2 id="heading-food">必吃清单</h2>
+      <p class="section-lead">伊斯坦布尔的吃食跟着一天的时间走，从清晨渡轮上的芝麻香到入夜街头的柠檬青口，每一顿都有恰当的时刻。</p>
+
+      <ul class="food-list">
+        <li class="food-item">
+          <div class="food-title">
+            <h3>芝麻圈</h3>
+            <span class="food-tr">simit</span>
+          </div>
+          <p class="food-when">早上赶渡轮或在老城广场散步时吃，刚出炉的外皮裹满焦香白芝麻，掰一块配热红茶最地道。</p>
+        </li>
+
+        <li class="food-item">
+          <div class="food-title">
+            <h3>鱼肉三明治</h3>
+            <span class="food-tr">balık ekmek</span>
+          </div>
+          <p class="food-when">中午或下午走过加拉塔桥、逛完艾米诺努或卡拉柯伊码头饥肠辘辘时吃，现烤鲭鱼夹进脆皮面包里配洋葱生菜与柠檬汁。</p>
+        </li>
+
+        <li class="food-item">
+          <div class="food-title">
+            <h3>土耳其早餐</h3>
+            <span class="food-tr">kahvaltı</span>
+          </div>
+          <p class="food-when">周末或第三天上午不赶时间时坐下来慢吃一两个小时，满桌小碟摆上多种奶酪、橄榄、番茄黄瓜、蜂巢蜜配浓郁水奶油与铁锅炒蛋。</p>
+        </li>
+
+        <li class="food-item">
+          <div class="food-title">
+            <h3>芝士甜点</h3>
+            <span class="food-tr">künefe</span>
+          </div>
+          <p class="food-when">下午逛累了或晚饭后想吃热甜食时点一份分着吃，金黄酥脆的小麦细丝里裹着能拉出长丝的无盐软奶酪，趁热淋上糖浆并撒满开心果碎。</p>
+        </li>
+
+        <li class="food-item">
+          <div class="food-title">
+            <h3>红茶</h3>
+            <span class="food-tr">çay</span>
+          </div>
+          <p class="food-when">从早到晚任何歇脚时刻都可以喝，尤其适合坐在横跨海峡的渡轮甲板上或傍晚看日落时捧一杯郁金香形玻璃杯装的滚烫红茶。</p>
+        </li>
+
+        <li class="food-item">
+          <div class="food-title">
+            <h3>酿青口</h3>
+            <span class="food-tr">midye dolma</span>
+          </div>
+          <p class="food-when">傍晚或夜里在贝伊奥卢、卡德柯伊街头散步嘴馋时当零嘴吃，青口贝壳里塞满用香料煨熟的米饭，吃前一定要现挤几滴新鲜柠檬汁。</p>
+        </li>
+      </ul>
+    </section>
+
+    <svg class="iznik-divider" aria-hidden="true">
+      <rect width="100%" height="24" fill="url(#iznik-pattern)" />
+    </svg>
+
+    <!-- 5. 实用贴士 (#tips) -->
+    <section id="tips" aria-labelledby="heading-tips">
+      <h2 id="heading-tips">实用贴士</h2>
+      <p class="section-lead">出发前了解这几件小事，能让一家人在旅途中少排队、更从容。</p>
+
+      <div class="tips-group">
+        <details class="tip-entry">
+          <summary>交通卡 İstanbulkart</summary>
+          <div class="tip-body">
+            <p>抵达后在地铁站、有轨电车站或渡轮码头的黄色自助机器上即可购买不记名交通卡 İstanbulkart，界面支持中文提示。一张卡可以多人轮流刷卡进站（渡轮、电车、地铁、缆车通用），只需保证卡内余额充足即可，无需每人单独购卡。</p>
+          </div>
+        </details>
+
+        <details class="tip-entry">
+          <summary>进清真寺的着装要求</summary>
+          <div class="tip-body">
+            <p>进入清真寺参观需穿着得体，男女皆不可穿露出膝盖的短裤或短裙，上衣需遮住肩膀；女士带头巾包住头发，若忘带也可在入口处免费借用。入殿前需脱鞋放入塑料袋随身携带。每日五次宣礼广播响起时请避开礼拜时间（每次约暂停对游客开放半小时），尤其注意避开周五正午的主麻聚礼。</p>
+          </div>
+        </details>
+
+        <details class="tip-entry">
+          <summary>最佳季节（春秋）</summary>
+          <div class="tip-body">
+            <p>春季（四月至五月）与秋季（九月至十月）是游览伊斯坦布尔的最佳季节。春天满城公园与街角盛开郁金香，秋天阳光通透、海风温和，白天气温最适合长时间步行与甲板吹风；盛夏正午较为炎热，冬季则多海风阴雨。</p>
+          </div>
+        </details>
+
+        <details class="tip-entry">
+          <summary>讲价与购物习惯</summary>
+          <div class="tip-body">
+            <p>在大巴扎等面向游客的传统集市购买手绘瓷碗、地毯或纪念品时，礼貌讲价是当地常态，不急着成交、多看几家往往能买到更合心意的物件。但在普通超市、面包房、餐厅以及亚洲岸卡德柯伊的本地菜市场，商品均为明码标价，无需讲价。</p>
+          </div>
+        </details>
+
+        <details class="tip-entry">
+          <summary>渡轮怎么坐</summary>
+          <div class="tip-body">
+            <p>连接欧亚两岸最稳妥的是市政运营的公共渡轮，在欧洲岸的艾米诺努、卡拉柯伊、贝西克塔什以及亚洲岸的卡德柯伊、于斯屈达尔都有专属候船大厅。进站直接刷交通卡 İstanbulkart，看清电子屏上的目的地名称即可登船；船舱分室内软座与露天甲板，船体宽大平稳，带孩子乘坐也很安心。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>本页信息仅供参考，出发前请核实各场馆与航线的最新开放时间。</p>
+  </footer>
+
+  <script>
+    (function () {
+      var btnEurope = document.getElementById('btn-europe');
+      var btnAsia = document.getElementById('btn-asia');
+      var cards = document.querySelectorAll('#sides [data-side]');
+
+      function selectSide(side) {
+        var isEurope = side === 'europe';
+        btnEurope.setAttribute('aria-pressed', isEurope ? 'true' : 'false');
+        btnAsia.setAttribute('aria-pressed', isEurope ? 'false' : 'true');
+
+        for (var i = 0; i < cards.length; i++) {
+          var card = cards[i];
+          if (card.getAttribute('data-side') === side) {
+            card.removeAttribute('hidden');
+          } else {
+            card.setAttribute('hidden', '');
+          }
+        }
+      }
+
+      if (btnEurope && btnAsia) {
+        btnEurope.addEventListener('click', function () {
+          selectSide('europe');
+        });
+        btnAsia.addEventListener('click', function () {
+          selectSide('asia');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>连云港三日攻略：一家五口从上海出发（2026 年 11 月版）</title>
+<meta name="description" content="上海一家五口（两位老人、5 岁孩子）连云港三日怎么玩：花果山、连岛、海州古城，门票、体力提示、交通、美食、住宿，每条都有来源。">
+<style>
+:root{
+  --fog:#EAF0F2;      /* 海雾 底色 */
+  --ink:#132C3D;      /* 深海 正文 */
+  --bay:#0E3A53;      /* 港湾蓝 hero */
+  --link:#1F5F86;
+  --contour:#8FA3AE;  /* 等高线灰 */
+  --line:#C9D5DA;
+  /* 体力三色：只用来表示"走起来累不累" */
+  --flat:#2E8B7A;   --flat-t:#1F6E60;
+  --stair:#D9862B;  --stair-t:#9A5710;
+  --climb:#B23A2E;  --climb-t:#9E2F24;
+  --sans:"PingFang SC","HarmonyOS Sans SC","MiSans","Noto Sans CJK SC","Noto Sans SC","Source Han Sans SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--fog);color:var(--ink);font:400 17px/1.75 var(--sans);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+a{color:var(--link);text-underline-offset:3px;text-decoration-thickness:1px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--stair);outline-offset:2px;border-radius:2px}
+sup{font-size:.62em;line-height:0;margin-left:1px}
+sup a{text-decoration:none;color:var(--link);padding:0 1px}
+sup a:hover{text-decoration:underline}
+.est{font-size:.82em;color:#4D6573;border:1px solid var(--contour);border-radius:3px;padding:0 4px;margin-left:3px;white-space:nowrap}
+.nf{font-size:.82em;color:var(--climb-t);border:1px dashed var(--climb-t);border-radius:3px;padding:0 4px;white-space:nowrap}
+
+/* ---------- hero：西→东 山海剖面 ---------- */
+.hero{background:var(--bay);color:var(--fog);padding:28px 18px 0;overflow:hidden}
+.hero-in{max-width:1120px;margin:0 auto}
+.hero h1{font-size:clamp(44px,13vw,104px);line-height:1;font-weight:900;letter-spacing:-.04em;margin:0}
+.hero .sub{font-size:clamp(17px,4.4vw,22px);font-weight:500;line-height:1.55;margin:14px 0 0;max-width:30em;color:#D5E1E6}
+.profile{display:block;width:100%;height:auto;margin-top:18px}
+.profile .ridge{fill:none;stroke:#EAF0F2;stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+.profile .mass{fill:#164B69}
+.profile .wave{fill:none;stroke:#3F7391;stroke-width:2}
+.profile .sealine{stroke:var(--contour);stroke-width:1.5;stroke-dasharray:6 8}
+.profile .contour{fill:none;stroke:#2B607E;stroke-width:1.2}
+.profile text{fill:#EAF0F2;font-family:var(--sans);font-size:26px;font-weight:600}
+.profile .small{font-size:20px;font-weight:400;fill:#A9BCC5}
+.profile .peak{font-size:24px;font-weight:800}
+.profile a:focus-visible circle{stroke:#fff;stroke-width:5}
+.profile circle{stroke:var(--bay);stroke-width:4}
+.dot-flat{fill:var(--flat)} .dot-stair{fill:var(--stair)} .dot-climb{fill:var(--climb)}
+@media (prefers-reduced-motion:no-preference){
+  .profile .ridge{stroke-dasharray:2400;stroke-dashoffset:2400;animation:draw 1.8s cubic-bezier(.6,.1,.3,1) .2s forwards}
+  .profile .pts{opacity:0;animation:show .5s ease 1.6s forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes show{to{opacity:1}}
+}
+.hero-note{font-size:13px;color:#A9BCC5;margin:6px 0 0;padding-bottom:14px}
+.hero-note a{color:#D5E1E6}
+
+/* ---------- 体力图例 ---------- */
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0;padding:0;list-style:none;font-size:15px}
+.legend li{display:flex;align-items:center;gap:7px}
+.sw{display:inline-block;width:12px;height:12px;border-radius:2px;flex:none}
+.sw.flat{background:var(--flat)} .sw.stair{background:var(--stair)} .sw.climb{background:var(--climb)}
+
+/* ---------- 布局 ---------- */
+.layout{max-width:1120px;margin:0 auto;padding:0 18px 64px}
+nav.toc{display:none}
+main{max-width:720px}
+section{padding-top:44px}
+h2{font-size:30px;line-height:1.2;font-weight:900;letter-spacing:-.02em;margin:0 0 14px}
+h3{font-size:21px;line-height:1.35;font-weight:800;margin:0 0 6px}
+p{margin:0 0 12px}
+.lead{font-size:19px;line-height:1.7;font-weight:500}
+
+.facts{list-style:none;margin:20px 0 0;padding:0;border-top:2px solid var(--ink)}
+.facts li{padding:14px 0;border-bottom:1px solid var(--line)}
+.facts b{display:block;font-size:24px;font-weight:900;line-height:1.25;letter-spacing:-.01em}
+
+/* 交通 */
+.route{display:grid;grid-template-columns:1fr;gap:0;border-top:2px solid var(--ink)}
+.route > div{padding:14px 0;border-bottom:1px solid var(--line)}
+.route .big{font-size:26px;font-weight:900;line-height:1.2}
+
+/* 景点分组：城 / 山 / 海 */
+.zone{margin-top:30px}
+.zone-h{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:4px}
+.zone-h .z{font-size:40px;font-weight:900;line-height:1}
+.zone-h .zd{font-size:15px;color:#4D6573}
+.spot{border-left:4px solid var(--contour);padding:16px 0 16px 16px;margin:14px 0;scroll-margin-top:16px}
+.spot.flat{border-color:var(--flat)} .spot.stair{border-color:var(--stair)} .spot.climb{border-color:var(--climb)}
+.spot:target{background:#DCE6EA}
+.spot dl{display:grid;grid-template-columns:3.2em 1fr;gap:4px 12px;margin:10px 0 0;font-size:16px;line-height:1.65}
+.spot dt{color:#4D6573}
+.spot dd{margin:0}
+.eff{font-weight:700}
+.eff.flat{color:var(--flat-t)} .eff.stair{color:var(--stair-t)} .eff.climb{color:var(--climb-t)}
+
+/* 行程 */
+.day{margin-top:26px;border-top:2px solid var(--ink);padding-top:12px}
+.day h3{font-size:23px}
+.day h3 .dn{display:inline-block;min-width:2.2em;font-weight:900}
+.day .stay{font-size:15px;color:#4D6573;margin:0 0 6px}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:4.2em 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.tl time{font-weight:700;color:#4D6573;font-size:15px;padding-top:2px}
+.tl .sw{margin-right:6px;vertical-align:1px}
+
+/* 季节表 */
+.months{width:100%;border-collapse:collapse;table-layout:fixed;font-size:12px;line-height:1.3;margin-top:8px}
+.months th,.months td{padding:5px 0;text-align:center;border-bottom:1px solid var(--line)}
+.months col.lab{width:6.2em}
+.months th[scope=row]{text-align:left;font-weight:600;font-size:12px;padding-right:4px;white-space:nowrap}
+.months thead th{font-weight:700;color:#4D6573}
+.months .nov{background:#D3DFE5;font-weight:800}
+.months thead .nov{color:var(--ink)}
+.months td.on{background:linear-gradient(var(--bay),var(--bay)) center/100% 10px no-repeat}
+.months td.half-r{background:linear-gradient(var(--bay),var(--bay)) right center/50% 10px no-repeat}
+.months td.half-l{background:linear-gradient(var(--bay),var(--bay)) left center/50% 10px no-repeat}
+.months td.nov.on,.months td.nov.half-r,.months td.nov.half-l{background-color:#D3DFE5}
+.table-note{font-size:14px;color:#4D6573;margin-top:8px}
+.seasons{list-style:none;padding:0;margin:16px 0 0}
+.seasons li{padding:10px 0;border-bottom:1px solid var(--line)}
+.seasons b{margin-right:6px}
+
+/* 美食、住宿、贴士 */
+.list{list-style:none;padding:0;margin:0;border-top:2px solid var(--ink)}
+.list > li{padding:14px 0;border-bottom:1px solid var(--line)}
+.list h3{font-size:19px;margin:0 0 2px}
+.where{font-size:15px;color:#4D6573;margin:4px 0 0}
+
+/* 来源 */
+.sources{font-size:14px;line-height:1.6;padding-left:2.2em;margin:0}
+.sources li{margin:0 0 8px;scroll-margin-top:16px}
+.sources li:target{background:#DCE6EA}
+.sources a{word-break:break-all}
+footer{font-size:14px;color:#4D6573;border-top:1px solid var(--line);margin-top:40px;padding-top:14px}
+
+/* ---------- 桌面 ---------- */
+@media (min-width:1000px){
+  .hero{padding:48px 40px 0}
+  .hero-in{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);column-gap:48px;align-items:end}
+  .hero h1{font-size:84px;white-space:nowrap}
+  .hero .sub{margin-bottom:28px}
+  .hero-text{align-self:center}
+  .profile{margin-top:0;grid-column:2;grid-row:1}
+  .hero-note{grid-column:1/-1}
+  .hero-note{padding-bottom:20px}
+  .layout{display:grid;grid-template-columns:200px minmax(0,720px);gap:64px;padding:0 40px 80px;justify-content:start}
+  nav.toc{display:block;position:sticky;top:0;align-self:start;padding-top:48px;font-size:15px}
+  nav.toc ol{list-style:none;margin:0 0 28px;padding:0;border-left:2px solid var(--line)}
+  nav.toc li a{display:block;padding:5px 0 5px 14px;margin-left:-2px;border-left:2px solid transparent;color:var(--ink);text-decoration:none}
+  nav.toc li a:hover{color:var(--link)}
+  nav.toc li a[aria-current=true]{border-left-color:var(--ink);font-weight:700}
+  nav.toc .legend{flex-direction:column;font-size:14px}
+  nav.toc .lg-h{font-size:13px;color:#4D6573;margin:0 0 8px}
+  h2{font-size:36px}
+  .route{grid-template-columns:1fr 1fr;column-gap:32px}
+  .route > .wide{grid-column:1/-1}
+  .tl li{grid-template-columns:5.5em 1fr}
+  .months{font-size:13px}
+  .months col.lab{width:7.5em}
+  .months th[scope=row]{font-size:13px}
+  .mobile-legend{display:none}
+}
+@media print{.hero{background:#fff;color:#000}.profile{display:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-in">
+    <div class="hero-text">
+      <h1>连云港三日</h1>
+      <p class="sub">从上海出发的一家五口，两位老人、一个 5 岁孩子。2026 年 11 月深秋版。</p>
+    </div>
+
+    <!-- 西→东山海剖面：仅玉女峰高度为实测数据，其余起伏为示意 -->
+    <svg class="profile" viewBox="0 0 1000 400" role="img" aria-labelledby="pf-t pf-d">
+      <title id="pf-t">连云港由西向东的山海剖面示意图</title>
+      <desc id="pf-d">从西边的海州古城、孔望山，到中间的花果山玉女峰（海拔 624.4 米）和渔湾，再到东边海边的连云老街、海上云台山，最后跨海到连岛。点的颜色表示体力：绿色平路，橙色台阶多，红色要爬山。</desc>
+      <path class="wave" d="M822 334 q15 -7 30 0 t30 0 t30 0 t30 0 t30 0 t30 0"/>
+      <path class="wave" d="M837 352 q15 -7 30 0 t30 0 t30 0 t30 0 t30 0"/>
+      <path class="mass" d="M0 318 L60 316 L120 314 L150 300 L180 286 L210 300 L250 312 L300 290 L350 220 L390 150 L420 92 L440 100 L470 150 L500 196 L530 214 L570 236 L620 270 L670 300 L700 306 L730 260 L760 214 L790 230 L820 318 Z"/>
+      <path class="contour" d="M330 250 Q420 200 520 250"/>
+      <path class="contour" d="M360 200 Q420 150 490 200"/>
+      <path class="mass" d="M880 318 L905 296 L935 288 L965 300 L985 318 Z"/>
+      <path class="ridge" d="M0 318 L60 316 L120 314 L150 300 L180 286 L210 300 L250 312 L300 290 L350 220 L390 150 L420 92 L440 100 L470 150 L500 196 L530 214 L570 236 L620 270 L670 300 L700 306 L730 260 L760 214 L790 230 L820 318 M880 318 L905 296 L935 288 L965 300 L985 318"/>
+      <line class="sealine" x1="0" y1="318" x2="1000" y2="318"/>
+      <text class="small" x="910" y="386" text-anchor="middle">黄海</text>
+      <text class="small" x="0" y="396">西</text>
+      <text class="small" x="1000" y="396" text-anchor="end">东</text>
+      <text class="peak" x="420" y="58" text-anchor="middle">玉女峰 624.4 米</text>
+      <g class="pts">
+        <a href="#s-haizhou" aria-label="海州古城，平路"><circle class="dot-flat" cx="90" cy="315" r="11"/><text x="90" y="362" text-anchor="middle">海州古城</text></a>
+        <a href="#s-kongwang" aria-label="孔望山，台阶多"><circle class="dot-stair" cx="180" cy="286" r="11"/><text x="200" y="258" text-anchor="middle">孔望山</text></a>
+        <a href="#s-huaguo" aria-label="花果山，要爬山（可坐索道）"><circle class="dot-climb" cx="420" cy="92" r="12"/><text x="300" y="200" text-anchor="middle">花果山</text></a>
+        <a href="#s-yuwan" aria-label="渔湾，台阶多"><circle class="dot-stair" cx="530" cy="214" r="11"/><text x="560" y="196">渔湾</text></a>
+        <a href="#s-laojie" aria-label="连云老街，台阶多"><circle class="dot-stair" cx="690" cy="304" r="11"/><text x="660" y="362" text-anchor="middle">连云老街</text></a>
+        <a href="#s-yuntai" aria-label="海上云台山，要爬山"><circle class="dot-climb" cx="760" cy="214" r="11"/><text x="760" y="184" text-anchor="middle">海上云台山</text></a>
+        <a href="#s-liandao" aria-label="连岛，平路"><circle class="dot-flat" cx="935" cy="288" r="11"/><text x="935" y="262" text-anchor="middle">连岛</text></a>
+      </g>
+    </svg>
+    <p class="hero-note">剖面只示意相对位置，仅玉女峰海拔为实测<sup><a href="#src4">4</a></sup>。点一下地名跳到对应条目。</p>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="目录">
+    <ol>
+      <li><a href="#overview">概况</a></li>
+      <li><a href="#transport">交通</a></li>
+      <li><a href="#spots">景点</a></li>
+      <li><a href="#plan">三日行程</a></li>
+      <li><a href="#season">天气与季节</a></li>
+      <li><a href="#food">美食</a></li>
+      <li><a href="#stay">住宿</a></li>
+      <li><a href="#tips">避坑</a></li>
+      <li><a href="#sources">来源</a></li>
+    </ol>
+    <p class="lg-h">体力提示（老人和孩子）</p>
+    <ul class="legend">
+      <li><span class="sw flat"></span>平路，推车能走</li>
+      <li><span class="sw stair"></span>台阶多，慢慢走</li>
+      <li><span class="sw climb"></span>要爬山，靠索道或车</li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="overview">
+      <h2>一句话</h2>
+      <p class="lead">山脚就是海：上午坐索道上花果山看黄海，第二天去连岛踩沙，晚上在墟沟吃梭子蟹。11 月人少、凉快，适合带老人孩子慢慢玩。</p>
+      <ul class="facts">
+        <li><b>624.4 米</b>花果山玉女峰是江苏最高峰，有索道可以直接上到峰顶附近。<sup><a href="#src1">1</a>,<a href="#src4">4</a></sup></li>
+        <li><b>高铁约 3 小时</b>上海到连云港站最快约 2 小时 56 分，多数车次 3 至 3.5 小时；自驾约 480 公里、5.2 小时。<sup><a href="#src13">13</a>,<a href="#src15">15</a></sup></li>
+        <li><b>11 月 5.8 至 14.7℃</b>这是 1991–2020 年 11 月的平均低温和平均高温，比上海冷，海边和山顶风大。<sup><a href="#src18">18</a></sup></li>
+      </ul>
+      <div class="mobile-legend" style="margin-top:22px">
+        <p style="font-size:15px;color:#4D6573;margin:0 0 6px">下文每个景点左侧的色条表示老人孩子的体力负担：</p>
+        <ul class="legend">
+          <li><span class="sw flat"></span>平路</li>
+          <li><span class="sw stair"></span>台阶多</li>
+          <li><span class="sw climb"></span>要爬山</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="transport">
+      <h2>交通</h2>
+      <div class="route">
+        <div>
+          <h3>高铁</h3>
+          <p class="big">约 3 小时</p>
+          <p>上海各站到<strong>连云港站</strong>（海州区），最快约 2 小时 56 分，多数 3 至 3.5 小时。<sup><a href="#src13">13</a></sup> 具体车次以 12306 为准。<sup><a href="#src14">14</a></sup> 老人用身份证购票，5 岁孩子按铁路儿童票规定办理（本页未核实具体规定，<span class="nf">未查到</span>）。</p>
+        </div>
+        <div>
+          <h3>自驾</h3>
+          <p class="big">约 480 公里，5.2 小时</p>
+          <p>主要走沈海高速 G15，再转长深高速进市区，路桥费约 225 元。<sup><a href="#src15">15</a></sup> 带老人孩子中途停两次服务区，实际按 6 小时安排<span class="est">估计</span>。</p>
+        </div>
+        <div class="wide">
+          <h3>市内</h3>
+          <p>景点分散在西边城区、中间山区和东边海边，<strong>一家五口最省心的是自驾或包一辆 7 座车</strong><span class="est">估计</span>。公交方面：BRT 票价 2 元<sup><a href="#src1">1</a>,<a href="#src28">28</a></sup>；连云港站有 B11 路到花果山<sup><a href="#src16">16</a></sup>，游 3 路到连岛<sup><a href="#src17">17</a></sup>。连云港站打车到花果山约 15 公里、约 30 元。<sup><a href="#src2">2</a></sup> 海州到连岛约 30 多公里，车程约 40 至 50 分钟<span class="est">估计</span>。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="spots">
+      <h2>景点：从城到山到海</h2>
+      <p>按地理由西向东排，和顶部剖面图顺序一致。票价主要依据连云港市政府 2022 年定价目录<sup><a href="#src1">1</a></sup>，出行前请在景区官方公众号或小程序再核对一次。</p>
+
+      <div class="zone">
+        <div class="zone-h"><span class="z">城</span><span class="zd">海州区，西边，离连云港站近</span></div>
+
+        <article class="spot flat" id="s-haizhou">
+          <h3>海州古城</h3>
+          <p>有两千多年建城史的老城，朐阳门、中大街、钟鼓楼连成一条线，晚上挂灯笼。<sup><a href="#src11">11</a></sup></p>
+          <dl>
+            <dt>门票</dt><dd>古城免费<sup><a href="#src11">11</a></sup>；登钟鼓楼约 5 元（游客笔记，未见官方价）<sup><a href="#src26">26</a></sup></dd>
+            <dt>时长</dt><dd>2 小时<span class="est">估计</span></dd>
+            <dt>体力</dt><dd><span class="eff flat">平路</span>，青石板路，推车能走；登鼓楼有楼梯，老人可在下面等<span class="est">估计</span></dd>
+          </dl>
+        </article>
+
+        <article class="spot stair" id="s-kongwang">
+          <h3>孔望山</h3>
+          <p>山南麓的摩崖造像刻于东汉，被称为"九州崖佛第一尊"，比敦煌莫高窟还早。<sup><a href="#src8">8</a></sup> 不用爬到山顶，看造像就够。</p>
+          <dl>
+            <dt>门票</dt><dd>40 元<sup><a href="#src1">1</a></sup></dd>
+            <dt>时长</dt><dd>1 小时（只看山脚造像）<span class="est">估计</span></dd>
+            <dt>体力</dt><dd><span class="eff stair">台阶多</span>，山不高，造像在山脚附近；上山顶要走台阶<span class="est">估计</span></dd>
+            <dt>开放</dt><dd><span class="nf">未查到</span>各平台说法不一，出发前电话或公众号确认</dd>
+          </dl>
+        </article>
+      </div>
+
+      <div class="zone">
+        <div class="zone-h"><span class="z">山</span><span class="zd">云台山脉，市区东北，这次的重头戏</span></div>
+
+        <article class="spot climb" id="s-huaguo">
+          <h3>花果山</h3>
+          <p>《西游记》里美猴王的老家，有水帘洞、三元宫，主峰玉女峰海拔 624.4 米，是江苏最高峰。<sup><a href="#src4">4</a></sup> 孩子最期待的一站。</p>
+          <dl>
+            <dt>门票</dt><dd>旺季（3 月 1 日至 11 月 30 日）90 元，淡季 50 元<sup><a href="#src1">1</a>,<a href="#src2">2</a></sup>；也有平台写旺季 100 元，以购票页为准。70 岁以上免票，60–69 岁半价，儿童免票标准各平台写法不一（6 岁含以下或身高 1.2/1.4 米以下）。<sup><a href="#src3">3</a></sup> 全家大门票约 180–270 元<span class="est">估计</span></dd>
+            <dt>开放</dt><dd>旺季 7:00–18:00（17:00 停止入园），淡季 8:00–17:00<sup><a href="#src2">2</a></sup></dd>
+            <dt>索道</dt><dd>九龙桥到玉女峰上行 35 元；九龙桥到水帘洞 25 元；水帘洞到玉女峰 25 元；下行同价。景交车仙人桥到九龙桥 15 元，仙人桥到玉女峰 25 元。<sup><a href="#src1">1</a></sup></dd>
+            <dt>时长</dt><dd>4 至 5 小时<span class="est">估计</span></dd>
+            <dt>体力</dt><dd><span class="eff climb">要爬山</span>，全程步行台阶很多。<strong>坐景交车加索道</strong>可以把强度降到"台阶多"：峰顶和水帘洞周边仍有一段台阶<span class="est">估计</span>。水帘洞要在小程序分时预约<sup><a href="#src3">3</a></sup>；大风暴雨时索道和观光车会停<sup><a href="#src2">2</a></sup></dd>
+          </dl>
+        </article>
+
+        <article class="spot stair" id="s-yuwan">
+          <h3>渔湾</h3>
+          <p>峡谷溪流加瀑布，主瀑老龙潭落差 40 多米，雨后最好看。<sup><a href="#src30">30</a></sup> 11 月是枯水季，瀑布可能水小<span class="est">估计</span>。</p>
+          <dl>
+            <dt>门票</dt><dd>40 元<sup><a href="#src1">1</a></sup>；花果山玉女峰到渔湾有景区客运线，全程 25 元<sup><a href="#src1">1</a></sup></dd>
+            <dt>时长</dt><dd>约 2 小时<sup><a href="#src9">9</a></sup></dd>
+            <dt>体力</dt><dd><span class="eff stair">台阶多</span>，不用爬主峰，但石阶多，靠水路段湿滑<sup><a href="#src9">9</a>,<a href="#src10">10</a></sup>。这次行程里列为备选</dd>
+          </dl>
+        </article>
+      </div>
+
+      <div class="zone">
+        <div class="zone-h"><span class="z">海</span><span class="zd">连云区和墟沟，东边海岸</span></div>
+
+        <article class="spot stair" id="s-laojie">
+          <h3>连云老街</h3>
+          <p>1933 年随建港兴起的山坡石头街，陇海铁路东端起点，有老火车站和民国建筑群。<sup><a href="#src12">12</a></sup> 和海州的"民主路老街"不是一个地方，导航别搞错。</p>
+          <dl>
+            <dt>门票</dt><dd>街区免费；展馆联票 50 元，可以不进<sup><a href="#src1">1</a>,<a href="#src12">12</a></sup></dd>
+            <dt>时长</dt><dd>1.5 小时<span class="est">估计</span></dd>
+            <dt>体力</dt><dd><span class="eff stair">台阶多</span>，依山而建，坡道和石阶多<sup><a href="#src12">12</a></sup>；老人可只走山脚一段</dd>
+          </dl>
+        </article>
+
+        <article class="spot climb" id="s-yuntai">
+          <h3>海上云台山</h3>
+          <p>云台山国家森林公园，主峰二桅尖，山海视野更开阔，人比花果山少。</p>
+          <dl>
+            <dt>门票</dt><dd>旺季（4 月 20 日至 10 月 20 日）80 元，淡季 60 元，门票 48 小时有效<sup><a href="#src1">1</a>,<a href="#src6">6</a></sup>；11 月按淡季。70 岁以上免票，60–69 岁半价<sup><a href="#src6">6</a></sup></dd>
+            <dt>交通车</dt><dd>万寿谷停车场到二桅尖全程 20 元<sup><a href="#src1">1</a></sup>；目前以观光车上山为主，是否有索道<span class="nf">未查到</span></dd>
+            <dt>开放</dt><dd>8:30–17:30，16:30 停止入园<sup><a href="#src7">7</a></sup></dd>
+            <dt>时长</dt><dd>3 小时<span class="est">估计</span></dd>
+            <dt>体力</dt><dd><span class="eff climb">要爬山</span>，景点分散、山路长，必须坐交通车<sup><a href="#src7">7</a></sup>。和花果山二选一即可，这次行程里列为备选</dd>
+          </dl>
+        </article>
+
+        <article class="spot flat" id="s-liandao">
+          <h3>连岛</h3>
+          <p>开车走 6.7 公里的拦海大堤上岛<sup><a href="#src27">27</a></sup>，岛上有大沙湾、苏马湾两片沙滩，一张票通玩。<sup><a href="#src5">5</a></sup> 11 月不能下水，但挖沙捡贝壳孩子照样开心。</p>
+          <dl>
+            <dt>门票</dt><dd>旺季 50 元，淡季 30 元<sup><a href="#src1">1</a></sup>；淡季为 11 月至次年 4 月<sup><a href="#src5">5</a></sup></dd>
+            <dt>景交车</dt><dd>南北环线 25 元（含往返），当天不限次数<sup><a href="#src1">1</a></sup></dd>
+            <dt>时长</dt><dd>2.5 至 3 小时<span class="est">估计</span></dd>
+            <dt>体力</dt><dd><span class="eff flat">平路</span>，沙滩和海边栈道为主；两片沙滩之间坐景交车，别全程走<sup><a href="#src5">5</a></sup></dd>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section id="plan">
+      <h2>三日行程</h2>
+      <p>原则：每天只排一个"重点"，午后留出休息时间；爬山放在体力最好的第二天上午。第一晚住海州，第二晚住墟沟，两边各少跑一趟远路。</p>
+
+      <div class="day">
+        <h3><span class="dn">D1</span>到达，逛海州古城</h3>
+        <p class="stay">住海州区（连云港站、苏宁广场一带）</p>
+        <ol class="tl">
+          <li><time>上午</time><div>上海出发。高铁约 3 小时到连云港站<sup><a href="#src13">13</a></sup>，自驾约 5 至 6 小时<sup><a href="#src15">15</a></sup>。</div></li>
+          <li><time>午后</time><div>入住，老人孩子睡个午觉。</div></li>
+          <li><time>15:00</time><div><span class="sw stair"></span>孔望山看东汉摩崖造像，只在山脚看，约 1 小时（可跳过）。</div></li>
+          <li><time>16:30</time><div><span class="sw flat"></span>海州古城：从朐阳门进，沿中大街走到钟鼓楼，等灯笼亮起。<sup><a href="#src11">11</a></sup></div></li>
+          <li><time>晚饭</time><div>古城或民主路老街吃小吃：板浦凉粉、小鱼煎饼。<sup><a href="#src31">31</a></sup></div></li>
+        </ol>
+      </div>
+
+      <div class="day">
+        <h3><span class="dn">D2</span>花果山，索道上玉女峰</h3>
+        <p class="stay">傍晚移到墟沟住</p>
+        <ol class="tl">
+          <li><time>8:00</time><div>出发去花果山（海州过去约 30 分钟<span class="est">估计</span>）。入园后先在小程序预约水帘洞时段。<sup><a href="#src3">3</a></sup></div></li>
+          <li><time>8:45</time><div><span class="sw stair"></span>坐景交车到九龙桥，索道上玉女峰（35 元）。<sup><a href="#src1">1</a></sup> 天晴能看到海和港口。</div></li>
+          <li><time>10:30</time><div><span class="sw stair"></span>索道下到水帘洞（25 元），看水帘洞和三元宫。<sup><a href="#src1">1</a></sup> 1 月水帘洞可能维护关闭，11 月不受影响。<sup><a href="#src2">2</a></sup></div></li>
+          <li><time>12:30</time><div>索道从水帘洞下到九龙桥（25 元），午饭。这样三段索道合计每人 85 元；不去水帘洞、只坐九龙桥到玉女峰往返是 70 元。<sup><a href="#src1">1</a></sup></div></li>
+          <li><time>午后</time><div>回酒店休息，退房开往墟沟（约 40 分钟<span class="est">估计</span>）。体力好的大人可加渔湾<sup><a href="#src1">1</a></sup>。</div></li>
+          <li><time>晚饭</time><div>墟沟海鲜美食城：市场挑活海鲜，旁边店里代加工。<sup><a href="#src22">22</a>,<a href="#src29">29</a></sup></div></li>
+        </ol>
+      </div>
+
+      <div class="day">
+        <h3><span class="dn">D3</span>连岛看海，连云老街，返程</h3>
+        <p class="stay">下午返程</p>
+        <ol class="tl">
+          <li><time>9:00</time><div><span class="sw flat"></span>开过拦海大堤上连岛<sup><a href="#src27">27</a></sup>，买景交车票（25 元不限次）<sup><a href="#src1">1</a></sup>，先大沙湾挖沙，再去苏马湾。</div></li>
+          <li><time>12:00</time><div>回墟沟吃午饭，补一顿梭子蟹。</div></li>
+          <li><time>13:30</time><div><span class="sw stair"></span>连云老街，看老火车站和石头房子，约 1.5 小时。<sup><a href="#src12">12</a></sup></div></li>
+          <li><time>15:30</time><div>去连云港站坐高铁（约 40 至 50 分钟车程<span class="est">估计</span>），或自驾回上海，到家约 21 点后<span class="est">估计</span>。</div></li>
+        </ol>
+      </div>
+      <p class="table-note" style="margin-top:14px">想换口味：把 D3 上午的连岛换成海上云台山（坐交通车上二桅尖），适合全家都爱爬山的情况。</p>
+    </section>
+
+    <section id="season">
+      <h2>天气与季节</h2>
+      <h3>11 月怎么穿</h3>
+      <p>11 月平均高温 14.7℃、平均低温 5.8℃，12 月平均高温就降到 7.9℃。<sup><a href="#src18">18</a></sup> 比上海同期冷一截<span class="est">估计</span>。洋葱式穿法：长袖加抓绒，外面一件防风外套；老人带薄羽绒，孩子带帽子和手套。玉女峰顶和连岛海边风大，体感更冷<span class="est">估计</span>。鞋要防滑，花果山和老街石阶多。</p>
+
+      <h3 style="margin-top:22px">全年一览</h3>
+      <table class="months" aria-describedby="mnote">
+        <colgroup><col class="lab"><col span="12"></colgroup>
+        <thead>
+          <tr><th scope="col" style="text-align:left">月份</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th class="nov">11</th><th>12</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">高温℃</th><td>6</td><td>8</td><td>14</td><td>20</td><td>26</td><td>29</td><td>31</td><td>30</td><td>27</td><td>22</td><td class="nov">15</td><td>8</td></tr>
+          <tr><th scope="row">低温℃</th><td>-3</td><td>-1</td><td>4</td><td>10</td><td>15</td><td>20</td><td>24</td><td>24</td><td>19</td><td>13</td><td class="nov">6</td><td>-1</td></tr>
+          <tr><th scope="row">花果山旺季</th><td></td><td></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="nov on"></td><td></td></tr>
+          <tr><th scope="row">连岛旺季</th><td></td><td></td><td></td><td></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="nov"></td><td></td></tr>
+          <tr><th scope="row">云台山旺季</th><td></td><td></td><td></td><td class="half-r"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="half-l"></td><td class="nov"></td><td></td></tr>
+          <tr><th scope="row">海鲜休渔</th><td></td><td></td><td></td><td></td><td class="on"></td><td class="on"></td><td class="on"></td><td class="on"></td><td></td><td></td><td class="nov"></td><td></td></tr>
+          <tr><th scope="row">鲜豆丹</th><td></td><td></td><td></td><td></td><td class="on"></td><td class="half-l"></td><td class="half-r"></td><td class="on"></td><td class="half-l"></td><td></td><td class="nov"></td><td></td></tr>
+        </tbody>
+      </table>
+      <p class="table-note" id="mnote">气温为 1991–2020 年平均值，四舍五入<sup><a href="#src18">18</a></sup>。蓝条表示该时段：花果山旺季 3–11 月<sup><a href="#src2">2</a></sup>；连岛旺季 5–10 月<sup><a href="#src5">5</a></sup>；海上云台山旺季 4 月 20 日至 10 月 20 日<sup><a href="#src6">6</a></sup>；黄海伏季休渔 5 月 1 日至 9 月 1 日<sup><a href="#src23">23</a></sup>；鲜豆丹约 5 月上旬至 6 月中旬、7 月中旬至 9 月初<sup><a href="#src21">21</a></sup>。高亮列是本次出行的 11 月。</p>
+
+      <ul class="seasons">
+        <li><b>春 4–5 月</b>气温最舒服，适合爬花果山<span class="est">估计</span>；5 月起海上休渔，海鲜选择少一些<sup><a href="#src23">23</a></sup>。</li>
+        <li><b>夏 6–8 月</b>连岛玩水的季节，也是鲜豆丹最多的时候<sup><a href="#src21">21</a></sup>；7 月平均高温 31℃，带老人要避开中午<sup><a href="#src18">18</a></sup>。</li>
+        <li><b>秋 9–10 月</b>9 月 1 日开海，梭子蟹、虾大量上市<sup><a href="#src23">23</a></sup>，天气也凉快，是综合最好的时候<span class="est">估计</span>。</li>
+        <li><b>深秋 11 月</b>花果山还是旺季票，连岛和海上云台山已是淡季票<sup><a href="#src1">1</a>,<a href="#src5">5</a>,<a href="#src6">6</a></sup>；人少，但不能下海。</li>
+        <li><b>冬 12–2 月</b>花果山淡季 50 元<sup><a href="#src1">1</a></sup>，开放时间缩短，1 月水帘洞可能关闭<sup><a href="#src2">2</a></sup>；平均低温在 0℃ 上下<sup><a href="#src18">18</a></sup>，不太适合带老人孩子。</li>
+      </ul>
+    </section>
+
+    <section id="food">
+      <h2>美食</h2>
+      <ul class="list">
+        <li>
+          <h3>梭子蟹</h3>
+          <p>9 月开海后上市<sup><a href="#src23">23</a></sup>，11 月仍能吃到<span class="est">估计</span>。清蒸最能吃出鲜甜，蘸姜醋。<sup><a href="#src29">29</a></sup></p>
+          <p class="where">去墟沟海鲜美食城（连云区海棠中路一带）：市场摊位挑，旁边饭店代加工。<sup><a href="#src22">22</a>,<a href="#src29">29</a></sup></p>
+        </li>
+        <li>
+          <h3>对虾、虾婆婆</h3>
+          <p>对虾适合白灼；"虾婆婆"是本地人对皮皮虾的叫法，常做椒盐。<sup><a href="#src29">29</a></sup> 孩子吃白灼虾最省心。</p>
+          <p class="where">同上，墟沟一带。</p>
+        </li>
+        <li>
+          <h3>豆丹（灌云豆丹）</h3>
+          <p>豆丹就是灌云豆丹，是豆天蛾的幼虫，灌云最有名，常见做法是红烧，口感鲜、有豆香。<sup><a href="#src20">20</a>,<a href="#src19">19</a></sup> 鲜货季在 5–6 月和 7–9 月<sup><a href="#src21">21</a></sup>，11 月吃到的多半是冷冻货<span class="est">估计</span>。老人愿意尝鲜可以点一份，孩子不必勉强。</p>
+          <p class="where">市区做本地菜的饭店，菜单上找"红烧豆丹"<span class="est">估计</span>；具体推荐店铺<span class="nf">未查到</span>可核实的信息。</p>
+        </li>
+        <li>
+          <h3>板浦凉粉</h3>
+          <p>板浦镇传了 300 多年的凉粉，凉拌要加本地的汪恕有滴醋，也可以煎着吃。<sup><a href="#src19">19</a></sup> 11 月天凉，点煎凉粉更合适。</p>
+          <p class="where">海州古城中大街、民主路老街的小吃摊。<sup><a href="#src11">11</a>,<a href="#src31">31</a></sup></p>
+        </li>
+        <li>
+          <h3>赣榆小鱼煎饼</h3>
+          <p>薄煎饼卷小鱼、鸡蛋和辣酱，本地人的家常主食。<sup><a href="#src19">19</a></sup> 给孩子点的话让店家少放辣<span class="est">估计</span>。</p>
+          <p class="where">古城和老街小吃摊都有<span class="est">估计</span>。</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="stay">
+      <h2>住宿</h2>
+      <ul class="list">
+        <li>
+          <h3>海州区（连云港站、苏宁广场、盐河巷一带）</h3>
+          <p>离高铁站和花果山都近，商场、医院、小吃配套齐全，适合第一晚。<sup><a href="#src24">24</a></sup></p>
+        </li>
+        <li>
+          <h3>墟沟（连云区）</h3>
+          <p>离连岛、海鲜市场、连云老街近，适合第二晚。<sup><a href="#src24">24</a></sup></p>
+        </li>
+        <li>
+          <h3>只想住一家</h3>
+          <p>选海州区，去海边单程多开 40 分钟左右换来不用搬行李<span class="est">估计</span>。订房时确认有电梯、停车场和能睡五个人的房型（家庭房或两间连通房）。连岛上的民宿看海方便，但部分没有电梯<sup><a href="#src24">24</a></sup>。</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="tips">
+      <h2>避坑</h2>
+      <ul class="list">
+        <li><h3>买海鲜先看秤</h3><p>连云港海鲜市场出过"鬼秤"事件。<sup><a href="#src25">25</a></sup> 让摊主把袋子戳洞沥水再称，代加工前先问清每斤加工费。<sup><a href="#src29">29</a></sup> 不跟拉客的人和司机推荐的店走<span class="est">估计</span>。</p></li>
+        <li><h3>水帘洞要预约</h3><p>入园后用小程序分时预约，别到洞口才发现要排下一个时段。<sup><a href="#src3">3</a></sup></p></li>
+        <li><h3>大风天别上山</h3><p>大风、暴雨、冰冻时花果山索道和观光车会停。<sup><a href="#src2">2</a></sup> 前一天看天气预报，把花果山和连岛对调也行。</p></li>
+        <li><h3>两条"老街"</h3><p>连云老街在连云区海边，民主路老街在海州市区，相距较远，导航别输错。<sup><a href="#src12">12</a></sup></p></li>
+        <li><h3>带齐证件</h3><p>老人带身份证享受免票或半价<sup><a href="#src3">3</a></sup>；孩子免票标准各景区不同，带户口本或孩子身份证备查<span class="est">估计</span>。</p></li>
+        <li><h3>景区电话</h3><p>本页没有列电话：<span class="nf">未查到</span>可核实的官方号码。花果山可在微信搜"连云港花果山风景区"公众号<sup><a href="#src2">2</a></sup>；其他景区同理搜官方公众号。</p></li>
+        <li><h3>遇到纠纷</h3><p>价格欺诈、短斤缺两打 12315 市场监管热线，其他问题打 12345 政务热线。这两个是全国统一号码。</p></li>
+      </ul>
+    </section>
+
+    <section id="sources">
+      <h2>来源</h2>
+      <p class="table-note" style="margin-top:0">查询时间 2026 年 10 月。票价、时间会变，出发前以景区官方渠道为准。</p>
+      <ol class="sources">
+        <li id="src1">连云港市人民政府：2022 年连云港市政府制定价格的经营服务性收费项目目录（景区门票、索道、景交车、BRT 票价）<br><a href="https://www.lyg.gov.cn/zglygzfmhwz/upload/b46f5e17-3eb6-45c8-aa31-e4cef024abfb.pdf">lyg.gov.cn（PDF）</a></li>
+        <li id="src2">龙游：花果山景区开放时间、水帘洞维护、恶劣天气停运、打车费用<br><a href="https://www.loongwander.com/zh-CN/article/huaguoshan">loongwander.com/zh-CN/article/huaguoshan</a></li>
+        <li id="src3">去哪儿门票：花果山景区优惠政策、水帘洞分时预约<br><a href="https://piao.qunar.com/ticket/detail_6724.html">piao.qunar.com/ticket/detail_6724.html</a></li>
+        <li id="src4">携程攻略：玉女峰（江苏最高峰，海拔 624.4 米）<br><a href="https://gs.ctrip.com/html5/you/sight/lianyungang238/1682071.html">gs.ctrip.com/…/1682071.html</a></li>
+        <li id="src5">住哪去：连岛景区门票、淡旺季、景交车<br><a href="https://bk.zhunaqu.com/article/850">bk.zhunaqu.com/article/850</a></li>
+        <li id="src6">海上云台山景区官网：门票、淡旺季日期、优惠政策<br><a href="http://xn--fhqsmyf38q99ls6o4sl1kg1q9a.xn--ses554g/">海上云台山景区官网</a></li>
+        <li id="src7">Trip.com：海上云台山开放时间、交通车<br><a href="https://my.trip.com/travel-guide/attraction/lianyungang/hai-shang-yuntai-mountain-10541728">my.trip.com/…/hai-shang-yuntai-mountain-10541728</a></li>
+        <li id="src8">孔望山景区网站：摩崖造像介绍<br><a href="https://www.lygkws.net/home/single/22/22.html">lygkws.net/home/single/22/22.html</a></li>
+        <li id="src9">连云港文旅网：渔湾景区游玩时长与路况<br><a href="https://www.lygwfly.com/h-pd-201.html">lygwfly.com/h-pd-201.html</a></li>
+        <li id="src10">携程攻略：渔湾（台阶、湿滑）<br><a href="https://gs.ctrip.com/html5/you/sight/lianyungang238/17416.html">gs.ctrip.com/…/17416.html</a></li>
+        <li id="src11">连云港市花果山旅行社：海州古城介绍（免费开放、朐阳门、中大街）<br><a href="http://www.lygshlxs.com/news_show.asp?id=28">lygshlxs.com/news_show.asp?id=28</a></li>
+        <li id="src12">携程攻略：连云港老街（免费街区、展馆、台阶坡道）<br><a href="https://gs.ctrip.com/html5/you/sight/lianyungang238/1959651.html">gs.ctrip.com/…/1959651.html</a></li>
+        <li id="src13">去哪儿火车票：上海至连云港车次与历时<br><a href="https://train.qunar.com/train/tickets/shanghai-to-lianyungang/2026-11-03">train.qunar.com/…/shanghai-to-lianyungang</a></li>
+        <li id="src14">中国铁路 12306<br><a href="https://kyfw.12306.cn/otn/leftTicket/init">kyfw.12306.cn</a></li>
+        <li id="src15">车主手册：连云港至上海自驾路线（479.48 公里、5.2 小时、路桥费 225 元）<br><a href="https://www.crecc.com/huoche/shh-uih.html">crecc.com/huoche/shh-uih.html</a></li>
+        <li id="src16">游乐：花果山交通（B11 路）<br><a href="https://www.youletour.com/jiangsu/lian-yun-gang-shi-hua-guo-shan-jing-qu/jiaotong">youletour.com/…/hua-guo-shan-jing-qu/jiaotong</a></li>
+        <li id="src17">游乐：连岛交通（游 3 路）<br><a href="https://www.youletour.com/lianyungang/lian-dao/jiaotong">youletour.com/lianyungang/lian-dao/jiaotong</a></li>
+        <li id="src18">维基百科：连云港市气候数据（1991–2020）<br><a href="https://zh.wikipedia.org/wiki/Template:%E8%BF%9E%E4%BA%91%E6%B8%AF%E5%B8%82%E6%B0%94%E5%80%99%E6%95%B0%E6%8D%AE">zh.wikipedia.org/wiki/Template:连云港市气候数据</a></li>
+        <li id="src19">我苏网：连云港特色美食（板浦凉粉、豆丹、小鱼煎饼）<br><a href="http://www.ourjiangsu.com/a/20200913/1599964609122.shtml">ourjiangsu.com/a/20200913/1599964609122.shtml</a></li>
+        <li id="src20">灌云县人民政府：地方特产 灌云豆丹<br><a href="http://www.guanyun.gov.cn/gyxzf/dftc/content/532E4B299F96484D8FB958CAB2D22539.html">guanyun.gov.cn/…/532E4B29….html</a></li>
+        <li id="src21">快懂百科：豆丹（上市季节）<br><a href="https://m.baike.com/wikiid/7244544282102169634">m.baike.com/wikiid/7244544282102169634</a></li>
+        <li id="src22">连云区人民政府：墟沟海鲜市场相关报道<br><a href="http://www.lianyun.gov.cn/lyq/tpxw/content/10b32fe6-a239-413e-abcb-6c17123b4531.html">lianyun.gov.cn/…/10b32fe6….html</a></li>
+        <li id="src23">人民网：黄渤海伏季休渔结束开海（2026 年 9 月）<br><a href="http://society.people.com.cn/n1/2026/0902/c1008-40790659.html">society.people.com.cn/n1/2026/0902/c1008-40790659.html</a></li>
+        <li id="src24">去哪儿攻略：连云港住宿区域<br><a href="https://travelnews.qunar.com/qa_strategy/lianyungang-hotel-accommodation-guide">travelnews.qunar.com/…/lianyungang-hotel-accommodation-guide</a></li>
+        <li id="src25">川观新闻：连云港海鲜市场"鬼秤"相关报道<br><a href="https://cbgc.scol.com.cn/news/5011900">cbgc.scol.com.cn/news/5011900</a></li>
+        <li id="src26">Trip.com 游客笔记：海州古城钟鼓楼登楼费用<br><a href="https://hk.trip.com/moments/detail/lianyungang-238-152079908/">hk.trip.com/moments/detail/lianyungang-238-152079908</a></li>
+        <li id="src27">龙游：连岛景区（拦海大堤）<br><a href="https://www.loongwander.com/zh-CN/article/lian-island-scenic-area">loongwander.com/zh-CN/article/lian-island-scenic-area</a></li>
+        <li id="src28">维基百科：连云港快速公交<br><a href="https://zh.wikipedia.org/zh-cn/%E8%BF%9E%E4%BA%91%E6%B8%AF%E5%BF%AB%E9%80%9F%E5%85%AC%E4%BA%A4">zh.wikipedia.org/zh-cn/连云港快速公交</a></li>
+        <li id="src29">南方航空旅游攻略：墟沟吃海鲜（梭子蟹、虾婆婆、代加工）<br><a href="https://www.csair.com/h5/cn/tourism_strategy/guonei_lvyougonglve/Lianyungang2/1cfpfpd8vgkks.shtml">csair.com/…/1cfpfpd8vgkks.shtml</a></li>
+        <li id="src30">大河票务：渔湾景区（老龙潭落差）<br><a href="https://www.dahepiao.com/lvyounews1/20250613516687.html">dahepiao.com/lvyounews1/20250613516687.html</a></li>
+        <li id="src31">去哪儿攻略：民主路老街夜游<br><a href="https://travelnews.qunar.com/ugc/lianyungang-minzhu-road-night-walk">travelnews.qunar.com/ugc/lianyungang-minzhu-road-night-walk</a></li>
+      </ol>
+      <footer>说明：标"估计"的是根据资料推算或经验判断；标"未查到"的是没有找到可核实的来源。本页不含任何付费推广。</footer>
+    </section>
+  </main>
+</div>
+
+<script>
+(function(){
+  // 桌面目录：标出当前所在章节
+  var links=[].slice.call(document.querySelectorAll('nav.toc a'));
+  if(!links.length||!('IntersectionObserver' in window))return;
+  var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(a){a.removeAttribute('aria-current');});
+        var a=map[e.target.id]; if(a)a.setAttribute('aria-current','true');
+      }
+    });
+  },{rootMargin:'-20% 0px -70% 0px'});
+  Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s);});
+})();
+</script>
+</body>
+</html>

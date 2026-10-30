@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>盐城三日：滩涂、鹤与盐｜一家五口从上海出发</title>
+<meta name="theme-color" content="#EEF1EC">
+<style>
+:root{
+  --salt:#EEF1EC;      /* 盐白 */
+  --salt-2:#E3E8E1;
+  --ink:#24302B;       /* 滩涂墨 */
+  --ink-2:#4B5751;
+  --silt:#9C8257;      /* 黄海泥 */
+  --tide:#557A7C;      /* 潮线青 */
+  --crown:#B3322A;     /* 鹤顶红：只表示越冬季/盐蒿红 */
+  --serif:"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","Noto Serif SC","SimSun",serif;
+  --sans:-apple-system,"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--salt);color:var(--ink);font:16px/1.75 var(--sans);}
+a{color:var(--tide);text-underline-offset:3px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--crown);outline-offset:2px;border-radius:2px}
+h1,h2,h3{font-family:var(--serif);font-weight:900;margin:0;line-height:1.25;letter-spacing:.02em}
+p{margin:0 0 .9em}
+sup.c{font-size:.68em;line-height:0;margin-left:1px;white-space:nowrap}
+sup.c a{text-decoration:none;color:var(--tide);padding:0 1px}
+.est{color:var(--silt);font-size:.92em}
+.nf{color:var(--ink-2);border-bottom:1px dashed var(--silt)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;padding:28px 20px 30px;min-height:600px;display:grid;grid-template-columns:auto 1fr;grid-template-rows:1fr auto;column-gap:14px}
+.hero svg.creek{position:absolute;right:-40px;top:0;width:min(560px,120%);height:auto;z-index:0;-webkit-mask-image:linear-gradient(#000 55%,transparent 82%);mask-image:linear-gradient(#000 55%,transparent 82%)}
+.hero .title{grid-row:1/2;z-index:1;writing-mode:vertical-rl;font-family:var(--serif);font-weight:900;font-size:128px;line-height:1;letter-spacing:.12em;margin:0;color:var(--ink)}
+.hero .title small{display:block;font-size:17px;letter-spacing:.35em;font-weight:600;color:var(--silt);margin-right:10px;margin-top:6px}
+.hero .lede{grid-column:1/3;z-index:1;max-width:30em}
+.hero .lede p.big{font-family:var(--serif);font-size:22px;line-height:1.5;font-weight:700;margin-bottom:14px}
+.facts{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:15px}
+.facts li{padding-left:14px;border-left:2px solid var(--silt)}
+.facts b{font-family:var(--serif)}
+
+/* ---------- Layout ---------- */
+.wrap{padding:0 20px 40px}
+nav.toc{position:sticky;top:0;z-index:5;background:rgba(238,241,236,.94);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--salt-2);overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+nav.toc::-webkit-scrollbar{display:none}
+nav.toc a{display:inline-block;padding:11px 12px;color:var(--ink);text-decoration:none;font-size:15px}
+nav.toc a:first-child{padding-left:20px}
+section{padding-top:44px}
+section > h2{font-size:28px;margin-bottom:6px}
+section > .sub{color:var(--ink-2);margin-bottom:20px;font-size:15px}
+.tide-rule{display:block;width:100%;height:12px;margin:26px 0 0;color:var(--silt)}
+
+/* ---------- Month band ---------- */
+.months{margin-top:6px}
+.mgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;font-size:12px;text-align:center}
+.mgrid .mh{color:var(--ink-2);padding-bottom:4px}
+.mgrid .mh.now{color:var(--ink);font-weight:700}
+.row{display:contents}
+.bar{height:22px;border-radius:2px;margin:3px 0}
+.bar.red{background:var(--crown)}
+.bar.tide{background:var(--tide)}
+.bar.silt{background:var(--silt)}
+.bar.light{background:repeating-linear-gradient(135deg,var(--silt) 0 3px,transparent 3px 6px)}
+.mlab{grid-column:1/13;text-align:left;font-size:13px;color:var(--ink-2);margin-top:8px;line-height:1.4}
+.mlab b{color:var(--ink);font-weight:600}
+.nowline{position:relative}
+.now-note{margin-top:18px;padding:12px 14px;background:var(--salt-2);font-size:15px}
+
+/* ---------- Places ---------- */
+.zone{margin-top:30px}
+.zone h3.zn{font-size:15px;font-family:var(--sans);font-weight:600;color:var(--silt);letter-spacing:.06em;border-bottom:1px solid var(--silt);padding-bottom:4px;margin-bottom:6px}
+.place{padding:18px 0 20px;border-bottom:1px solid var(--salt-2)}
+.place:last-child{border-bottom:0}
+.place h4{font-family:var(--serif);font-weight:900;font-size:23px;margin:0 0 6px;line-height:1.3}
+.place h4 .tag{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--crown);border:1px solid var(--crown);padding:1px 6px;border-radius:2px;vertical-align:4px;margin-left:6px;white-space:nowrap}
+.place dl{display:grid;grid-template-columns:4.6em 1fr;gap:4px 10px;margin:10px 0 0;font-size:15px;line-height:1.6}
+.place dt{color:var(--silt);font-weight:600}
+.place dd{margin:0}
+
+/* ---------- Transport ---------- */
+.coast{width:100%;max-width:340px;display:block;margin:6px 0 10px}
+.callout{border-left:3px solid var(--crown);padding:4px 0 4px 14px;margin:18px 0;font-size:16px}
+.callout b{font-family:var(--serif)}
+table.tt{border-collapse:collapse;width:100%;font-size:14px;margin:10px 0 6px}
+table.tt th,table.tt td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--salt-2);vertical-align:top}
+table.tt th{font-weight:600;color:var(--silt);font-size:13px}
+table.tt td:first-child,table.tt td:last-child{white-space:nowrap}
+
+/* ---------- Itinerary ---------- */
+ol.days{list-style:none;padding:0;margin:0;counter-reset:d}
+ol.days > li{position:relative;padding:0 0 26px 54px}
+ol.days > li::before{counter-increment:d;content:counter(d);position:absolute;left:0;top:-4px;font-family:var(--serif);font-weight:900;font-size:40px;line-height:1;color:var(--silt)}
+ol.days > li::after{content:"";position:absolute;left:12px;top:44px;bottom:6px;width:1px;background:var(--silt);opacity:.5}
+ol.days > li:last-child::after{display:none}
+ol.days h3{font-size:20px;margin-bottom:4px}
+ol.days .route{font-size:14px;color:var(--ink-2);margin-bottom:8px}
+ol.days ul{margin:0;padding-left:1.1em}
+ol.days ul li{margin-bottom:4px}
+.season{display:grid;gap:12px;margin-top:8px}
+.season > div{padding:12px 14px;background:var(--salt-2)}
+.season h3{font-size:17px;margin-bottom:4px}
+.season .s-red{border-top:3px solid var(--crown)}
+.season .s-silt{border-top:3px solid var(--silt)}
+.season .s-tide{border-top:3px solid var(--tide)}
+
+/* ---------- Food ---------- */
+.food{margin:0;padding:0;list-style:none}
+.food li{padding:14px 0;border-bottom:1px solid var(--salt-2)}
+.food h3{font-size:19px;margin-bottom:4px}
+.food p{margin:0;font-size:15px}
+.food .where{margin-top:4px;color:var(--ink-2)}
+
+/* ---------- Tips ---------- */
+ul.tips{padding-left:1.1em;margin:0}
+ul.tips li{margin-bottom:8px}
+
+/* ---------- Sources ---------- */
+ol.src{padding-left:2.2em;font-size:13px;line-height:1.55;color:var(--ink-2)}
+ol.src li{margin-bottom:6px;word-break:break-all}
+ol.src li:target{background:#f6e3df}
+footer{padding:30px 20px 50px;font-size:13px;color:var(--ink-2)}
+
+/* ---------- Desktop ---------- */
+@media (min-width:980px){
+  .hero{min-height:560px;padding:56px 64px 48px;grid-template-columns:auto 520px;column-gap:40px}
+  .hero svg.creek{right:0;width:640px;-webkit-mask-image:none;mask-image:none}
+  .hero .title{font-size:200px}
+  .hero .lede{grid-column:2/3;grid-row:1/3;align-self:end;background:rgba(238,241,236,.9);padding:14px 16px 14px 0;box-shadow:0 0 24px 18px rgba(238,241,236,.9)}
+  .hero .lede p.big{font-size:26px}
+  nav.toc{display:none}
+  .layout{display:grid;grid-template-columns:300px minmax(0,680px);gap:64px;padding:0 64px;justify-content:start}
+  .rail{position:sticky;top:24px;align-self:start;padding-top:44px}
+  .rail a{display:block;color:var(--ink);text-decoration:none;padding:3px 0;font-size:15px}
+  .rail a:hover{color:var(--crown)}
+  .rail .coast{max-width:280px;margin-top:20px}
+  .wrap{padding:0 0 40px}
+  .coast-inline{display:none}
+  .season{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:979px){ .rail{display:none} .dot-d{display:none} }
+@media (min-width:980px){ .dot-m{display:none} }
+@media (max-width:360px){ .hero .title{font-size:104px} }
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <svg class="creek" viewBox="0 0 400 420" aria-hidden="true" fill="none" stroke="#9C8257" stroke-linecap="round">
+    <!-- 条子泥式的树枝状潮沟，从海（右下）向陆（左上）分叉 -->
+    <g stroke-width="2.4" opacity=".55">
+      <path d="M410 430 C340 380 320 330 300 290 C285 260 250 240 230 205 C215 178 214 150 190 120 C170 96 150 80 120 60"/>
+    </g>
+    <g stroke-width="1.5" opacity=".45">
+      <path d="M300 290 C320 260 350 250 372 220 C388 198 392 170 404 150"/>
+      <path d="M230 205 C200 200 170 210 140 196 C112 183 96 160 70 150"/>
+      <path d="M190 120 C205 96 230 82 240 56 C246 40 262 24 280 8"/>
+      <path d="M262 252 C240 270 210 278 190 300 C176 316 150 322 128 336"/>
+      <path d="M340 370 C312 380 292 400 260 410"/>
+    </g>
+    <g stroke-width=".9" opacity=".4">
+      <path d="M372 220 C360 200 348 190 345 168"/><path d="M372 220 C392 230 400 240 410 238"/>
+      <path d="M140 196 C136 176 140 160 128 142"/><path d="M140 196 C122 210 104 214 88 228"/>
+      <path d="M240 56 C226 50 214 36 206 20"/><path d="M190 300 C192 322 186 340 194 360"/>
+      <path d="M120 60 C110 44 112 28 100 12"/><path d="M120 60 C100 62 84 54 64 58"/>
+      <path d="M345 168 C330 160 322 148 320 130"/><path d="M128 336 C118 352 100 360 92 378"/>
+      <path d="M260 410 C250 396 236 392 226 380"/><path d="M300 290 C290 312 296 330 288 350"/>
+    </g>
+    <!-- 鹤顶红：越冬地 -->
+    <circle class="dot-m" cx="214" cy="160" r="6" fill="#B3322A" stroke="none"/><circle class="dot-d" cx="152" cy="82" r="6" fill="#B3322A" stroke="none"/>
+  </svg>
+  <h1 class="title">盐城<small>黄海滩涂三日</small></h1>
+  <div class="lede">
+    <p class="big">看鹤、看麋鹿、等潮水退去。给一家五口的盐城三日攻略，从上海出发。</p>
+    <ul class="facts">
+      <li>上海虹桥到盐城站有直达高铁，最快约 <b>1 小时 44 分</b><sup class="c"><a href="#s31">31</a></sup></li>
+      <li>丹顶鹤、麋鹿、条子泥三处是世界自然遗产核心景区，由南北走向的黄海 1 号公路串起来<sup class="c"><a href="#s7">7</a></sup></li>
+      <li>景点之间相隔几十公里，一家老小出行建议<b>自驾或包车</b></li>
+    </ul>
+  </div>
+</header>
+
+<nav class="toc" aria-label="目录">
+  <a href="#when">什么时候去</a><a href="#places">景点</a><a href="#go">交通</a><a href="#plan">三日行程</a><a href="#food">吃什么</a><a href="#stay">住哪里</a><a href="#tips">贴士</a><a href="#sources">信息来源</a>
+</nav>
+
+<div class="layout">
+<aside class="rail" aria-label="目录与示意图">
+  <a href="#when">什么时候去</a><a href="#places">景点</a><a href="#go">交通</a><a href="#plan">三日行程</a><a href="#food">吃什么</a><a href="#stay">住哪里</a><a href="#tips">贴士</a><a href="#sources">信息来源</a>
+  <svg class="coast" viewBox="0 0 280 440" role="img" aria-label="盐城沿海景点南北示意图，不按比例">
+    <path d="M232 10 C226 70 214 110 214 160 C214 210 222 250 214 300 C208 340 214 380 226 430" fill="none" stroke="#557A7C" stroke-width="2"/>
+    <text x="244" y="200" font-size="13" fill="#557A7C" style="writing-mode:vertical-rl">黄海</text>
+    <g font-size="13" fill="#24302B" font-family="PingFang SC, Noto Sans CJK SC, sans-serif">
+      <circle cx="204" cy="80" r="6" fill="#B3322A"/><text x="104" y="84">丹顶鹤湿地</text>
+      <circle cx="96" cy="120" r="4" fill="#24302B"/><text x="20" y="114">盐城市区</text><text x="20" y="132" font-size="11" fill="#4B5751">两馆　高铁站</text>
+      <circle cx="56" cy="170" r="4" fill="#9C8257"/><text x="20" y="190">大纵湖</text>
+      <circle cx="200" cy="216" r="5" fill="#24302B"/><text x="108" y="220">中华麋鹿园</text>
+      <circle cx="150" cy="250" r="4" fill="#9C8257"/><text x="76" y="254">荷兰花海</text>
+      <circle cx="90" cy="330" r="4" fill="#9C8257"/><text x="20" y="324">东台西溪</text>
+      <circle cx="206" cy="350" r="5" fill="#24302B"/><text x="122" y="354">条子泥</text>
+    </g>
+    <text x="20" y="420" font-size="12" fill="#4B5751">上海在南面，高铁约 2 小时</text>
+    <text x="20" y="436" font-size="11" fill="#9C8257">示意图，不按比例</text>
+  </svg>
+</aside>
+
+<main class="wrap">
+
+<section id="when">
+  <h2>什么时候去</h2>
+  <p class="sub">秋冬看鸟，春天看花。下面每一格是一个月，现在是 10 月。</p>
+  <div class="months">
+    <div class="mgrid">
+      <div class="mh">1</div><div class="mh">2</div><div class="mh">3</div><div class="mh">4</div><div class="mh">5</div><div class="mh">6</div><div class="mh">7</div><div class="mh">8</div><div class="mh">9</div><div class="mh now">10</div><div class="mh">11</div><div class="mh">12</div>
+
+      <div class="mlab"><b>越冬候鸟和丹顶鹤</b>，11 月到次年 3 月<sup class="c"><a href="#s6">6</a></sup></div>
+      <div class="bar red" style="grid-column:1/4"></div><div class="bar red" style="grid-column:11/13"></div>
+
+      <div class="mlab"><b>条子泥春季迁徙</b>，3 月下旬起，勺嘴鹬春季只停 1 到 2 周<sup class="c"><a href="#s16">16</a></sup></div>
+      <div class="bar tide" style="grid-column:3/6"></div>
+
+      <div class="mlab"><b>荷兰花海郁金香</b>，3 月下旬到 5 月上旬<sup class="c"><a href="#s23">23</a></sup>；9 到 10 月是百合<sup class="c"><a href="#s22">22</a></sup></div>
+      <div class="bar silt" style="grid-column:3/6"></div><div class="bar light" style="grid-column:9/11"></div>
+
+      <div class="mlab"><b>麋鹿园</b>最佳 5 到 10 月<sup class="c"><a href="#s10">10</a></sup></div>
+      <div class="bar silt" style="grid-column:5/11"></div>
+    </div>
+    <p class="now-note">如果你最近就去：10 月下旬条子泥一带的盐蒿草会变红，黄海森林公园的水杉也开始变色<sup class="c"><a href="#s7">7</a></sup>。野生丹顶鹤一般 11 月才陆续飞来，2024 年的首批是 11 月下旬报道的<sup class="c"><a href="#s6">6</a></sup>，想稳稳看到鹤，建议 11 月中旬以后再去。</p>
+  </div>
+</section>
+
+<svg class="tide-rule" viewBox="0 0 680 12" preserveAspectRatio="none" aria-hidden="true"><path d="M0 6 Q 20 0 40 6 T 80 6 T 120 6 T 160 6 T 200 6 T 240 6 T 280 6 T 320 6 T 360 6 T 400 6 T 440 6 T 480 6 T 520 6 T 560 6 T 600 6 T 640 6 T 680 6" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+
+<section id="places">
+  <h2>景点</h2>
+  <p class="sub">沿海岸从北往南排。门票都标了信息年份；“估计”是我按景点内容推算的，不是官方数字。60 到 69 岁老人在大多数景区半价，70 岁以上和 6 岁以下（或 1.4 米以下）的孩子大多免票，记得带身份证或户口本。</p>
+
+  <div class="zone">
+    <h3 class="zn">亭湖区，市区以东的海边</h3>
+    <article class="place">
+      <h4>丹顶鹤湿地生态旅游区<span class="tag">世界自然遗产</span></h4>
+      <p>属于盐城湿地珍禽国家级自然保护区，2019 年纳入世界自然遗产地<sup class="c"><a href="#s4">4</a></sup>。这里是全球最大的丹顶鹤越冬地之一，每年约 400 到 600 只野生丹顶鹤来过冬<sup class="c"><a href="#s7">7</a></sup>。园内有丹顶鹤博物馆、水禽湖和救护繁育中心<sup class="c"><a href="#s4">4</a></sup>。有游客点评说每天 10:30 和 15:30 有丹顶鹤放飞，景区附近没有吃饭的地方<sup class="c"><a href="#s4">4</a></sup>，这两点是游客说法，以现场为准。</p>
+      <dl>
+        <dt>门票</dt><dd>成人 37 元，半价 20 元（2025 年）<sup class="c"><a href="#s1">1</a></sup><sup class="c"><a href="#s5">5</a></sup>；官网购票页写的是全票 40 元<sup class="c"><a href="#s2">2</a></sup>，以官网为准。门票加“加利福尼亚专线”深度游景观车 99 元（2025 年 10 月）<sup class="c"><a href="#s5">5</a></sup></dd>
+        <dt>开放</dt><dd>工作日 8:30 到 17:00，节假日 8:15 到 17:00<sup class="c"><a href="#s2">2</a></sup></dd>
+        <dt>时长</dt><dd><span class="est">估计半天</span>，官方建议<span class="nf">未查到</span></dd>
+        <dt>季节</dt><dd>11 月到次年 3 月最好<sup class="c"><a href="#s6">6</a></sup>；夏天没有野生丹顶鹤<sup class="c"><a href="#s4">4</a></sup></dd>
+        <dt>怎么去</dt><dd>盐城站西广场坐 K2 路直达，首班 6:00，景区回程末班 17:40<sup class="c"><a href="#s3">3</a></sup></dd>
+      </dl>
+    </article>
+  </div>
+
+  <div class="zone">
+    <h3 class="zn">盐城市区</h3>
+    <article class="place">
+      <h4>中国海盐博物馆</h4>
+      <p>全国唯一反映中国海盐历史的专题博物馆，建在串场河边，外观是一串银白色的盐结晶体。基本陈列《海盐华章》讲引海制盐、行盐四方、盐政春秋和海盐兴城，2024 年评为国家一级博物馆<sup class="c"><a href="#s29">29</a></sup>。</p>
+      <dl>
+        <dt>门票</dt><dd>免费，团队需提前一天预约（2023 年）<sup class="c"><a href="#s30">30</a></sup></dd>
+        <dt>开放</dt><dd>周二到周日 9:00 到 17:00，16:00 停止入馆，周一闭馆（法定节假日除外）<sup class="c"><a href="#s30">30</a></sup></dd>
+        <dt>时长</dt><dd><span class="est">估计 2 小时</span></dd>
+        <dt>季节</dt><dd>全年，适合雨天</dd>
+        <dt>地址</dt><dd>开放大道 2 号<sup class="c"><a href="#s30">30</a></sup></dd>
+      </dl>
+    </article>
+    <article class="place">
+      <h4>新四军纪念馆</h4>
+      <p>全国唯一全面反映新四军历史的综合性纪念馆，2024 年评为国家一级博物馆。1941 年皖南事变后新四军在盐城重建军部，旧址泰山庙在建军西路 118 号，可以顺路看<sup class="c"><a href="#s29">29</a></sup>。</p>
+      <dl>
+        <dt>门票</dt><dd>免费（2024 年）<sup class="c"><a href="#s28">28</a></sup></dd>
+        <dt>开放</dt><dd>9:00 到 17:00，16:30 后停止入馆，周一闭馆（法定节假日除外）<sup class="c"><a href="#s28">28</a></sup></dd>
+        <dt>时长</dt><dd><span class="est">估计 1.5 到 2 小时</span></dd>
+        <dt>季节</dt><dd>全年</dd>
+        <dt>地址</dt><dd>建军东路 159 号<sup class="c"><a href="#s28">28</a></sup></dd>
+      </dl>
+    </article>
+  </div>
+
+  <div class="zone">
+    <h3 class="zn">盐都区，市区西南的湖荡</h3>
+    <article class="place">
+      <h4>大纵湖</h4>
+      <p>“纵湖秋色”号称盐城十景之首<sup class="c"><a href="#s18">18</a></sup>。坐船进芦苇荡迷宫，是经上海吉尼斯认证的世界最大水上芦荡迷宫；外湖每天定时有鸿雁放飞；旁边的东晋水城是仿宋街区<sup class="c"><a href="#s19">19</a></sup>。</p>
+      <dl>
+        <dt>门票</dt><dd>成人 54 元，含东晋水城 59 元，60 到 69 岁老人 30 元（2025 年 9 月）<sup class="c"><a href="#s18">18</a></sup></dd>
+        <dt>开放</dt><dd>8:30 到 17:00<sup class="c"><a href="#s18">18</a></sup>，携程显示部分时段开到 20:30<sup class="c"><a href="#s20">20</a></sup></dd>
+        <dt>时长</dt><dd>游客点评说白天至少 4 小时<sup class="c"><a href="#s20">20</a></sup></dd>
+        <dt>季节</dt><dd>秋天<sup class="c"><a href="#s18">18</a></sup></dd>
+      </dl>
+    </article>
+  </div>
+
+  <div class="zone">
+    <h3 class="zn">大丰区，往南的海边</h3>
+    <article class="place">
+      <h4>中华麋鹿园<span class="tag">世界自然遗产</span></h4>
+      <p>大丰麋鹿国家级自然保护区里的 5A 景区，是世界上面积最大、种群最多的野生麋鹿园，可以坐游览车投喂麋鹿<sup class="c"><a href="#s7">7</a></sup>。5 月能看到小鹿跟着母鹿跑<sup class="c"><a href="#s9">9</a></sup>。</p>
+      <dl>
+        <dt>门票</dt><dd>50 元，需提前预约（2025 年）<sup class="c"><a href="#s8">8</a></sup><sup class="c"><a href="#s9">9</a></sup></dd>
+        <dt>开放</dt><dd>8:30 到 17:00<sup class="c"><a href="#s8">8</a></sup></dd>
+        <dt>时长</dt><dd>3 到 4 小时<sup class="c"><a href="#s10">10</a></sup></dd>
+        <dt>季节</dt><dd>5 到 10 月<sup class="c"><a href="#s10">10</a></sup></dd>
+        <dt>怎么去</dt><dd>从盐城市区走 S331 往东约 50 公里，转 G228<sup class="c"><a href="#s11">11</a></sup></dd>
+      </dl>
+    </article>
+    <article class="place">
+      <h4>荷兰花海</h4>
+      <p>号称“中国郁金香第一花海”，郁金香有 300 多个品种<sup class="c"><a href="#s24">24</a></sup>。一年四季换主题：3 到 4 月郁金香，5 到 6 月玫瑰，9 到 10 月百合，11 到 12 月冬季花展<sup class="c"><a href="#s22">22</a></sup>。</p>
+      <dl>
+        <dt>门票</dt><dd>50 元，官网线上 48 元（2026 年 10 月官网）<sup class="c"><a href="#s21">21</a></sup>；学生和 60 到 69 岁半价 25 元，70 岁以上免票<sup class="c"><a href="#s22">22</a></sup>。儿童免票身高，官网一处写 1.4 米、另一处写 1.2 米<sup class="c"><a href="#s21">21</a></sup><sup class="c"><a href="#s22">22</a></sup>，现场确认。园内观光车 10 元一人<sup class="c"><a href="#s22">22</a></sup></dd>
+        <dt>开放</dt><dd>8:30 到 17:00<sup class="c"><a href="#s21">21</a></sup></dd>
+        <dt>时长</dt><dd><span class="est">估计 2 到 3 小时</span></dd>
+        <dt>季节</dt><dd>郁金香 3 月下旬到 5 月上旬<sup class="c"><a href="#s23">23</a></sup></dd>
+      </dl>
+    </article>
+  </div>
+
+  <div class="zone">
+    <h3 class="zn">东台市，最南边</h3>
+    <article class="place">
+      <h4>条子泥湿地<span class="tag">世界自然遗产</span></h4>
+      <p>2019 年 7 月 5 日，“中国黄（渤）海候鸟栖息地（第一期）”列入《世界遗产名录》，是我国第 14 处世界自然遗产<sup class="c"><a href="#s17">17</a></sup>，条子泥是其中的明星。涨潮时大批水鸟飞进堤内的“720 亩高潮位栖息地”，观景平台有免费高倍望远镜<sup class="c"><a href="#s15">15</a></sup>。全球极危的勺嘴鹬春秋都会在这里经停<sup class="c"><a href="#s16">16</a></sup>。</p>
+      <dl>
+        <dt>门票</dt><dd>微信全价票 24 元，日出票免费（2025 年 7 月）<sup class="c"><a href="#s13">13</a></sup>；2023 年标价 30 元，网络优惠 24 元<sup class="c"><a href="#s12">12</a></sup></dd>
+        <dt>开放</dt><dd>8:30 到 17:00，16:00 后停止入园<sup class="c"><a href="#s14">14</a></sup></dd>
+        <dt>时长</dt><dd>半天起。有游客上午赶海、下午等涨潮看鸟<sup class="c"><a href="#s15">15</a></sup></dd>
+        <dt>季节</dt><dd>越冬鸟 11 月到次年 3 月<sup class="c"><a href="#s6">6</a></sup>，春迁 3 月下旬起<sup class="c"><a href="#s16">16</a></sup>。涨落潮前后半小时鸟最活跃，出发前一定查潮汐<sup class="c"><a href="#s14">14</a></sup></dd>
+        <dt>怎么去</dt><dd>G228 临海公路；东台汽车客运站有班车<sup class="c"><a href="#s13">13</a></sup></dd>
+      </dl>
+    </article>
+    <article class="place">
+      <h4>东台西溪</h4>
+      <p>西溪被称作“东台之根”，是国家级非遗“董永传说”的源头地。北宋晏殊、吕夷简、范仲淹三位后来的宰相都在这里当过盐官。海春轩塔“内唐外宋”，是东台的地标<sup class="c"><a href="#s27">27</a></sup>。晚上逅海街区免费开放到 22:00，《天仙缘》实景演出入选首批全国旅游演艺精品名录<sup class="c"><a href="#s26">26</a></sup>。</p>
+      <dl>
+        <dt>门票</dt><dd>官网价格公示：董永七仙女文化园 30 元，海春轩塔 20 元，综合票 40 元<sup class="c"><a href="#s25">25</a></sup>。这页是 2019 年发布的，本次没打开复核，可能已变</dd>
+        <dt>开放</dt><dd>收费区 9:00 到 17:00；逅海街区 7:00 到 22:00，免费<sup class="c"><a href="#s26">26</a></sup></dd>
+        <dt>时长</dt><dd><span class="est">估计半天，含晚上逛街</span></dd>
+        <dt>季节</dt><dd>最佳季节<span class="nf">未查到</span>，夜游街区全年可去</dd>
+        <dt>怎么去</dt><dd>东台火车站坐 7 路、12 路或 15 路<sup class="c"><a href="#s26">26</a></sup></dd>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<svg class="tide-rule" viewBox="0 0 680 12" preserveAspectRatio="none" aria-hidden="true"><path d="M0 6 Q 20 0 40 6 T 80 6 T 120 6 T 160 6 T 200 6 T 240 6 T 280 6 T 320 6 T 360 6 T 400 6 T 440 6 T 480 6 T 520 6 T 560 6 T 600 6 T 640 6 T 680 6" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+
+<section id="go">
+  <h2>交通</h2>
+  <p class="sub">高铁到盐城很快，难的是景点之间。</p>
+
+  <h3 style="font-size:19px;margin:6px 0 4px">上海去盐城</h3>
+  <p>上海虹桥有直达盐城站的高铁，多数车次 2 小时左右；也有车次停东台站或盐城大丰站，正好对应南边的景点<sup class="c"><a href="#s31">31</a></sup>。下面是 2026 年 10 月时刻表里的几趟：</p>
+  <table class="tt">
+    <thead><tr><th>车次</th><th>区间</th><th>耗时（时:分）</th></tr></thead>
+    <tbody>
+      <tr><td>G3145</td><td>虹桥 07:14，盐城大丰 09:11，途经东台</td><td>1:57</td></tr>
+      <tr><td>G3754</td><td>虹桥 09:56，盐城 11:59</td><td>2:03</td></tr>
+      <tr><td>G7306</td><td>虹桥 12:34，盐城 14:33，途经东台</td><td>1:59</td></tr>
+      <tr><td>D2162</td><td>虹桥 14:11，盐城 15:55</td><td>1:44</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:14px;color:var(--ink-2)">来源<sup class="c"><a href="#s31">31</a></sup>。返程车次<span class="nf">未查</span>，买票以 12306 为准。</p>
+
+  <svg class="coast coast-inline" viewBox="0 0 280 440" role="img" aria-label="盐城沿海景点南北示意图，不按比例">
+    <path d="M232 10 C226 70 214 110 214 160 C214 210 222 250 214 300 C208 340 214 380 226 430" fill="none" stroke="#557A7C" stroke-width="2"/>
+    <text x="244" y="200" font-size="13" fill="#557A7C" style="writing-mode:vertical-rl">黄海</text>
+    <g font-size="13" fill="#24302B" font-family="PingFang SC, Noto Sans CJK SC, sans-serif">
+      <circle cx="204" cy="80" r="6" fill="#B3322A"/><text x="104" y="84">丹顶鹤湿地</text>
+      <circle cx="96" cy="120" r="4" fill="#24302B"/><text x="20" y="114">盐城市区</text><text x="20" y="132" font-size="11" fill="#4B5751">两馆　高铁站</text>
+      <circle cx="56" cy="170" r="4" fill="#9C8257"/><text x="20" y="190">大纵湖</text>
+      <circle cx="200" cy="216" r="5" fill="#24302B"/><text x="108" y="220">中华麋鹿园</text>
+      <circle cx="150" cy="250" r="4" fill="#9C8257"/><text x="76" y="254">荷兰花海</text>
+      <circle cx="90" cy="330" r="4" fill="#9C8257"/><text x="20" y="324">东台西溪</text>
+      <circle cx="206" cy="350" r="5" fill="#24302B"/><text x="122" y="354">条子泥</text>
+    </g>
+    <text x="20" y="420" font-size="12" fill="#4B5751">上海在南面，高铁约 2 小时</text>
+    <text x="20" y="436" font-size="11" fill="#9C8257">示意图，不按比例</text>
+  </svg>
+
+  <div class="callout"><b>建议自驾，或者高铁到站后租车。</b>市政府的观鸟指南给丹顶鹤湿地和条子泥写的都是“适合自驾”<sup class="c"><a href="#s6">6</a></sup>。盐城市区到麋鹿园约 50 公里<sup class="c"><a href="#s11">11</a></sup>，到条子泥自驾约 1.5 小时（游记说法）<sup class="c"><a href="#s32">32</a></sup>。5 个人带行李加推车，5 座车会挤，<span class="est">建议租 7 座车</span>。租车门店<span class="nf">未查到</span>，可以在租车 App 里搜盐城站或东台站取车。</div>
+  <p>不开车也能去几个点：丹顶鹤湿地有 K2 路从盐城站直达<sup class="c"><a href="#s3">3</a></sup>；西溪有东台火车站的公交<sup class="c"><a href="#s26">26</a></sup>；条子泥有东台汽车客运站的班车<sup class="c"><a href="#s13">13</a></sup>；麋鹿园从大丰汽车总站有专线，每天只有 3 班（2020 年时刻）<sup class="c"><a href="#s11">11</a></sup>。带老人小孩的话，这样换乘会很累。</p>
+</section>
+
+<svg class="tide-rule" viewBox="0 0 680 12" preserveAspectRatio="none" aria-hidden="true"><path d="M0 6 Q 20 0 40 6 T 80 6 T 120 6 T 160 6 T 200 6 T 240 6 T 280 6 T 320 6 T 360 6 T 400 6 T 440 6 T 480 6 T 520 6 T 560 6 T 600 6 T 640 6 T 680 6" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+
+<section id="plan">
+  <h2>三日行程</h2>
+  <p class="sub">从南往北走：第一天高铁到东台，最后一天从盐城站回上海，不走回头路。</p>
+  <ol class="days">
+    <li>
+      <h3>东台：鱼汤面、西溪、条子泥</h3>
+      <p class="route">上海虹桥坐高铁到东台站<sup class="c"><a href="#s31">31</a></sup>，取车；晚上住弶港镇</p>
+      <ul>
+        <li>上午到西溪，先吃一碗东台鱼汤面，再逛董永七仙女文化园和海春轩塔。</li>
+        <li>下午去条子泥。按当天潮汐安排，涨潮前后半小时鸟最多<sup class="c"><a href="#s14">14</a></sup>，16:00 前一定要进园<sup class="c"><a href="#s14">14</a></sup>。</li>
+        <li>晚上住弶港镇，镇上弶六路有一条美食街<sup class="c"><a href="#s15">15</a></sup>，吃海鲜。</li>
+      </ul>
+    </li>
+    <li>
+      <h3>大丰：麋鹿和花海</h3>
+      <p class="route">沿 G228 黄海 1 号公路往北；晚上住盐城市区</p>
+      <ul>
+        <li>想看日出的话早起回条子泥，日出票免费<sup class="c"><a href="#s13">13</a></sup>。老人孩子可以睡个懒觉。</li>
+        <li>上午去中华麋鹿园，留 3 到 4 小时<sup class="c"><a href="#s10">10</a></sup>，坐游览车喂麋鹿。</li>
+        <li>春天下午去荷兰花海看郁金香。秋冬花不多，可以改去附近的野鹿荡，那里是中华暗夜星空保护地<sup class="c"><a href="#s7">7</a></sup>；也可以直接回市区休息。</li>
+      </ul>
+    </li>
+    <li>
+      <h3>亭湖：丹顶鹤、博物馆，返沪</h3>
+      <p class="route">市区出发，傍晚从盐城站坐高铁回上海</p>
+      <ul>
+        <li>早上去丹顶鹤湿地，节假日 8:15 开门<sup class="c"><a href="#s2">2</a></sup>。游客说 10:30 有放飞<sup class="c"><a href="#s4">4</a></sup>。附近没饭店，带点干粮<sup class="c"><a href="#s4">4</a></sup>。</li>
+        <li>下午回市区，在中国海盐博物馆和新四军纪念馆里挑一个。两馆周一都闭馆<sup class="c"><a href="#s28">28</a></sup><sup class="c"><a href="#s30">30</a></sup>，这天别排在周一。</li>
+        <li>不看鹤的季节，可以把这天换成大纵湖：坐船进芦苇迷宫，看鸿雁放飞<sup class="c"><a href="#s19">19</a></sup>。</li>
+      </ul>
+    </li>
+  </ol>
+
+  <div class="season">
+    <div class="s-red"><h3>秋冬去（11 月到次年 3 月）</h3><p style="margin:0;font-size:15px">第 3 天看丹顶鹤是重点，上午时间留足。条子泥看越冬鸟<sup class="c"><a href="#s6">6</a></sup>。荷兰花海 11 到 12 月有冬季花展<sup class="c"><a href="#s22">22</a></sup>，不去也不可惜。</p></div>
+    <div class="s-silt"><h3>春天去（3 到 5 月）</h3><p style="margin:0;font-size:15px">第 2 天下午一定排荷兰花海，郁金香 3 月下旬到 5 月上旬开<sup class="c"><a href="#s23">23</a></sup>。条子泥 3 月下旬开始春迁<sup class="c"><a href="#s16">16</a></sup>。野生丹顶鹤这时已陆续北飞<sup class="c"><a href="#s4">4</a></sup>。</p></div>
+    <div class="s-tide"><h3>夏天去（6 到 8 月）</h3><p style="margin:0;font-size:15px">麋鹿园正当季<sup class="c"><a href="#s10">10</a></sup>，丹顶鹤湿地看不到野生鹤<sup class="c"><a href="#s4">4</a></sup>，第 3 天建议换成大纵湖。湿地太阳大，做好防晒。</p></div>
+  </div>
+</section>
+
+<svg class="tide-rule" viewBox="0 0 680 12" preserveAspectRatio="none" aria-hidden="true"><path d="M0 6 Q 20 0 40 6 T 80 6 T 120 6 T 160 6 T 200 6 T 240 6 T 280 6 T 320 6 T 360 6 T 400 6 T 440 6 T 480 6 T 520 6 T 560 6 T 600 6 T 640 6 T 680 6" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+
+<section id="food">
+  <h2>吃什么</h2>
+  <p class="sub">店名大多来自本地媒体和自媒体文章，去之前在地图 App 上确认一下还开着。</p>
+  <ul class="food">
+    <li>
+      <h3>东台鱼汤面</h3>
+      <p>用野生小鲫鱼和鳝鱼骨熬汤，汤白如乳，2015 年列入江苏省非遗。本地人当早茶吃，配一碟干丝、几个包子<sup class="c"><a href="#s34">34</a></sup>。</p>
+      <p class="where">东台鱼汤面西溪店，西溪商业街 6-1-2 号，早上 7 点到 9 点半基本满座；旗舰店在东台海陵北路 9 号<sup class="c"><a href="#s34">34</a></sup>。富安镇老街的老姚鱼汤面也有人推荐<sup class="c"><a href="#s33">33</a></sup>。</p>
+    </li>
+    <li>
+      <h3>盐城市区的早茶和鱼汤面</h3>
+      <p>市区老店小奇园有汤包和鱼汤面；开了 30 年的洪祥大酒店，早餐有大煮干丝和肴肉<sup class="c"><a href="#s36">36</a></sup>。</p>
+      <p class="where">具体地址<span class="nf">未查到</span>，地图上搜店名即可。</p>
+    </li>
+    <li>
+      <h3>大纵湖醉蟹</h3>
+      <p>市级非遗，用大纵湖的活湖蟹，加大曲酒、糯米酒、淮盐、花椒等，经 21 道工序醉制，开瓶就能吃，产销已有 300 年<sup class="c"><a href="#s35">35</a></sup>。生腌冷食，老人小孩少吃为宜。</p>
+      <p class="where">专门的店<span class="nf">未查到</span>。有游记说市区的海鲜市场和餐馆能吃到，人均 50 到 80 元<sup class="c"><a href="#s32">32</a></sup>。</p>
+    </li>
+    <li>
+      <h3>伍佑醉螺</h3>
+      <p>黄海泥螺用盐浸、酒腌、封坛，腌一个月才出坛，鲜里带甜<sup class="c"><a href="#s33">33</a></sup>。</p>
+      <p class="where">伍佑古镇的伍佑百年醉螺坊（盐都区）<sup class="c"><a href="#s33">33</a></sup>。</p>
+    </li>
+    <li>
+      <h3>藕粉圆子和油端子</h3>
+      <p>建湖藕粉圆子是藕粉做皮、包芝麻桂花馅的甜圆子；油端子是萝卜丝面糊炸的街头小吃<sup class="c"><a href="#s33">33</a></sup>。</p>
+      <p class="where">建湖县西塘河路的建湖老茶馆；亭湖区农民街的老周油端子<sup class="c"><a href="#s33">33</a></sup>。</p>
+    </li>
+    <li>
+      <h3>海边海鲜</h3>
+      <p>射阳黄沙港有渔档长街，大丰巴斗渔乡有海鲜饼和渔家菜<sup class="c"><a href="#s7">7</a></sup>；东台弶港镇弶六路美食街离条子泥很近<sup class="c"><a href="#s15">15</a></sup>。</p>
+    </li>
+  </ul>
+</section>
+
+<svg class="tide-rule" viewBox="0 0 680 12" preserveAspectRatio="none" aria-hidden="true"><path d="M0 6 Q 20 0 40 6 T 80 6 T 120 6 T 160 6 T 200 6 T 240 6 T 280 6 T 320 6 T 360 6 T 400 6 T 440 6 T 480 6 T 520 6 T 560 6 T 600 6 T 640 6 T 680 6" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+
+<section id="stay">
+  <h2>住哪里</h2>
+  <p class="sub">按行程分两处住，省得每天来回开车。</p>
+  <ul class="tips">
+    <li><b>第一晚：东台弶港镇或黄海森林公园。</b>离条子泥近，第二天能赶日出或早潮。弶港镇节假日外地游客很多<sup class="c"><a href="#s15">15</a></sup>，要提前订。黄海森林公园有特色小木屋可住<sup class="c"><a href="#s7">7</a></sup>。游记里条子泥周边民宿大约 200 到 400 元一晚（2025 年）<sup class="c"><a href="#s32">32</a></sup>。</li>
+    <li><b>第二晚：盐城市区（亭湖区）。</b>去丹顶鹤湿地、两个博物馆和盐城站都方便。具体酒店价格这次<span class="nf">未查</span>，五口人建议订家庭房或两间相邻的房。</li>
+  </ul>
+</section>
+
+<section id="tips">
+  <h2>贴士</h2>
+  <ul class="tips">
+    <li><b>带证件。</b>老人和孩子的优惠都要凭证件：70 岁以上和 6 岁以下（或 1.4 米以下）大多免票，60 到 69 岁半价<sup class="c"><a href="#s1">1</a></sup><sup class="c"><a href="#s8">8</a></sup><sup class="c"><a href="#s22">22</a></sup>。荷兰花海的半价票只能在游客中心现场买<sup class="c"><a href="#s21">21</a></sup>。</li>
+    <li><b>避开周一。</b>海盐博物馆和新四军纪念馆周一闭馆<sup class="c"><a href="#s28">28</a></sup><sup class="c"><a href="#s30">30</a></sup>。</li>
+    <li><b>先查潮汐。</b>条子泥的鸟跟着潮水走，退潮时才能赶海，只能在指定的安全区域活动<sup class="c"><a href="#s14">14</a></sup>。</li>
+    <li><b>观鸟的规矩。</b>穿暗色衣服，别投喂，别靠太近；捡到病鸟、伤鸟不要自己救，报给当地野生动物保护部门<sup class="c"><a href="#s6">6</a></sup>。带一副望远镜会好很多。</li>
+    <li><b>海边风大。</b>滩涂上没遮挡，秋冬给老人孩子多带一件挡风外套。</li>
+    <li><b>中国旅游日。</b>2025 年 5 月 19 日，大丰的麋鹿园、荷兰花海等景区当天免门票<sup class="c"><a href="#s9">9</a></sup>，以后几年可以留意。</li>
+  </ul>
+</section>
+
+<section id="sources">
+  <h2>信息来源</h2>
+  <p class="sub">2026 年 10 月 24 日查询。门票和开放时间常有调整，出发前以景区官方渠道为准。</p>
+  <ol class="src">
+    <li id="s1"><a href="http://yancheng.bendibao.com/tour/2025313/17692.shtm">盐城本地宝：2025 盐城丹顶鹤湿地景区门票（2025-03）</a></li>
+    <li id="s2"><a href="https://ycddh.com/zxgp">盐城丹顶鹤湿地生态旅游区官网：在线购票</a></li>
+    <li id="s3"><a href="https://www.ycddh.com/jtzn">盐城丹顶鹤湿地生态旅游区官网：交通指南</a></li>
+    <li id="s4"><a href="https://you.ctrip.com/sight/yancheng493/1713350.html">携程攻略：丹顶鹤湿地生态旅游区（含游客点评）</a></li>
+    <li id="s5"><a href="https://www.dahepiao.com/lvyounews1/20251024535096.html">大河票务网：2025 丹顶鹤湿地生态旅游区（2025-10）</a></li>
+    <li id="s6"><a href="https://jsychb.yancheng.gov.cn/art/2024/11/29/art_12551_4259713.html">盐城市生态环境局：盐城迎来最佳观鸟季（2024-11）</a></li>
+    <li id="s7"><a href="http://www.yancheng.gov.cn/art/2024/10/25/art_34154_4247859.html">盐城市人民政府：黄海 1 号公路，走起！（2024-10）</a></li>
+    <li id="s8"><a href="http://yancheng.bendibao.com/tour/2025313/17693.shtm">盐城本地宝：2025 盐城中华麋鹿园门票（2025-03）</a></li>
+    <li id="s9"><a href="https://www.dafeng.gov.cn/art/2025/5/16/art_11801_4324116.html">盐城市大丰区人民政府：5.19 中国旅游日大丰景区免门票（2025-05）</a></li>
+    <li id="s10"><a href="https://www.szai.edu.cn/ltxbgs/info/1125/1967.htm">苏州农业职业技术学院：大丰自然保护区（2025-04）</a></li>
+    <li id="s11"><a href="http://yancheng.bendibao.com/tour/2020413/2271.shtm">盐城本地宝：盐城中华麋鹿园怎么去（2020-04）</a></li>
+    <li id="s12"><a href="http://yancheng.bendibao.com/tour/20231030/14442.shtm">盐城本地宝：东台条子泥景区要门票吗（2023-10）</a></li>
+    <li id="s13"><a href="https://news.qq.com/rain/a/20250708A093IJ00">腾讯新闻／盐城本地宝：盐城出发 8 个赶海宝藏地（2025-07）</a></li>
+    <li id="s14"><a href="http://yancheng.bendibao.com/news/2024827/16341.shtm">盐城本地宝：条子泥涨潮退潮时间表 2024（2024-08）</a></li>
+    <li id="s15"><a href="https://jsnews.jschina.com.cn/jsyw/202505/t20250504_s6816dc04e4b0044ce9b6688f.shtml">中国江苏网：他们是来看景的，更是来看鸟的（2025-05）</a></li>
+    <li id="s16"><a href="https://www.dongtai.gov.cn/art/2025/4/1/art_7763_4308907.html">东台市人民政府：春迁“小勺子”现身条子泥（2025-04）</a></li>
+    <li id="s17"><a href="https://www.xinhuanet.com/politics/2019-07/05/c_1124716926.htm">新华网：黄（渤）海候鸟栖息地（第一期）列入《世界遗产名录》（2019-07）</a></li>
+    <li id="s18"><a href="https://www.dahepiao.com/lvyounews1/20250911529815.html">大河票务网：2025 盐城大纵湖门票价格（2025-09）</a></li>
+    <li id="s19"><a href="https://www.zgjssw.gov.cn/shixianchuanzhen/yancheng/202510/t20251010_8527969.shtml">中共江苏省委新闻网：来大纵湖解锁生态旅游新体验（2025-10）</a></li>
+    <li id="s20"><a href="https://gs.ctrip.com/html5/you/sight/yancheng493/63588.html">携程攻略：大纵湖（含游客点评）</a></li>
+    <li id="s21"><a href="https://www.dfhlhh.com/portal/ticket/main">大丰荷兰花海官网：票务（2026-10 查看）</a></li>
+    <li id="s22"><a href="https://www.dfhlhh.com/portal/cygl/ykfw?KF=1">大丰荷兰花海官网：景区服务项目一览表</a></li>
+    <li id="s23"><a href="http://yancheng.bendibao.com/tour/202543/17832.shtm">盐城本地宝：2025 盐城荷兰花海最佳赏花时间（2025-04）</a></li>
+    <li id="s24"><a href="https://tour.jschina.com.cn/lyzx/202503/t20250328_s67e6b84ee4b0fec0879a3d52.shtml">中国江苏网：2025 荷兰花海郁金香文化旅游季发布（2025-03）</a></li>
+    <li id="s25"><a href="https://www.dtxxjq.com/a/fuwuzhongxin/20190915/2001.html">东台西溪天仙缘景区官网：价格公示（2019，本次未能打开复核）</a></li>
+    <li id="s26"><a href="https://yancheng.bendibao.com/tour/202557/17907.shtm">盐城本地宝：2025 东台西溪天仙缘景区游玩攻略（2025-05）</a></li>
+    <li id="s27"><a href="https://www.dongtai.gov.cn/col/col7679/index.html">东台市人民政府：西溪景区（2022-01）</a></li>
+    <li id="s28"><a href="http://yancheng.bendibao.com/tour/2024110/15703.shtm">盐城本地宝：盐城新四军纪念馆参观收费吗（2024-01）</a></li>
+    <li id="s29"><a href="https://www.ycnews.cn/ycyw/2024/05-18/01nqxbak.html">盐城新闻网：国家一级博物馆，盐城 +2（2024-05）</a></li>
+    <li id="s30"><a href="http://yancheng.bendibao.com/tour/20231024/14335.shtm">盐城本地宝：盐城中国海盐博物馆要预约吗（2023-10）</a></li>
+    <li id="s31"><a href="https://www.icauto.com.cn/chuxing/gtr_217.html">车主手册：2026 上海到盐城高铁时刻表（2026-10）</a></li>
+    <li id="s32"><a href="https://travelnews.qunar.com/ugc/yancheng-tiaozini-bird">去哪儿游记：盐城条子泥观鸟（2025-03，个人游记）</a></li>
+    <li id="s33"><a href="https://news.qq.com/rain/a/20260129A05QHR00">腾讯新闻（自媒体）：盐城有哪些名小吃（2026-01）</a></li>
+    <li id="s34"><a href="https://micselect.com/cn/restaurants/dongtaiyutangmian">MicSelect：东台鱼汤面（2026-07 更新）</a></li>
+    <li id="s35"><a href="https://www.yancheng.gov.cn/art/2024/4/8/art_44886_4174558.html">盐城市人民政府：大纵湖醉蟹制作技艺（2024-04）</a></li>
+    <li id="s36"><a href="https://www.ycnews.cn/minsheng/2024/12-15/vrd4JvQr.html">盐城新闻网：盐城老字号 100+ 宝藏小店（2024-12）</a></li>
+  </ol>
+</section>
+</main>
+</div>
+
+<footer>Maizi 为你整理，2026 年 10 月。<a href="#top">回到顶部</a></footer>
+</body>
+</html>
